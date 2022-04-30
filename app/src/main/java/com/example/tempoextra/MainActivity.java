@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         senhatext = findViewById(R.id.senhaText);
 
         btn_acesso = findViewById(R.id.btn_acesso);
-        btn_cadastro = findViewById(R.id.btn_acessar);
+        btn_cadastro = findViewById(R.id.btn_cadastro);
 
         btn_acesso.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -71,7 +71,7 @@
         app:layout_constraintVertical_bias="0.444" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_acessar"
+        android:id="@+id/btn_cadastro"
         android:layout_width="316dp"
         android:layout_height="60dp"
         android:layout_marginBottom="46dp"
@@ -93,7 +93,7 @@
         android:layout_marginEnd="4dp"
         android:layout_marginBottom="60dp"
         android:background="?android:attr/listDivider"
-        app:layout_constraintBottom_toTopOf="@+id/btn_acessar"
+        app:layout_constraintBottom_toTopOf="@+id/btn_cadastro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
@@ -106,7 +106,7 @@
         android:text="Não tem uma conta? Cadastre-se aqui!"
         android:textColor="@color/black"
         android:textSize="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_acessar"
+        app:layout_constraintBottom_toTopOf="@+id/btn_cadastro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"

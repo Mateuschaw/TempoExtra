@@ -16,10 +16,11 @@ public class TipoCadastro extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(R.style.Theme_TempoExtra);//teste
         setContentView(R.layout.activity_tipo_cadastro);
         getSupportActionBar().hide();
 
-        btn_acessar = findViewById(R.id.btn_acessar);
+        btn_acessar = findViewById(R.id.btn_cadastro);
         btn_aluno = findViewById(R.id.btn_aluno);
         btn_professor = findViewById(R.id.btn_professor);
 
