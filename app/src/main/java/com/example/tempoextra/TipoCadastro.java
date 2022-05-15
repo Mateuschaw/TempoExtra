@@ -16,25 +16,25 @@ public class TipoCadastro extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTheme(R.style.Theme_TempoExtra);//teste
+        setTheme(R.style.Theme_TempoExtra);
         setContentView(R.layout.activity_tipo_cadastro);
         getSupportActionBar().hide();
 
-        btn_acessar = findViewById(R.id.btn_cadastro);
+        btn_acessar = findViewById(R.id.btn_acessar);
         btn_aluno = findViewById(R.id.btn_aluno);
         btn_professor = findViewById(R.id.btn_professor);
 
         btn_acessar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TelaMain();
+                telaMain();
             }
         });
 
         btn_aluno.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //CADASTRO ALUNO
+                telaCadastroAluno();//CADASTRO ALUNO
             }
         });
         btn_professor.setOnClickListener(new View.OnClickListener() {
@@ -45,8 +45,13 @@ public class TipoCadastro extends AppCompatActivity {
         });
     }
 
-    public void TelaMain(){
+    public void telaMain(){
         Intent tela = new Intent(TipoCadastro.this, MainActivity.class);
+        startActivity(tela);
+        finish();
+    }
+    public void telaCadastroAluno(){
+        Intent tela = new Intent(TipoCadastro.this, TelaCadastroAluno.class);
         startActivity(tela);
         finish();
     }

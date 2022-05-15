@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         senhatext = findViewById(R.id.senhaText);
 
         btn_acesso = findViewById(R.id.btn_acesso);
-        btn_cadastro = findViewById(R.id.btn_cadastro);
+        btn_cadastro = findViewById(R.id.btn_acessar);
 
         btn_acesso.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                     telaCadastro();
                 }
                 else{
-                    textView.setText("Erro nos dados:  "+ email + senha);
+                    textView.setText("Erro nos dados:  "+ email + senha);//TEXT VIEW MAIN
                 }
             }
         });
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         btn_cadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                TipoCadastro();
+                TipoCadastro();//TELA TIPO CADASTRO
             }
         });
 
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void telaCadastro(){
-        Intent tela = new Intent(MainActivity.this, TelaCadastro.class);
+        Intent tela = new Intent(MainActivity.this, TelaCadastroAluno.class);
         startActivity(tela);
         finish();
     }
