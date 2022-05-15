@@ -6,10 +6,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class TelaCadastroAluno extends AppCompatActivity {
 
-    Button btn_acessar2;
+    Button btn_voltar, btn_cadastrar;
+    EditText nometext,emailtext,senhatext,confsenhatext,cursotext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,13 +20,28 @@ public class TelaCadastroAluno extends AppCompatActivity {
         setContentView(R.layout.activity_cadastro);
         getSupportActionBar().hide();
 
-        btn_acessar2 = findViewById(R.id.btn_acessar2);
+        nometext = findViewById(R.id.nomeText);
+        emailtext = findViewById(R.id.emailText);
+        senhatext = findViewById(R.id.senhaText);
+        confsenhatext = findViewById(R.id.confsenhaText);
+        cursotext = findViewById(R.id.cursoText);
+
+        btn_voltar = findViewById(R.id.btn_voltar);
+        btn_cadastrar = findViewById(R.id.btn_cadastrar);
 
 
-        btn_acessar2.setOnClickListener(new View.OnClickListener() {
+
+        btn_voltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 telaMain();
+            }
+        });
+
+        btn_cadastrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //FUNÇÕES DE CADASTRAR
             }
         });
 

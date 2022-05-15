@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
 
     TextView textView;
     EditText emailtext, senhatext;
-    Button btn_acesso, btn_cadastro;
+    Button btn_acessar, btn_cadastro;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,12 +34,19 @@ public class MainActivity extends AppCompatActivity {
         emailtext = findViewById(R.id.emailText);
         senhatext = findViewById(R.id.senhaText);
 
-        btn_acesso = findViewById(R.id.btn_acesso);
+        btn_acessar = findViewById(R.id.btn_acesso);
         btn_cadastro = findViewById(R.id.btn_acessar);
 
-        btn_acesso.setOnClickListener(new View.OnClickListener() {
+        btn_acessar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //FUNÇÃO DE LOGIN
+
+
+
+
+
+                //FUNÇÃO DE ADMINISTRADOR
                 String email = emailtext.getText().toString();
                 String senha = senhatext.getText().toString();
 

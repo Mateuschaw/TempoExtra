@@ -22,7 +22,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_acessar2"
+        android:id="@+id/btn_voltar"
         android:layout_width="150dp"
         android:layout_height="67dp"
         android:layout_marginBottom="28dp"
@@ -36,7 +36,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/senhaText4"
+        android:id="@+id/senhaText"
         android:layout_width="316dp"
         android:layout_height="60dp"
         android:layout_marginBottom="24dp"
@@ -48,7 +48,7 @@
         android:inputType="textPassword"
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
-        app:layout_constraintBottom_toTopOf="@+id/senhaText5"
+        app:layout_constraintBottom_toTopOf="@+id/confsenhaText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
@@ -56,7 +56,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <EditText
-        android:id="@+id/senhaText5"
+        android:id="@+id/confsenhaText"
         android:layout_width="316dp"
         android:layout_height="60dp"
         android:layout_marginBottom="24dp"
@@ -68,7 +68,7 @@
         android:inputType="textPassword"
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
-        app:layout_constraintBottom_toTopOf="@+id/emailText8"
+        app:layout_constraintBottom_toTopOf="@+id/cursoText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
@@ -76,7 +76,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <EditText
-        android:id="@+id/emailText6"
+        android:id="@+id/nomeText"
         android:layout_width="316dp"
         android:layout_height="60dp"
         android:layout_marginBottom="24dp"
@@ -88,7 +88,7 @@
         android:inputType="textEmailAddress"
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
-        app:layout_constraintBottom_toTopOf="@+id/emailText7"
+        app:layout_constraintBottom_toTopOf="@+id/emailText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
@@ -96,7 +96,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <EditText
-        android:id="@+id/emailText7"
+        android:id="@+id/emailText"
         android:layout_width="316dp"
         android:layout_height="60dp"
         android:layout_marginBottom="24dp"
@@ -108,7 +108,7 @@
         android:inputType="textEmailAddress"
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
-        app:layout_constraintBottom_toTopOf="@+id/senhaText4"
+        app:layout_constraintBottom_toTopOf="@+id/senhaText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
@@ -116,7 +116,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <EditText
-        android:id="@+id/emailText8"
+        android:id="@+id/cursoText"
         android:layout_width="316dp"
         android:layout_height="60dp"
         android:background="@drawable/custom_input"
@@ -142,17 +142,17 @@
         android:layout_marginBottom="38dp"
         android:text="Cadastro de Aluno"
         android:textSize="26dp"
-        app:layout_constraintBottom_toTopOf="@+id/emailText6"
+        app:layout_constraintBottom_toTopOf="@+id/nomeText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.695" />
 
     <ImageView
         android:id="@+id/imageView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/emailText6"
+        android:layout_marginBottom="28dp"
+        app:layout_constraintBottom_toTopOf="@+id/nomeText"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.135"
         app:layout_constraintStart_toStartOf="parent"
