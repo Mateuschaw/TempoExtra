@@ -42,6 +42,8 @@ public class TelaCadastroAluno extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //FUNÇÕES DE CADASTRAR
+                String nome = nometext.getText().toString();//formatação de texto
+
             }
         });
 
