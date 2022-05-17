@@ -13,9 +13,6 @@
             android:name=".TelaHomeScreen"
             android:exported="false" />
         <activity
-            android:name=".TipoCadastro"
-            android:exported="false" />
-        <activity
             android:name=".TelaAdm"
             android:exported="false"
             android:screenOrientation="portrait" />

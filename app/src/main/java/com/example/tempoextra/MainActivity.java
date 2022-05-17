@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);//ATIVIDADE
         getSupportActionBar().hide();
 
-        textView = findViewById(R.id.textView3);
 
         emailtext = findViewById(R.id.emailText);
         senhatext = findViewById(R.id.senhaText);
@@ -52,66 +51,58 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                //FUNÇÃO DE LOGIN
+                //Função de Login
                 //Validação de Input
 
-                final String email1 = emailtext.getText().toString();
-                final String senha1 = senhatext.getText().toString();
+                final String email = emailtext.getText().toString();
+                final String senha = senhatext.getText().toString();
 
-                if (email1.isEmpty() || senha1.isEmpty()) {
+                if (email.isEmpty() || senha.isEmpty()) {
 
                     Toast.makeText(getApplicationContext(), "Preencha Todos os Campos!", Toast.LENGTH_SHORT).show();
 
                 } else {
+                    //Login de administrador
+                    if (email.equals("admin") && (senha.equals("1234"))) {
+                        telaAdm();
+                        Toast.makeText(getApplicationContext(), "Bem vindo Administrador!", Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        //Realizar o query
 
-                    //Realizar o query
+                        UserDatabase userDatabase = UserDatabase.getUserDatabase(getApplicationContext());
+                        final UserDao userDao = userDatabase.userDao();
+                        new Thread(new Runnable() {
 
-                    UserDatabase userDatabase = UserDatabase.getUserDatabase(getApplicationContext());
-                    final UserDao userDao = userDatabase.userDao();
-                    new Thread(new Runnable() {
+                            @Override
+                            public void run() {
 
-                        @Override
-                        public void run() {
+                                UserEntity userEntity = userDao.login(email, senha);
+                                if (userEntity == null) {
+                                    runOnUiThread(new Runnable() {
 
-                            UserEntity userEntity = userDao.login(email1, senha1);
-                            if (userEntity == null) {
-                                runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
 
-                                    @Override
-                                    public void run() {
+                                            Toast.makeText(getApplicationContext(), "Login ou Senha Incorretos!", Toast.LENGTH_SHORT).show();
 
-                                        Toast.makeText(getApplicationContext(), "Login ou Senha Incorretos!", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                                } else {
 
-                                    }
-                                });
-                            } else {
+                                    String nome = userEntity.getNome();
+                                    startActivity(new Intent(MainActivity.this, TelaHomeScreen.class)
+                                            .putExtra("nome", nome));
 
-                                String nome = userEntity.getNome();
-                                startActivity(new Intent(MainActivity.this, TelaHomeScreen.class)
-                                        .putExtra("nome", nome));
-
+                                }
                             }
-                        }
-                    }).start();
-                }
+                        }).start();
 
-                //FUNÇÃO DE ADMINISTRADOR
-                String email = emailtext.getText().toString();
-                String senha = senhatext.getText().toString();
+                    }
 
-                if (email.equals("admin") && (senha.equals("123"))) {
-
-                    telaAdm();
-
-                } else if (email.equals("") && (senha.equals(""))) {
-
-                    telaCadastro();
-
-                } else {
-
-                    textView.setText("Erro nos dados:  " + email + senha);//TEXT VIEW MAIN
 
                 }
+
             }
         });
 
@@ -120,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                TipoCadastro();//TELA TIPO CADASTRO
+                telaCadastro();//TELA TIPO CADASTRO
 
             }
         });
@@ -144,11 +135,4 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void TipoCadastro() {
-
-        Intent tela = new Intent(MainActivity.this, TipoCadastro.class);
-        startActivity(tela);
-        finish();
-
-    }
 }

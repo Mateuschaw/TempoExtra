@@ -51,8 +51,6 @@ public class TelaCadastroAluno extends AppCompatActivity {
                 if (new String(senhatext.getText().toString()).equals(new String(confsenhatext.getText().toString()))) {
 
                     //FUNÇÕES DE CADASTRAR
-                    String nome = nometext.getText().toString();//formatação de texto
-
                     //Criando a User Entity
                     UserEntity userEntity = new UserEntity();
                     userEntity.setNome(nometext.getText().toString());
