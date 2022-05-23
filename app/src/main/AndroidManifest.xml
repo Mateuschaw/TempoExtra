@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.splash">
         <activity
+            android:name=".TelaAlunoVisualizar"
+            android:exported="false" />
+        <activity
             android:name=".TelaAlunoPedido"
             android:exported="false" />
         <activity

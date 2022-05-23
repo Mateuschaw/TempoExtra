@@ -6,11 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class TelaAlunoPedido extends AppCompatActivity {
 
     Button btn_voltar, btn_solicitar;
+    EditText titulotext, coordenadortext, mensagemtext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,11 +21,15 @@ public class TelaAlunoPedido extends AppCompatActivity {
         setContentView(R.layout.activity_tela_aluno_pedido);
         getSupportActionBar().hide();
 
+        titulotext = findViewById(R.id.titulotext);
+        coordenadortext = findViewById(R.id.coordenadortext);
+        mensagemtext = findViewById(R.id.mensagemtext);
+
         btn_voltar = findViewById(R.id.btn_voltar4);
         btn_solicitar = findViewById(R.id.btn_solicitar);
 
 
-        //MENSAGEM DO PEDIDO
+        //MENSAGEM DO PEDIDO e COORDENADOR TBM
 
         btn_voltar.setOnClickListener(new View.OnClickListener() {
             @Override

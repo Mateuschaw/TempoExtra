@@ -8,10 +8,40 @@
 
 
     <EditText
+        android:id="@+id/coordenadortext"
+        android:layout_width="316dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/custom_input"
+        android:drawableStart="@drawable/custom_usuario_icon"
+        android:drawablePadding="12dp"
+        android:ems="10"
+        android:hint="Coordenador"
+        android:inputType="text"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/divider4"
+        android:layout_width="409dp"
+        android:layout_height="2dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="21dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toTopOf="@+id/btn_voltar4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
         android:id="@+id/titulotext"
         android:layout_width="316dp"
         android:layout_height="60dp"
-        android:layout_marginBottom="44dp"
+        android:layout_marginBottom="24dp"
         android:background="@drawable/custom_input"
         android:drawableStart="@drawable/custom_curso_icon"
         android:drawablePadding="12dp"
@@ -20,7 +50,7 @@
         android:inputType="text"
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintBottom_toTopOf="@+id/coordenadortext"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent" />
@@ -66,9 +96,10 @@
         android:textSize="26dp"
         app:layout_constraintBottom_toTopOf="@+id/titulotext"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/textView2"
@@ -80,7 +111,7 @@
         android:text="1) Carga Horaria"
         android:textColor="@android:color/black"
         android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine"
+        app:layout_constraintBottom_toTopOf="@+id/mensagemtext"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent" />
@@ -95,7 +126,7 @@
         android:text="2) Data de Realização"
         android:textColor="@android:color/black"
         android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine"
+        app:layout_constraintBottom_toTopOf="@+id/mensagemtext"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent" />
@@ -110,25 +141,25 @@
         android:text="3) Instituição de Origem"
         android:textColor="@android:color/black"
         android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine"
+        app:layout_constraintBottom_toTopOf="@+id/mensagemtext"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextMultiLine"
-        android:layout_width="342dp"
-        android:layout_height="177dp"
+        android:id="@+id/mensagemtext"
+        android:layout_width="335dp"
+        android:layout_height="123dp"
         android:layout_marginStart="101dp"
         android:layout_marginTop="240dp"
         android:layout_marginEnd="101dp"
-        android:layout_marginBottom="62dp"
+        android:layout_marginBottom="42dp"
         android:background="@drawable/custom_input"
         android:ems="10"
         android:gravity="top"
         android:hint="Sua Mensagem..."
         android:inputType="textMultiLine"
-        app:layout_constraintBottom_toTopOf="@+id/btn_voltar4"
+        app:layout_constraintBottom_toTopOf="@+id/divider4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"

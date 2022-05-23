@@ -10,6 +10,7 @@
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable/custom_botao_acesso.xml" value="0.1655" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable/custom_botao_cadastro.xml" value="0.1905" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable/custom_botao_sair.xml" value="0.1655" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable/custom_curso_icon.xml" value="0.1755" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable/custom_email_icon.xml" value="0.1" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable/custom_input.xml" value="0.1655" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable/custom_lock_icon.xml" value="0.1" />
@@ -28,6 +29,7 @@
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/layout/activity_tela_adm.xml" value="0.264" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/layout/activity_tela_aluno_pedido.xml" value="0.264" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/layout/activity_tela_aluno_visualizar.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/layout/activity_tela_home_screen.xml" value="0.20588235294117646" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/layout/activity_tela_login.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/layout/activity_tela_login2.xml" value="0.25416666666666665" />
@@ -38,6 +40,7 @@
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/layout/fragment_pedidos.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/layout/fragment_pedir.xml" value="0.24010416666666667" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/layout/fragment_second.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/layout/produtos_linha.xml" value="0.25181159420289856" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/menu/bottom_nav_menu.xml" value="0.253125" />
         <entry key="..\:/Users/guilw/AndroidStudioProjects/ProjetoTeste/app/src/main/res/layout/activity_cadastro.xml" value="0.358695652173913" />
         <entry key="..\:/Users/guilw/AndroidStudioProjects/ProjetoTeste/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />

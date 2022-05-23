@@ -11,7 +11,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import com.example.tempoextra.databinding.ActivityTelaHomeScreenBinding;
 
 public class TelaHomeScreen extends AppCompatActivity {
 
@@ -38,6 +37,7 @@ public class TelaHomeScreen extends AppCompatActivity {
 
         btn_voltar = findViewById(R.id.btn_voltar3);
         btn_pedido = findViewById(R.id.btn_pedido);
+        btn_verpedido = findViewById(R.id.btn_verpedido);
 
         btn_voltar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,6 +53,13 @@ public class TelaHomeScreen extends AppCompatActivity {
             }
         });
 
+        btn_verpedido.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                telaVisualizarPedidos();
+            }
+        });
+
 
     }
     public void telaPedido(){
@@ -62,7 +69,9 @@ public class TelaHomeScreen extends AppCompatActivity {
     }
 
     public void telaVisualizarPedidos(){
-
+        Intent tela = new Intent(TelaHomeScreen.this, TelaAlunoVisualizar.class);
+        startActivity(tela);
+        finish();
     }
 
     public void telaMain() {

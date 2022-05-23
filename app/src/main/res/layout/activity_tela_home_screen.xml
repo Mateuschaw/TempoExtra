@@ -71,16 +71,15 @@
         android:id="@+id/btn_voltar3"
         android:layout_width="316dp"
         android:layout_height="60dp"
-        android:layout_marginTop="27dp"
-        android:layout_marginBottom="46dp"
+        android:layout_marginBottom="44dp"
         android:background="@drawable/custom_botao_sair"
         android:text="SAIR"
         android:textAllCaps="false"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider3" />
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/nome"
