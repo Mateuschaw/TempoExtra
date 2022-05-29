@@ -5,7 +5,7 @@
         android:icon="@drawable/ic_horas"
         android:id="@+id/home"/>
     <item android:title="Abrir Pedido"
-        android:id="@+id/pedido"/>
+        android:id="@+id/alunoPedido"/>
     <item android:title="Meus Pedidos"
         android:id="@+id/meuspedidos"/>
 </menu>

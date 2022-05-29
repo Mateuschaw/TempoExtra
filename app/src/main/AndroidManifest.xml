@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.splash">
         <activity
+            android:name=".TelaAlunoAnalisa"
+            android:exported="false" />
+        <activity
+            android:name=".TelaCoordenadorAnalisa"
+            android:exported="false" />
+        <activity
+            android:name=".TelaHomeCoordenador"
+            android:exported="false" />
+        <activity
             android:name=".TelaAlunoVisualizar"
             android:exported="false" />
         <activity

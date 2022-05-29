@@ -14,6 +14,8 @@ import android.widget.TextView;
 
 public class TelaHomeScreen extends AppCompatActivity {
 
+    String usuario;
+
     TextView tnome;
     TextView tcurso;
 
@@ -27,11 +29,16 @@ public class TelaHomeScreen extends AppCompatActivity {
         setContentView(R.layout.activity_tela_home_screen);
         getSupportActionBar().hide();
 
+        TelaAlunoPedido telaAlunoPedido = new TelaAlunoPedido();
+
+        //TELAS NÃO ESTÃO SALVANDO NOMES
+
         tnome = findViewById(R.id.nome);
-        String usuario = getIntent().getStringExtra("nome");
+        usuario = getIntent().getStringExtra("nome");
         tnome.setText(usuario);
 
-        tcurso = findViewById(R.id.curso); //Não está funcionando
+
+        tcurso = findViewById(R.id.curso);
         String curso = getIntent().getStringExtra("curso");
         tcurso.setText(curso);
 
@@ -62,13 +69,23 @@ public class TelaHomeScreen extends AppCompatActivity {
 
 
     }
-    public void telaPedido(){
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+
+    public void telaPedido() {
         Intent tela = new Intent(TelaHomeScreen.this, TelaAlunoPedido.class);
         startActivity(tela);
         finish();
     }
 
-    public void telaVisualizarPedidos(){
+    public void telaVisualizarPedidos() {
         Intent tela = new Intent(TelaHomeScreen.this, TelaAlunoVisualizar.class);
         startActivity(tela);
         finish();

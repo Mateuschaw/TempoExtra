@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 public class TelaAlunoPedido extends AppCompatActivity {
 
+    String usuario;
+
     Button btn_voltar, btn_solicitar;
     EditText titulotext, coordenadortext, mensagemtext;
 
@@ -21,15 +23,18 @@ public class TelaAlunoPedido extends AppCompatActivity {
         setContentView(R.layout.activity_tela_aluno_pedido);
         getSupportActionBar().hide();
 
+        TelaHomeScreen telaHomeScreen = new TelaHomeScreen();
+
+        usuario = getIntent().getStringExtra("nome");
+
+
+        //GUARDAR VALORES DE UM PEDIDO AQUI
         titulotext = findViewById(R.id.titulotext);
         coordenadortext = findViewById(R.id.coordenadortext);
         mensagemtext = findViewById(R.id.mensagemtext);
 
         btn_voltar = findViewById(R.id.btn_voltar4);
         btn_solicitar = findViewById(R.id.btn_solicitar);
-
-
-        //MENSAGEM DO PEDIDO e COORDENADOR TBM
 
         btn_voltar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,6 +43,14 @@ public class TelaAlunoPedido extends AppCompatActivity {
             }
         });
 
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
     public void telaHome(){

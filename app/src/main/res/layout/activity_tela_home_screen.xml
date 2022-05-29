@@ -6,19 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".TelaHomeScreen">
 
-    <View
-        android:id="@+id/divider3"
-        android:layout_width="409dp"
-        android:layout_height="2dp"
-        android:layout_marginTop="84dp"
-        android:layout_marginBottom="28dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintBottom_toTopOf="@+id/btn_voltar3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_verpedido"
-        app:layout_constraintVertical_bias="0.75" />
-
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_pedido"
         android:layout_width="316dp"
@@ -40,46 +27,41 @@
         android:layout_width="316dp"
         android:layout_height="60dp"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="130dp"
         android:background="@drawable/custom_botao_acesso"
         android:text="VISUALIZAR PEDIDOS"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/btn_voltar2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_pedido" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_voltar2"
-        android:layout_width="316dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="353dp"
-        android:layout_marginBottom="46dp"
-        android:background="@drawable/custom_botao_sair"
-        android:text="SAIR"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textcurso"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_voltar3"
         android:layout_width="316dp"
         android:layout_height="60dp"
-        android:layout_marginBottom="44dp"
+        android:layout_marginBottom="52dp"
         android:background="@drawable/custom_botao_sair"
         android:text="SAIR"
         android:textAllCaps="false"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/divider3"
+        android:layout_width="409dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginBottom="28dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toTopOf="@+id/btn_voltar3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_verpedido"
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/nome"
@@ -150,7 +132,7 @@
         android:layout_marginTop="30dp"
         android:text="Curso:"
         android:textColor="@android:color/black"
-        android:textSize="26dp"
+        android:textSize="24dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/texthoras" />
 
@@ -163,7 +145,7 @@
         android:layout_marginEnd="16dp"
         android:text="Sistemas"
         android:textColor="@android:color/black"
-        android:textSize="26dp"
+        android:textSize="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textcurso"

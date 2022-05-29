@@ -6,11 +6,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class PedidoViewHolder extends RecyclerView.ViewHolder {
+public class CoordenadorPedidoViewHolder extends RecyclerView.ViewHolder {
 
     TextView titulo, coordenador, mensagem;
 
-    public PedidoViewHolder(@NonNull View itemView) {
+    public CoordenadorPedidoViewHolder(@NonNull View itemView) {
         super(itemView);
         titulo = itemView.findViewById(R.id.titulo_text);
         coordenador = itemView.findViewById(R.id.coordenador_text);

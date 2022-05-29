@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         try {
-
             Thread.sleep(1000);
 
         } catch (InterruptedException e) {
@@ -91,9 +90,14 @@ public class MainActivity extends AppCompatActivity {
                                     });
                                 } else {
 
+                                    //FAZER LÓGICA PARA ENTRAR NA TELA CORRETA
                                     String nome = userEntity.getNome();
+                                    String curso = userEntity.getCurso();
+//                                    startActivity(new Intent(MainActivity.this, TelaHomeCoordenador.class)
+//                                            .putExtra("nome", nome));
+
                                     startActivity(new Intent(MainActivity.this, TelaHomeScreen.class)
-                                            .putExtra("nome", nome));
+                                            .putExtra("nome", nome).putExtra("curso", curso));
 
                                 }
                             }

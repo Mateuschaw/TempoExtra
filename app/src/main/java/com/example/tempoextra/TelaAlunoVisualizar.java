@@ -14,8 +14,8 @@ import java.util.ArrayList;
 public class TelaAlunoVisualizar extends AppCompatActivity {
 
     private RecyclerView recycler;
-    private PedidoAdapter adapter;
-    private ArrayList<Pedido> itens;
+    private AlunoPedidoAdapter adapter;
+    private ArrayList<AlunoPedido> itens;
     Button btn_voltar;
 
     @Override
@@ -27,13 +27,13 @@ public class TelaAlunoVisualizar extends AppCompatActivity {
 
         //LISTAR TODOS OS PEDIDOS QUE O USUÁRIO TEM NA CONTA
         recycler = findViewById(R.id.recycler_pedidos);
-        itens = new ArrayList<Pedido>();
-        itens.add(new Pedido("Horas", "Gouveia", "Quero 10 Horas"));
-        itens.add(new Pedido("Horas", "Gouveia", "Quero 10 Horas"));
-        itens.add(new Pedido("Horas", "Gouveia", "Quero 10 Horas"));
+        itens = new ArrayList<AlunoPedido>();
+        itens.add(new AlunoPedido("Horas", "Gouveia", "Quero 10 Horas"));
+        itens.add(new AlunoPedido("Horas", "Gouveia", "Quero 10 Horas"));
+        itens.add(new AlunoPedido("Horas", "Gouveia", "Quero 10 Horas"));
 
 
-        adapter = new PedidoAdapter(TelaAlunoVisualizar.this, itens);
+        adapter = new AlunoPedidoAdapter(TelaAlunoVisualizar.this, itens);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(TelaAlunoVisualizar.this,
                 LinearLayoutManager.VERTICAL, false);
         recycler.setLayoutManager(layoutManager);

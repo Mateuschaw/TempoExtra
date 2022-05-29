@@ -1,12 +1,12 @@
 package com.example.tempoextra;
 
-public class Pedido {
+public class CoordenadorPedido {
 
     private String titulo;
     private String coordenador;
     private String mensagem;
 
-    public Pedido(String titulo, String coordenador, String mensagem) {
+    public CoordenadorPedido(String titulo, String coordenador, String mensagem) {
         this.titulo = titulo;
         this.coordenador = coordenador;
         this.mensagem = mensagem;
