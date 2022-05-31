@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.tempoextra.roomdatabase.UserEntity;
+
 public class TelaAlunoPedido extends AppCompatActivity {
 
     String usuario;
@@ -23,7 +25,6 @@ public class TelaAlunoPedido extends AppCompatActivity {
         setContentView(R.layout.activity_tela_aluno_pedido);
         getSupportActionBar().hide();
 
-        TelaHomeScreen telaHomeScreen = new TelaHomeScreen();
 
         usuario = getIntent().getStringExtra("nome");
 
@@ -45,16 +46,9 @@ public class TelaAlunoPedido extends AppCompatActivity {
 
     }
 
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
-
     public void telaHome(){
-        Intent tela = new Intent(TelaAlunoPedido.this, TelaHomeScreen.class);
+        Intent tela = new Intent(TelaAlunoPedido.this, TelaHomeScreen.class)
+                .putExtra("nome", usuario);
         startActivity(tela);
         finish();
     }

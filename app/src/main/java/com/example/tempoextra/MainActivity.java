@@ -91,12 +91,15 @@ public class MainActivity extends AppCompatActivity {
                                 } else {
 
                                     //FAZER LÓGICA PARA ENTRAR NA TELA CORRETA
+
+                                    //SALVAR O QUE SAIU DO BANCO
+                                    String email = userEntity.getUserId();
                                     String nome = userEntity.getNome();
                                     String curso = userEntity.getCurso();
 //                                    startActivity(new Intent(MainActivity.this, TelaHomeCoordenador.class)
 //                                            .putExtra("nome", nome));
 
-                                    startActivity(new Intent(MainActivity.this, TelaHomeScreen.class)
+                                    startActivity(new Intent(MainActivity.this, TelaHomeCoordenador.class)
                                             .putExtra("nome", nome).putExtra("curso", curso));
 
                                 }
