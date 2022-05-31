@@ -10,37 +10,36 @@
         android:id="@+id/btn_pedido"
         android:layout_width="316dp"
         android:layout_height="60dp"
-        android:layout_marginTop="96dp"
-        android:layout_marginBottom="24dp"
         android:background="@drawable/custom_botao_acesso"
         android:text="ABRIR PEDIDO"
         android:textAllCaps="false"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@+id/btn_verpedido"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textcurso" />
+        app:layout_constraintTop_toBottomOf="@+id/nome"
+        app:layout_constraintVertical_bias="0.383" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_verpedido"
         android:layout_width="316dp"
         android:layout_height="60dp"
-        android:layout_marginTop="16dp"
         android:background="@drawable/custom_botao_acesso"
         android:text="VISUALIZAR PEDIDOS"
         android:textAllCaps="false"
         android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_pedido" />
+        app:layout_constraintTop_toBottomOf="@+id/nome"
+        app:layout_constraintVertical_bias="0.565" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_voltar3"
         android:layout_width="316dp"
         android:layout_height="60dp"
-        android:layout_marginBottom="52dp"
         android:background="@drawable/custom_botao_sair"
         android:text="SAIR"
         android:textAllCaps="false"
@@ -48,20 +47,20 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nome"
+        app:layout_constraintVertical_bias="0.917" />
 
     <View
         android:id="@+id/divider3"
         android:layout_width="409dp"
         android:layout_height="2dp"
-        android:layout_marginTop="84dp"
-        android:layout_marginBottom="28dp"
         android:background="?android:attr/listDivider"
-        app:layout_constraintBottom_toTopOf="@+id/btn_voltar3"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_verpedido"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/nome"
+        app:layout_constraintVertical_bias="0.78" />
 
     <TextView
         android:id="@+id/nome"
@@ -69,33 +68,34 @@
         android:layout_height="31dp"
         android:layout_margin="20dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="76dp"
         android:text="Nome"
         android:textAlignment="textStart"
         android:textColor="@color/black"
         android:textSize="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.096"
         app:layout_constraintStart_toEndOf="@+id/ic_aluno"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.054" />
 
     <ImageView
         android:id="@+id/ic_aluno"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="35dp"
-        app:layout_constraintBottom_toTopOf="@+id/texthoras"
+        android:layout_marginStart="44dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.052"
         app:srcCompat="@drawable/aluno_icon_menor" />
 
     <TextView
         android:id="@+id/texthoras"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="44dp"
         android:layout_marginTop="48dp"
         android:layout_marginBottom="16dp"
         android:text="Suas Horas:"
@@ -128,11 +128,11 @@
         android:id="@+id/textcurso"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="28dp"
         android:text="Curso:"
         android:textColor="@android:color/black"
-        android:textSize="24dp"
+        android:textSize="22dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/texthoras" />
 
@@ -145,7 +145,7 @@
         android:layout_marginEnd="16dp"
         android:text="Sistemas"
         android:textColor="@android:color/black"
-        android:textSize="24dp"
+        android:textSize="22dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textcurso"
