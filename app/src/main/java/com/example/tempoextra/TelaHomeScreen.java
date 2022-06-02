@@ -12,8 +12,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.tempoextra.roomdatabase.UserEntity;
-
 public class TelaHomeScreen extends AppCompatActivity {
 
     String usuario;
@@ -31,7 +29,7 @@ public class TelaHomeScreen extends AppCompatActivity {
         setContentView(R.layout.activity_tela_home_screen);
         getSupportActionBar().hide();
 
-
+        TelaAlunoPedido telaAlunoPedido = new TelaAlunoPedido();
 
         //TELAS NÃO ESTÃO SALVANDO NOMES
 
@@ -72,9 +70,17 @@ public class TelaHomeScreen extends AppCompatActivity {
 
     }
 
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
 
     public void telaPedido() {
-        Intent tela = new Intent(TelaHomeScreen.this, TelaAlunoPedido.class).putExtra("nome", usuario);
+        Intent tela = new Intent(TelaHomeScreen.this, TelaAlunoPedido.class);
         startActivity(tela);
         finish();
     }

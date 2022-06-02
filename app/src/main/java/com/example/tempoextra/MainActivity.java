@@ -10,6 +10,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.tempoextra.roomdatabase.CoordenaDao;
+import com.example.tempoextra.roomdatabase.CoordenaDatabase;
+import com.example.tempoextra.roomdatabase.CoordenaEntity;
 import com.example.tempoextra.roomdatabase.UserDao;
 import com.example.tempoextra.roomdatabase.UserDatabase;
 import com.example.tempoextra.roomdatabase.UserEntity;
@@ -26,14 +29,14 @@ public class MainActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
 
-        try {
-            Thread.sleep(1000);
-
-        } catch (InterruptedException e) {
-
-            e.printStackTrace();
-
-        }
+//        try {
+//            Thread.sleep(1000);
+//
+//        } catch (InterruptedException e) {
+//
+//            e.printStackTrace();
+//
+//        }
         setTheme(R.style.Theme_TempoExtra);//SPASH SCREEN
 
         setContentView(R.layout.activity_main);//ATIVIDADE
@@ -62,23 +65,37 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Preencha Todos os Campos!", Toast.LENGTH_SHORT).show();
 
                 } else {
+
                     //Login de administrador
                     if (email.equals("admin") && (senha.equals("1234"))) {
+
                         telaAdm();
                         Toast.makeText(getApplicationContext(), "Bem vindo Administrador!", Toast.LENGTH_SHORT).show();
-                    }
-                    else{
+
+                    } else {
                         //Realizar o query
 
                         UserDatabase userDatabase = UserDatabase.getUserDatabase(getApplicationContext());
+                        CoordenaDatabase coordenaDatabase = CoordenaDatabase.getCoordenaDatabase(getApplicationContext());
+
                         final UserDao userDao = userDatabase.userDao();
+                        final CoordenaDao coordenaDao = coordenaDatabase.coordenaDao();
+
                         new Thread(new Runnable() {
 
                             @Override
                             public void run() {
 
                                 UserEntity userEntity = userDao.login(email, senha);
-                                if (userEntity == null) {
+                                CoordenaEntity coordenaEntity = coordenaDao.login(email, senha);
+
+                                // adicionar uma logica a onde ser for userEntity == null ele entrana na tela de coordenador e ser for coordenaEntity == null ele
+                                // entra na tela de usuario caso ambos sejão null ele dira o erro "Login ou Senha Incorretos!"
+
+                                if (userEntity == null && coordenaEntity == null) {
+
+                                    //LÓGICA DE ERRO DE PROCURA DE CADASTRO
+
                                     runOnUiThread(new Runnable() {
 
                                         @Override
@@ -88,22 +105,48 @@ public class MainActivity extends AppCompatActivity {
 
                                         }
                                     });
-                                } else {
 
-                                    //FAZER LÓGICA PARA ENTRAR NA TELA CORRETA
+                                } else if (userEntity == null) {
 
-                                    //SALVAR O QUE SAIU DO BANCO
-                                    String email = userEntity.getUserId();
-                                    String nome = userEntity.getNome();
-                                    String curso = userEntity.getCurso();
-//                                    startActivity(new Intent(MainActivity.this, TelaHomeCoordenador.class)
-//                                            .putExtra("nome", nome));
+                                    //LÓGICA PARA ENTRAR NA DE COORDENADOR
+                                    String nome = coordenaEntity.getNome();
+                                    String curso = coordenaEntity.getCurso();
+
 
                                     startActivity(new Intent(MainActivity.this, TelaHomeCoordenador.class)
                                             .putExtra("nome", nome).putExtra("curso", curso));
 
+
+                                } else if (coordenaEntity == null) {
+
+                                    //LÓGICA PARA ENTRAR NA DE ALUNO(USER)
+                                    String nome = userEntity.getNome();
+                                    String curso = userEntity.getCurso();
+
+
+                                    startActivity(new Intent(MainActivity.this, TelaHomeScreen.class)
+                                            .putExtra("nome", nome).putExtra("curso", curso));
+
+
+                                } else {
+
+                                    //LÓGICA DE ERRO ASTRONOMICO
+
+                                    runOnUiThread(new Runnable() {
+
+                                        @Override
+                                        public void run() {
+
+                                            Toast.makeText(getApplicationContext(), "RATINHO JUNIOR PARABENS VC N DEVIA ESTAR LENDO ISSO", Toast.LENGTH_SHORT).show();
+
+                                        }
+
+                                    });
+
                                 }
+
                             }
+
                         }).start();
 
                     }

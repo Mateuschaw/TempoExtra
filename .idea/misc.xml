@@ -49,8 +49,16 @@
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/menu/bottom_nav_menu.xml" value="0.253125" />
         <entry key="..\:/Users/guilw/AndroidStudioProjects/ProjetoTeste/app/src/main/res/layout/activity_cadastro.xml" value="0.358695652173913" />
         <entry key="..\:/Users/guilw/AndroidStudioProjects/ProjetoTeste/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/guilw/AndroidStudioProjects/ProjetoTeste/app/src/main/res/layout/activity_tela_adm.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/guilw/AndroidStudioProjects/ProjetoTeste/app/src/main/res/layout/activity_tela_aluno_analisa.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/guilw/AndroidStudioProjects/ProjetoTeste/app/src/main/res/layout/activity_tela_aluno_pedido.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/guilw/AndroidStudioProjects/ProjetoTeste/app/src/main/res/layout/activity_tela_aluno_visualizar.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/guilw/AndroidStudioProjects/ProjetoTeste/app/src/main/res/layout/activity_tela_coordenador_analisa.xml" value="0.24954710144927536" />
+        <entry key="..\:/Users/guilw/AndroidStudioProjects/ProjetoTeste/app/src/main/res/layout/activity_tela_home_coordenador.xml" value="0.358695652173913" />
         <entry key="..\:/Users/guilw/AndroidStudioProjects/ProjetoTeste/app/src/main/res/layout/activity_tela_home_screen.xml" value="0.358695652173913" />
         <entry key="..\:/Users/guilw/AndroidStudioProjects/ProjetoTeste/app/src/main/res/layout/activity_tipo_cadastro.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/guilw/AndroidStudioProjects/ProjetoTeste/app/src/main/res/layout/pedido_linha.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/guilw/AndroidStudioProjects/ProjetoTeste/app/src/main/res/layout/pedidocoordenador_linha.xml" value="0.358695652173913" />
       </map>
     </option>
   </component>
