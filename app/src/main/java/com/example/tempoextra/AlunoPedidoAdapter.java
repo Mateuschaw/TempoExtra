@@ -14,6 +14,8 @@ import java.util.ArrayList;
 
 public class AlunoPedidoAdapter extends RecyclerView.Adapter<AlunoPedidoViewHolder> {
 
+    String nome, curso; // Visualizar na tela
+
     private Context context;
     private ArrayList<AlunoPedido> itens;
 
@@ -36,12 +38,19 @@ public class AlunoPedidoAdapter extends RecyclerView.Adapter<AlunoPedidoViewHold
         alunoPedidoViewHolder.titulo.setText(alunoPedido.getTitulo());
         alunoPedidoViewHolder.coordenador.setText(alunoPedido.getCoordenador());
         alunoPedidoViewHolder.mensagem.setText(alunoPedido.getMensagem());
+
+
+        //DESCOBRIR COMO FAZ PRA USAR O getStringExtra
+
         //FUNÇÕES DE CLICK
         alunoPedidoViewHolder.titulo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(context, "ENTROU", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(alunoPedidoViewHolder.itemView.getContext(), TelaAlunoAnalisa.class);
+                Intent intent = new Intent(alunoPedidoViewHolder.itemView.getContext(), TelaAlunoAnalisa.class)
+                        .putExtra("nome", nome).putExtra("curso", curso);
+                        nome = intent.getStringExtra("nome");
+                        curso = intent.getStringExtra("curso");
                 //COLOCAR PARAMETROS PARA PASAR DA TELA AQUI TIPO .putExtra
                 alunoPedidoViewHolder.itemView.getContext().startActivity(intent);
             }

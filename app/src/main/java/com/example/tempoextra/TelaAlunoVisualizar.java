@@ -13,6 +13,8 @@ import java.util.ArrayList;
 
 public class TelaAlunoVisualizar extends AppCompatActivity {
 
+    String nome, curso; // Visualizar na tela
+
     private RecyclerView recycler;
     private AlunoPedidoAdapter adapter;
     private ArrayList<AlunoPedido> itens;
@@ -24,6 +26,9 @@ public class TelaAlunoVisualizar extends AppCompatActivity {
         setTheme(R.style.Theme_TempoExtra);
         setContentView(R.layout.activity_tela_aluno_visualizar);
         getSupportActionBar().hide();
+
+        nome = getIntent().getStringExtra("nome");
+        curso = getIntent().getStringExtra("curso");
 
         //LISTAR TODOS OS PEDIDOS QUE O USUÁRIO TEM NA CONTA
         recycler = findViewById(R.id.recycler_pedidos);
@@ -39,9 +44,6 @@ public class TelaAlunoVisualizar extends AppCompatActivity {
         recycler.setLayoutManager(layoutManager);
         recycler.setAdapter(adapter);
 
-
-
-
         btn_voltar = findViewById(R.id.btn_voltar5);
 
         btn_voltar.setOnClickListener(new View.OnClickListener() {
@@ -54,8 +56,11 @@ public class TelaAlunoVisualizar extends AppCompatActivity {
     }
 
     public void telaHome(){
-        Intent tela = new Intent(TelaAlunoVisualizar.this, TelaHomeScreen.class);
+        Intent tela = new Intent(TelaAlunoVisualizar.this, TelaHomeScreen.class)
+                .putExtra("nome", nome).putExtra("curso", curso);
         startActivity(tela);
         finish();
     }
+
+
 }

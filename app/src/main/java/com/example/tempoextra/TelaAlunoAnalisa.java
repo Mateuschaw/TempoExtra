@@ -9,6 +9,8 @@ import android.widget.Button;
 
 public class TelaAlunoAnalisa extends AppCompatActivity {
 
+    String nome, curso; // Visualizar na tela
+
     Button btn_voltar, btn_excluir;
 
     @Override
@@ -17,6 +19,9 @@ public class TelaAlunoAnalisa extends AppCompatActivity {
         setTheme(R.style.Theme_TempoExtra);
         setContentView(R.layout.activity_tela_aluno_analisa);
         getSupportActionBar().hide();
+
+        nome = getIntent().getStringExtra("nome");
+        curso = getIntent().getStringExtra("curso");
 
         btn_excluir = findViewById(R.id.btn_excluir);
         btn_voltar = findViewById(R.id.btn_voltar8);
@@ -30,7 +35,8 @@ public class TelaAlunoAnalisa extends AppCompatActivity {
     }
 
     public void telaHomeScreen(){
-        Intent tela = new Intent(TelaAlunoAnalisa.this, TelaAlunoVisualizar.class);
+        Intent tela = new Intent(TelaAlunoAnalisa.this, TelaAlunoVisualizar.class)
+                .putExtra("nome", nome).putExtra("curso", curso);
         startActivity(tela);
         finish();
     }

@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 public class TelaAlunoPedido extends AppCompatActivity {
 
-    String usuario;
+    String nome, curso; // Visualizar na tela
 
     Button btn_voltar, btn_solicitar;
     EditText titulotext, coordenadortext, mensagemtext;
@@ -23,9 +23,9 @@ public class TelaAlunoPedido extends AppCompatActivity {
         setContentView(R.layout.activity_tela_aluno_pedido);
         getSupportActionBar().hide();
 
-        TelaHomeScreen telaHomeScreen = new TelaHomeScreen();
 
-        usuario = getIntent().getStringExtra("nome");
+        nome = getIntent().getStringExtra("nome");
+        curso = getIntent().getStringExtra("curso");
 
 
         //GUARDAR VALORES DE UM PEDIDO AQUI
@@ -45,16 +45,10 @@ public class TelaAlunoPedido extends AppCompatActivity {
 
     }
 
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
 
     public void telaHome(){
-        Intent tela = new Intent(TelaAlunoPedido.this, TelaHomeScreen.class);
+        Intent tela = new Intent(TelaAlunoPedido.this, TelaHomeScreen.class)
+                .putExtra("nome", nome).putExtra("curso", curso);
         startActivity(tela);
         finish();
     }

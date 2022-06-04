@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 public class TelaHomeScreen extends AppCompatActivity {
 
-    String usuario;
+    String nome, curso; // Visualizar na tela
 
     TextView tnome;
     TextView tcurso;
@@ -29,17 +29,16 @@ public class TelaHomeScreen extends AppCompatActivity {
         setContentView(R.layout.activity_tela_home_screen);
         getSupportActionBar().hide();
 
-        TelaAlunoPedido telaAlunoPedido = new TelaAlunoPedido();
 
         //TELAS NÃO ESTÃO SALVANDO NOMES
 
         tnome = findViewById(R.id.nome);
-        usuario = getIntent().getStringExtra("nome");
-        tnome.setText(usuario);
+        nome = getIntent().getStringExtra("nome");
+        tnome.setText(nome);
 
 
         tcurso = findViewById(R.id.curso);
-        String curso = getIntent().getStringExtra("curso");
+        curso = getIntent().getStringExtra("curso");
         tcurso.setText(curso);
 
         btn_voltar = findViewById(R.id.btn_voltar3);
@@ -70,23 +69,18 @@ public class TelaHomeScreen extends AppCompatActivity {
 
     }
 
-    public String getUsuario() {
-        return usuario;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
-
 
     public void telaPedido() {
-        Intent tela = new Intent(TelaHomeScreen.this, TelaAlunoPedido.class);
+        Intent tela = new Intent(TelaHomeScreen.this, TelaAlunoPedido.class)
+                .putExtra("nome", nome).putExtra("curso", curso);
+
         startActivity(tela);
         finish();
     }
 
     public void telaVisualizarPedidos() {
-        Intent tela = new Intent(TelaHomeScreen.this, TelaAlunoVisualizar.class);
+        Intent tela = new Intent(TelaHomeScreen.this, TelaAlunoVisualizar.class)
+                .putExtra("nome", nome).putExtra("curso", curso);
         startActivity(tela);
         finish();
     }
