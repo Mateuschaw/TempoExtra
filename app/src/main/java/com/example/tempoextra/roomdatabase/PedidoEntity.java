@@ -20,14 +20,20 @@ public class PedidoEntity {
     @ColumnInfo(name = "alunoNome")
     String AlunoNome;
 
-    @ColumnInfo(name = "cordenaNome")
-    String CordenaNome;
-
     @ColumnInfo(name = "alunoCurso")
     String Curso;
 
+    @ColumnInfo(name = "horas")
+    int Horas;
+
+    @ColumnInfo(name = "tipo")
+    int Tipo;
+
     @ColumnInfo(name = "texto")
     int Texto;
+
+    @ColumnInfo(name = "status")
+    int Status;
 
     public Integer getId() {
         return id;
