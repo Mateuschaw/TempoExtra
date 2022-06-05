@@ -67,14 +67,6 @@ public class PedidoEntity {
         AlunoNome = alunoNome;
     }
 
-    public String getCordenaNome() {
-        return CordenaNome;
-    }
-
-    public void setCordenaNome(String cordenaNome) {
-        CordenaNome = cordenaNome;
-    }
-
     public String getCurso() {
         return Curso;
     }

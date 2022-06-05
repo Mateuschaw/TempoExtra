@@ -32,6 +32,7 @@ public class TelaAlunoVisualizar extends AppCompatActivity {
 
         //LISTAR TODOS OS PEDIDOS QUE O USUÁRIO TEM NA CONTA
         recycler = findViewById(R.id.recycler_pedidos);
+
         itens = new ArrayList<AlunoPedido>();
         itens.add(new AlunoPedido("Horas", "Gouveia", "Quero 10 Horas"));
         itens.add(new AlunoPedido("Horas", "Gouveia", "Quero 10 Horas"));

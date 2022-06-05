@@ -1,5 +1,12 @@
 <resources>
     <string name="app_name">TempoExtra</string>
+    
+    <string-array name="tipo">
+        <item>Capacitação</item>
+        <item>Produção Científica</item>
+        <item>Atividades Humanísticas</item>
+        <item>Vivência Profissional Complementar</item>
+    </string-array>
     <string name="title_activity_tela_login">TelaLogin</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
