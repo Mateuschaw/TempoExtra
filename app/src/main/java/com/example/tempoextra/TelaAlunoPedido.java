@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 public class TelaAlunoPedido extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    String nome, curso; // Visualizar na tela
+    String nome, email, curso; // Visualizar na tela
     String texto; // Spinner
 
     Button btn_voltar, btn_solicitar;
@@ -30,6 +30,7 @@ public class TelaAlunoPedido extends AppCompatActivity implements AdapterView.On
 
 
         nome = getIntent().getStringExtra("nome");
+        email = getIntent().getStringExtra("email");
         curso = getIntent().getStringExtra("curso");
 
 
@@ -58,7 +59,7 @@ public class TelaAlunoPedido extends AppCompatActivity implements AdapterView.On
 
     public void telaHome(){
         Intent tela = new Intent(TelaAlunoPedido.this, TelaHomeScreen.class)
-                .putExtra("nome", nome).putExtra("curso", curso);
+                .putExtra("nome", nome).putExtra("email", email).putExtra("curso", curso);
         startActivity(tela);
         finish();
     }

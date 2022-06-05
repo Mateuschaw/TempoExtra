@@ -110,22 +110,26 @@ public class MainActivity extends AppCompatActivity {
 
                                     //LÓGICA PARA ENTRAR NA DE COORDENADOR
                                     String nome = coordenaEntity.getNome();
+                                    String email = userEntity.getUserId();
                                     String curso = coordenaEntity.getCurso();
 
 
                                     startActivity(new Intent(MainActivity.this, TelaHomeCoordenador.class)
-                                            .putExtra("nome", nome).putExtra("curso", curso));
+                                            .putExtra("nome", nome).putExtra("email", email)
+                                            .putExtra("curso", curso));
 
 
                                 } else if (coordenaEntity == null) {
 
                                     //LÓGICA PARA ENTRAR NA DE ALUNO(USER)
                                     String nome = userEntity.getNome();
+                                    String email = userEntity.getUserId();
                                     String curso = userEntity.getCurso();
 
 
                                     startActivity(new Intent(MainActivity.this, TelaHomeScreen.class)
-                                            .putExtra("nome", nome).putExtra("curso", curso));
+                                            .putExtra("nome", nome).putExtra("email", email)
+                                            .putExtra("curso", curso));
 
 
                                 } else {

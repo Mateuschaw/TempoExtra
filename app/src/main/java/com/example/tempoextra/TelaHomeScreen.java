@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 public class TelaHomeScreen extends AppCompatActivity {
 
-    String nome, curso; // Visualizar na tela
+    String nome, email, curso; // Visualizar na tela
 
     TextView tnome;
     TextView tcurso;
@@ -36,6 +36,7 @@ public class TelaHomeScreen extends AppCompatActivity {
         nome = getIntent().getStringExtra("nome");
         tnome.setText(nome);
 
+        email = getIntent().getStringExtra("email");
 
         tcurso = findViewById(R.id.curso);
         curso = getIntent().getStringExtra("curso");
@@ -72,7 +73,7 @@ public class TelaHomeScreen extends AppCompatActivity {
 
     public void telaPedido() {
         Intent tela = new Intent(TelaHomeScreen.this, TelaAlunoPedido.class)
-                .putExtra("nome", nome).putExtra("curso", curso);
+                .putExtra("nome", nome).putExtra("email", email).putExtra("curso", curso);
 
         startActivity(tela);
         finish();
@@ -80,7 +81,7 @@ public class TelaHomeScreen extends AppCompatActivity {
 
     public void telaVisualizarPedidos() {
         Intent tela = new Intent(TelaHomeScreen.this, TelaAlunoVisualizar.class)
-                .putExtra("nome", nome).putExtra("curso", curso);
+                .putExtra("nome", nome).putExtra("email", email).putExtra("curso", curso);
         startActivity(tela);
         finish();
     }

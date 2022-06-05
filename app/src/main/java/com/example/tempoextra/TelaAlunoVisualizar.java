@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class TelaAlunoVisualizar extends AppCompatActivity {
 
-    String nome, curso; // Visualizar na tela
+    String nome, email, curso; // Visualizar na tela
 
     private RecyclerView recycler;
     private AlunoPedidoAdapter adapter;
@@ -28,6 +28,7 @@ public class TelaAlunoVisualizar extends AppCompatActivity {
         getSupportActionBar().hide();
 
         nome = getIntent().getStringExtra("nome");
+        email = getIntent().getStringExtra("email");
         curso = getIntent().getStringExtra("curso");
 
         //LISTAR TODOS OS PEDIDOS QUE O USUÁRIO TEM NA CONTA
@@ -58,7 +59,7 @@ public class TelaAlunoVisualizar extends AppCompatActivity {
 
     public void telaHome(){
         Intent tela = new Intent(TelaAlunoVisualizar.this, TelaHomeScreen.class)
-                .putExtra("nome", nome).putExtra("curso", curso);
+                .putExtra("nome", nome).putExtra("email", email).putExtra("curso", curso);
         startActivity(tela);
         finish();
     }
