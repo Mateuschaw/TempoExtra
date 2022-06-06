@@ -27,13 +27,13 @@ public class PedidoEntity {
     int Horas;
 
     @ColumnInfo(name = "tipo")
-    int Tipo;
+    String Tipo;
 
     @ColumnInfo(name = "texto")
-    int Texto;
+    String Texto;
 
     @ColumnInfo(name = "status")
-    int Status;
+    String Status;
 
     public Integer getId() {
         return id;
@@ -75,12 +75,36 @@ public class PedidoEntity {
         Curso = curso;
     }
 
-    public int getTexto() {
+    public int getHoras() {
+        return Horas;
+    }
+
+    public void setHoras(int horas) {
+        Horas = horas;
+    }
+
+    public String getTipo() {
+        return Tipo;
+    }
+
+    public void setTipo(String tipo) {
+        Tipo = tipo;
+    }
+
+    public String getTexto() {
         return Texto;
     }
 
-    public void setTexto(int texto) {
+    public void setTexto(String texto) {
         Texto = texto;
+    }
+
+    public String getStatus() {
+        return Status;
+    }
+
+    public void setStatus(String status) {
+        Status = status;
     }
 }
 

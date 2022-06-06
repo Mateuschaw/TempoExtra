@@ -1,15 +1,24 @@
 package com.example.tempoextra;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.DatabaseConfiguration;
+import androidx.room.InvalidationTracker;
+import androidx.sqlite.db.SupportSQLiteOpenHelper;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.tempoextra.roomdatabase.PedidoDao;
+import com.example.tempoextra.roomdatabase.PedidoDatabase;
+import com.example.tempoextra.roomdatabase.PedidoEntity;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class TelaAlunoVisualizar extends AppCompatActivity {
 
@@ -34,7 +43,11 @@ public class TelaAlunoVisualizar extends AppCompatActivity {
         //LISTAR TODOS OS PEDIDOS QUE O USUÁRIO TEM NA CONTA
         recycler = findViewById(R.id.recycler_pedidos);
 
+
         itens = new ArrayList<AlunoPedido>();
+
+
+
         itens.add(new AlunoPedido("Horas", "Gouveia", "Quero 10 Horas"));
         itens.add(new AlunoPedido("Horas", "Gouveia", "Quero 10 Horas"));
         itens.add(new AlunoPedido("Horas", "Gouveia", "Quero 10 Horas"));
@@ -57,7 +70,17 @@ public class TelaAlunoVisualizar extends AppCompatActivity {
 
     }
 
-    public void telaHome(){
+    private void loadPedidosList() {
+
+        PedidoEntity pedidoEntity = new PedidoEntity();
+        PedidoDatabase pedidoDatabase = PedidoDatabase.getPedidoDatabase(getApplicationContext());
+        PedidoDao pedidoDao = pedidoDatabase.pedidoDao();
+
+        List<PedidoEntity> pedidoList = pedidoDao.getAllPedidosAluno(email);
+
+    }
+
+    public void telaHome() {
         Intent tela = new Intent(TelaAlunoVisualizar.this, TelaHomeScreen.class)
                 .putExtra("nome", nome).putExtra("email", email).putExtra("curso", curso);
         startActivity(tela);

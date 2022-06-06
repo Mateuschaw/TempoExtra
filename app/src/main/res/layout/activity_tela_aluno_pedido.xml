@@ -15,7 +15,7 @@
         android:drawableStart="@drawable/custom_usuario_icon"
         android:drawablePadding="12dp"
         android:ems="10"
-        android:hint="Coordenador"
+        android:hint="Email do Coordenador"
         android:inputType="text"
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
@@ -163,13 +163,13 @@
 
     <Spinner
         android:id="@+id/spinner"
-        android:layout_width="316dp"
-        android:layout_height="30dp"
+        android:layout_width="318dp"
+        android:layout_height="47dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.22" />
+        app:layout_constraintVertical_bias="0.18" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
