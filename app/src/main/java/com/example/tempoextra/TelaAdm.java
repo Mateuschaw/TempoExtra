@@ -20,9 +20,7 @@ public class TelaAdm extends AppCompatActivity {
 
     Button btn_voltar, btn_cadastrar;
     EditText nometext, emailtext, senhatext, confsenhatext, cursotext;
-    int emailCheck1;
-    int emailCheck22;
-    int val2 = 0;
+    int val = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +39,18 @@ public class TelaAdm extends AppCompatActivity {
         btn_voltar = findViewById(R.id.btn_voltar);
         btn_cadastrar = findViewById(R.id.btn_cadastrar_coordenador);
 
+        UserDatabase userDatabase = UserDatabase.getUserDatabase(getApplicationContext());
+        UserDao userDao = userDatabase.userDao();
+
+        CoordenaDatabase coordenaDatabase = CoordenaDatabase.getCoordenaDatabase(getApplicationContext());
+        CoordenaDao coordenaDao = coordenaDatabase.coordenaDao();
+
+        CoordenaEntity coordenaEntity = new CoordenaEntity();
+        UserEntity userEntity = new UserEntity();
+
+        coordenaEntity = null;
+        userEntity = null;
+
         btn_voltar.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -52,52 +62,46 @@ public class TelaAdm extends AppCompatActivity {
 
         });
 
-        emailCheck1 = 1;
-        emailCheck22 = 1;
-
+        //FUNÇÕES DE CADASTRAR
         btn_cadastrar.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
 
-                CoordenaDatabase coordenaDatabase = CoordenaDatabase.getCoordenaDatabase(getApplicationContext());
-                CoordenaDao coordenaDao = coordenaDatabase.coordenaDao();
+                val = 0;
 
-                UserEntity userEntity = new UserEntity();
-                CoordenaEntity coordenaEntity = new CoordenaEntity();
+                final String nome = nometext.getText().toString();
+                final String email = emailtext.getText().toString();
+                final String senha = senhatext.getText().toString();
+                final String curso = cursotext.getText().toString();
 
-                //FUNÇÕES DE CADASTRAR
-                //Criando a Coordenador Entity
+                //checa pra ver se todos os campos estão preenchidos
+                if (nome.isEmpty() ||
+                        email.isEmpty() ||
+                        senha.isEmpty() ||
+                        curso.isEmpty()) {
 
-                //checa o banco de dados pra ver se ja existe o email digitado,
-                //caso ja tenha ele gospe "Email Já Cadastrado" e não decha cadastrar
-                if (validateEmail(coordenaEntity)) {
+                    Toast.makeText(getApplicationContext(), "Preencha Todos os Campos!", Toast.LENGTH_SHORT).show();
 
-                    Toast.makeText(getApplicationContext(), "" + emailCheck1, Toast.LENGTH_SHORT).show();
-                    Toast.makeText(getApplicationContext(), "" + emailCheck22, Toast.LENGTH_SHORT).show();
+                } else {
 
-                    coordenaEntity.setNome(nometext.getText().toString());
-                    coordenaEntity.setCoordenaId(emailtext.getText().toString());
-                    coordenaEntity.setSenha(senhatext.getText().toString());
-                    coordenaEntity.setCurso(cursotext.getText().toString());
+                    //checa pra ver se as senhas são iguais
+                    if (new String(senhatext.getText().toString()).equals(new String(confsenhatext.getText().toString()))) {
 
-                    //valida se todos os campos estão vazios
-                    if (validateInput(coordenaEntity)) {
+                        new Thread(new Runnable() {
 
-                        //checa pra ver se as senhas são iguais
-                        if (new String(senhatext.getText().toString()).equals(new String(confsenhatext.getText().toString()))) {
+                            @Override
+                            public void run() {
 
-                            Toast.makeText(getApplicationContext(), "" + emailCheck1, Toast.LENGTH_SHORT).show();
-                            Toast.makeText(getApplicationContext(), "" + emailCheck22, Toast.LENGTH_SHORT).show();
+                                UserEntity userEntity = userDao.loginEmail(emailtext.getText().toString());
+                                CoordenaEntity coordenaEntity = coordenaDao.loginEmail(emailtext.getText().toString());
 
-                            //Fazer o Insert
-                            new Thread(new Runnable() {
+                                //checa pra ver se ambas as Entitys estão vasias, com ambas vazias o email não esta cadastro no sistema
+                                if (userEntity == null && coordenaEntity == null) {
 
-                                @Override
-                                public void run() {
-
-                                    //Registra Coordena
-                                    coordenaDao.registerCoordena(coordenaEntity);
+                                    //coloca as informações digitadas na UserEntity
+                                    //e cadastra o coordenador
+                                    putOnCoordena();
 
                                     runOnUiThread(new Runnable() {
 
@@ -106,108 +110,65 @@ public class TelaAdm extends AppCompatActivity {
 
                                             Toast.makeText(getApplicationContext(), "Coordenador Cadastrado", Toast.LENGTH_SHORT).show();
 
-//                                            Intent tela = new Intent(TelaCadastroAluno.this, MainActivity.class);
-//                                            startActivity(tela);
-//                                            finish();
+                                        }
+
+                                    });
+
+                                } else {
+
+                                    runOnUiThread(new Runnable() {
+
+                                        @Override
+                                        public void run() {
+
+                                            Toast.makeText(getApplicationContext(), "Email Já Cadastrado", Toast.LENGTH_SHORT).show();
+
+                                            finish();
+                                            startActivity(getIntent());
 
                                         }
 
                                     });
+
                                 }
-                            }).start();
 
+                            }
 
-                        } else {
-
-                            Toast.makeText(getApplicationContext(), "As Senhas Não São Iguais", Toast.LENGTH_SHORT).show();
-
-                        }
+                        }).start();
 
                     } else {
 
-                        Toast.makeText(getApplicationContext(), "Preencha Todos Os Campos", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "As Senhas Não São Iguais", Toast.LENGTH_SHORT).show();
 
                     }
-
-                } else {
-
-                    Toast.makeText(getApplicationContext(), "Email Já Cadastrado", Toast.LENGTH_SHORT).show();
 
                 }
 
             }
+
         });
 
-
     }
 
-    private Boolean validateInput(CoordenaEntity coordenaEntity) {
+    public void putOnCoordena() {
 
-        if (coordenaEntity.getNome().isEmpty() ||
-                coordenaEntity.getCoordenaId().isEmpty() ||
-                coordenaEntity.getSenha().isEmpty() ||
-                coordenaEntity.getCurso().isEmpty()) {
+        CoordenaEntity coordenaEntity = new CoordenaEntity();
 
-            return false;
-
-        }
-
-        return true;
-
-    }
-
-
-    private Boolean validateEmail(CoordenaEntity coordenaEntity) {
-
-        UserDatabase userDatabase = UserDatabase.getUserDatabase(getApplicationContext());
-        UserDao userDao = userDatabase.userDao();
+        //coloca as informações dentro da Entity
+        coordenaEntity.setNome(nometext.getText().toString());
+        coordenaEntity.setCoordenaId(emailtext.getText().toString());
+        coordenaEntity.setSenha(senhatext.getText().toString());
+        coordenaEntity.setCurso(cursotext.getText().toString());
 
         CoordenaDatabase coordenaDatabase = CoordenaDatabase.getCoordenaDatabase(getApplicationContext());
         CoordenaDao coordenaDao = coordenaDatabase.coordenaDao();
 
-        new Thread(new Runnable() {
-
-            @Override
-            public void run() {
-
-                emailCheck1 = userDao.isExistsEmail(emailtext.getText().toString());
-                emailCheck22 = coordenaDao.isExistsEmail(emailtext.getText().toString());
-
-            }
-
-        }).start();
-
-        val2 = 0;
-
-        if (emailCheck1 == 0) {
-
-            Toast.makeText(getApplicationContext(), "user == 0", Toast.LENGTH_SHORT).show();
-
-            val2 = val2 + 1;
-
-            if (emailCheck22 == 0) {
-
-                Toast.makeText(getApplicationContext(), "coordena == 0", Toast.LENGTH_SHORT).show();
-
-                val2 = val2 + 1;
-
-            }
-
-        }
-
-        Toast.makeText(getApplicationContext(), "val: " + val2, Toast.LENGTH_SHORT).show();
-
-        if(val2 == 2){
-
-            return true;
-
-        }else{
-
-            return false;
-
-        }
+        //Fazer o Insert
+        //Registra Usuario
+        coordenaDao.registerCoordena(coordenaEntity);
 
     }
+
 
     public void TelaMain() {
 

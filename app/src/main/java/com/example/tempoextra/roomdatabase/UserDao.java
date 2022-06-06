@@ -16,11 +16,16 @@ public interface UserDao {
     @Query("SELECT * from pessoal where userID=(:userID) and senha=(:senha)")
     UserEntity login(String userID, String senha);
 
+    @Query("SELECT * from pessoal where userID=(:userID)")
+    UserEntity loginEmail(String userID);
+
 //    @Query("SELECT EXISTS(SELECT * from pessoal where userID=(:userID))")
 //    boolean isExistsEmail(String userID);
 
     @Query("SELECT COUNT() FROM pessoal WHERE userID=(:userID)")
     int isExistsEmail(String userID);
+
+
 
 
 

@@ -16,6 +16,9 @@ public interface CoordenaDao {
     @Query("SELECT * from coordena where coordenaID=(:coordenaID) and senha=(:senha)")
     CoordenaEntity login(String coordenaID, String senha);
 
+    @Query("SELECT * from coordena where coordenaID=(:coordenaID)")
+    CoordenaEntity loginEmail(String coordenaID);
+
 //    @Query("SELECT EXISTS(SELECT * from coordena where coordenaID=(:coordenaID))")
 //    boolean isExistsEmail(String coordenaID);
 
