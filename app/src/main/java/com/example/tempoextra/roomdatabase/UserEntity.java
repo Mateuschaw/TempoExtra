@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey;
 import java.util.Objects;
 
 
-@Entity(tableName = "pessoal")
+@Entity(tableName = "Aluno")
 public class UserEntity {
 
     @PrimaryKey(autoGenerate = true)
@@ -27,9 +27,6 @@ public class UserEntity {
 
     @ColumnInfo(name = "curso")
     String Curso;
-
-    @ColumnInfo(name = "professor")
-    int Professor;
 
     public Integer getId() {
         return id;
@@ -97,17 +94,6 @@ public class UserEntity {
 
     }
 
-    public int getProfessor() {
-
-        return Professor;
-
-    }
-
-    public void setProfessor(int professor) {
-
-        Professor = professor;
-
-    }
 }
 
 

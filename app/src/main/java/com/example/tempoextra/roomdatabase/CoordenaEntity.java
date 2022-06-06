@@ -5,7 +5,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 
-@Entity(tableName = "coordena")
+@Entity(tableName = "Coordenador")
 public class CoordenaEntity {
 
     @PrimaryKey(autoGenerate = true)

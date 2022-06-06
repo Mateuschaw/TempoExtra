@@ -5,7 +5,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 
-@Entity(tableName = "pedido")
+@Entity(tableName = "Pedido")
 public class PedidoEntity {
 
     @PrimaryKey(autoGenerate = true)
@@ -14,17 +14,14 @@ public class PedidoEntity {
     @ColumnInfo(name = "alunoID")
     String AlunoId;
 
-    @ColumnInfo(name = "cordenaID")
-    String CordenaId;
+    @ColumnInfo(name = "coordenaID")
+    String CoordenaId;
 
     @ColumnInfo(name = "alunoNome")
     String AlunoNome;
 
     @ColumnInfo(name = "alunoCurso")
     String Curso;
-
-    @ColumnInfo(name = "horas")
-    int Horas;
 
     @ColumnInfo(name = "tipo")
     String Tipo;
@@ -51,12 +48,12 @@ public class PedidoEntity {
         AlunoId = alunoId;
     }
 
-    public String getCordenaId() {
-        return CordenaId;
+    public String getCoordenaId() {
+        return CoordenaId;
     }
 
-    public void setCordenaId(String cordenaId) {
-        CordenaId = cordenaId;
+    public void setCoordenaId(String coordenaId) {
+        CoordenaId = coordenaId;
     }
 
     public String getAlunoNome() {
@@ -73,14 +70,6 @@ public class PedidoEntity {
 
     public void setCurso(String curso) {
         Curso = curso;
-    }
-
-    public int getHoras() {
-        return Horas;
-    }
-
-    public void setHoras(int horas) {
-        Horas = horas;
     }
 
     public String getTipo() {

@@ -66,7 +66,7 @@ public class TelaAlunoPedido extends AppCompatActivity implements AdapterView.On
                 pedidoEntity.setAlunoNome(nome);
                 pedidoEntity.setAlunoId(email);
                 pedidoEntity.setCurso(curso);
-                pedidoEntity.setCordenaId(coordenadortext.getText().toString());
+                pedidoEntity.setCoordenaId(coordenadortext.getText().toString());
                 pedidoEntity.setTexto(mensagemtext.getText().toString());
                 pedidoEntity.setTipo(tipo);
 
@@ -121,7 +121,7 @@ public class TelaAlunoPedido extends AppCompatActivity implements AdapterView.On
 
         if (pedidoEntity.getTexto().isEmpty() ||
                 pedidoEntity.getAlunoId().isEmpty() ||
-                pedidoEntity.getCordenaId().isEmpty() ||
+                pedidoEntity.getCoordenaId().isEmpty() ||
                 pedidoEntity.getAlunoNome().isEmpty() ||
                 pedidoEntity.getCurso().isEmpty() ||
                 pedidoEntity.getTipo().isEmpty() ||

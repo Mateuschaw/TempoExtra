@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "a61e027d42d453acff982c87c3e37eff",
+    "identityHash": "f90f0cfef62d05092208906d672b70c8",
     "entities": [
       {
-        "tableName": "pedido",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `alunoID` TEXT, `cordenaID` TEXT, `alunoNome` TEXT, `alunoCurso` TEXT, `horas` INTEGER NOT NULL, `tipo` TEXT, `texto` TEXT, `status` TEXT)",
+        "tableName": "Pedido",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `alunoID` TEXT, `coordenaID` TEXT, `alunoNome` TEXT, `alunoCurso` TEXT, `tipo` TEXT, `texto` TEXT, `status` TEXT)",
         "fields": [
           {
             "fieldPath": "id",
@@ -21,8 +21,8 @@
             "notNull": false
           },
           {
-            "fieldPath": "CordenaId",
-            "columnName": "cordenaID",
+            "fieldPath": "CoordenaId",
+            "columnName": "coordenaID",
             "affinity": "TEXT",
             "notNull": false
           },
@@ -37,12 +37,6 @@
             "columnName": "alunoCurso",
             "affinity": "TEXT",
             "notNull": false
-          },
-          {
-            "fieldPath": "Horas",
-            "columnName": "horas",
-            "affinity": "INTEGER",
-            "notNull": true
           },
           {
             "fieldPath": "Tipo",
@@ -76,7 +70,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'a61e027d42d453acff982c87c3e37eff')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'f90f0cfef62d05092208906d672b70c8')"
     ]
   }
 }

@@ -14,10 +14,10 @@ public interface PedidoDao {
     @Insert
     void registerPedido(PedidoEntity pedidoEntity);
 
-    @Query("SElECT * FROM pedido where alunoID=(:alunoId)")
+    @Query("SElECT * FROM Pedido where alunoID=(:alunoId)")
     List<PedidoEntity> getAllPedidosAluno(String alunoId);
 
-    @Query("SElECT * FROM pedido where cordenaID=(:coordenaId)")
+    @Query("SElECT * FROM Pedido where coordenaID=(:coordenaId)")
     List<PedidoEntity> getAllPedidosCoordena(String coordenaId);
 
     @Delete
