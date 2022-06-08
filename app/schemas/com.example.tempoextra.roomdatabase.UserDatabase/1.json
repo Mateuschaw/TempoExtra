@@ -2,10 +2,10 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "a608293cf32781731c7d6ef84cf752fb",
+    "identityHash": "5c6591787ec0434a974b0684cc67c299",
     "entities": [
       {
-        "tableName": "pessoal",
+        "tableName": "Aluno",
         "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `userID` TEXT, `senha` TEXT, `nome` TEXT, `horas` INTEGER NOT NULL, `curso` TEXT)",
         "fields": [
           {
@@ -58,7 +58,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'a608293cf32781731c7d6ef84cf752fb')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '5c6591787ec0434a974b0684cc67c299')"
     ]
   }
 }
