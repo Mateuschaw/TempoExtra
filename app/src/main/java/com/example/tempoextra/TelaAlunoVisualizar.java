@@ -22,7 +22,9 @@ import java.util.List;
 
 public class TelaAlunoVisualizar extends AppCompatActivity {
 
-    String nome, email, curso; // Visualizar na tela
+    private String nome; // Visualizar na tela
+    private String email;
+    private String curso;
 
     private RecyclerView recycler;
     private AlunoPedidoAdapter adapter;
@@ -53,11 +55,15 @@ public class TelaAlunoVisualizar extends AppCompatActivity {
         itens.add(new AlunoPedido("Horas", "Gouveia", "Quero 10 Horas"));
 
 
-        adapter = new AlunoPedidoAdapter(TelaAlunoVisualizar.this, itens);
+        adapter = new AlunoPedidoAdapter(nome,email,curso,TelaAlunoVisualizar.this, itens);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(TelaAlunoVisualizar.this,
                 LinearLayoutManager.VERTICAL, false);
         recycler.setLayoutManager(layoutManager);
         recycler.setAdapter(adapter);
+
+        adapter.setNome(getIntent().getStringExtra("nome"));//PASSA VALOR PRA ADAPTER
+        adapter.setEmail(getIntent().getStringExtra("email"));
+        adapter.setCurso(getIntent().getStringExtra("curso"));
 
         btn_voltar = findViewById(R.id.btn_voltar5);
 
@@ -87,5 +93,31 @@ public class TelaAlunoVisualizar extends AppCompatActivity {
         finish();
     }
 
+//    public TelaAlunoVisualizar() {
+//
+//    }
 
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getCurso() {
+        return curso;
+    }
+
+    public void setCurso(String curso) {
+        this.curso = curso;
+    }
 }

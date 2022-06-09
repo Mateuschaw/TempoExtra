@@ -14,12 +14,23 @@ import java.util.ArrayList;
 
 public class AlunoPedidoAdapter extends RecyclerView.Adapter<AlunoPedidoViewHolder> {
 
-    String nome, curso; // Visualizar na tela
+    private String nome; // Visualizar na tela
+    private String email;
+    private String curso;
 
     private Context context;
     private ArrayList<AlunoPedido> itens;
 
-    public AlunoPedidoAdapter(Context context, ArrayList<AlunoPedido> itens) {
+    public AlunoPedidoAdapter(String nome, String email, String curso) {
+        this.nome = nome;
+        this.email = email;
+        this.curso = curso;
+    }
+
+    public AlunoPedidoAdapter(String nome, String email, String curso, Context context, ArrayList<AlunoPedido> itens) {
+        this.nome = nome;
+        this.email = email;
+        this.curso = curso;
         this.context = context;
         this.itens = itens;
     }
@@ -39,8 +50,13 @@ public class AlunoPedidoAdapter extends RecyclerView.Adapter<AlunoPedidoViewHold
         alunoPedidoViewHolder.coordenador.setText(alunoPedido.getCoordenador());
         alunoPedidoViewHolder.mensagem.setText(alunoPedido.getMensagem());
 
+        //Contrutor que fez a boa!
+        AlunoPedidoAdapter funfo = new AlunoPedidoAdapter(nome,email,curso);
+        nome = funfo.getNome();
+        email = funfo.getEmail();
+        curso = funfo.getCurso();
 
-        //DESCOBRIR COMO FAZ PRA USAR O getStringExtra
+
 
         //FUNÇÕES DE CLICK
         alunoPedidoViewHolder.titulo.setOnClickListener(new View.OnClickListener() {
@@ -49,8 +65,7 @@ public class AlunoPedidoAdapter extends RecyclerView.Adapter<AlunoPedidoViewHold
                 Toast.makeText(context, "ENTROU", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(alunoPedidoViewHolder.itemView.getContext(), TelaAlunoAnalisa.class)
                         .putExtra("nome", nome).putExtra("curso", curso);
-                        nome = intent.getStringExtra("nome");
-                        curso = intent.getStringExtra("curso");
+
                 //COLOCAR PARAMETROS PARA PASAR DA TELA AQUI TIPO .putExtra
                 alunoPedidoViewHolder.itemView.getContext().startActivity(intent);
             }
@@ -60,5 +75,29 @@ public class AlunoPedidoAdapter extends RecyclerView.Adapter<AlunoPedidoViewHold
     @Override
     public int getItemCount() {
         return itens.size();
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getCurso() {
+        return curso;
+    }
+
+    public void setCurso(String curso) {
+        this.curso = curso;
     }
 }
