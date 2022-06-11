@@ -16,6 +16,8 @@ import com.example.tempoextra.roomdatabase.UserDao;
 import com.example.tempoextra.roomdatabase.UserDatabase;
 import com.example.tempoextra.roomdatabase.UserEntity;
 
+import io.github.muddz.styleabletoast.StyleableToast;
+
 public class TelaCadastroAluno extends AppCompatActivity {
 
     Button btn_voltar, btn_cadastrar;
@@ -81,7 +83,7 @@ public class TelaCadastroAluno extends AppCompatActivity {
                         senha.isEmpty() ||
                         curso.isEmpty()) {
 
-                    Toast.makeText(getApplicationContext(), "Preencha Todos os Campos!", Toast.LENGTH_SHORT).show();
+                    toastErradoCampos(); // TOAST DE CAMPOS PRREENCHIDOS
 
                 } else {
 
@@ -108,7 +110,7 @@ public class TelaCadastroAluno extends AppCompatActivity {
                                         @Override
                                         public void run() {
 
-                                            Toast.makeText(getApplicationContext(), "Usuario Cadastrado", Toast.LENGTH_SHORT).show();
+                                            toastCorretoCadastro();// TOAST DE CADASTRO CORRETO
 
                                             Intent tela = new Intent(TelaCadastroAluno.this, MainActivity.class);
                                             startActivity(tela);
@@ -125,7 +127,7 @@ public class TelaCadastroAluno extends AppCompatActivity {
                                         @Override
                                         public void run() {
 
-                                            Toast.makeText(getApplicationContext(), "Email Já Cadastrado", Toast.LENGTH_SHORT).show();
+                                            toastErradoEmail(); // TOAST DE VERIFICAR EMAIL
 
                                             finish();
                                             startActivity(getIntent());
@@ -142,7 +144,7 @@ public class TelaCadastroAluno extends AppCompatActivity {
 
                     } else {
 
-                        Toast.makeText(getApplicationContext(), "As Senhas Não São Iguais", Toast.LENGTH_SHORT).show();
+                        toastErradoSenha(); //TOAST DE SENHA ERRADA
 
                     }
 
@@ -179,6 +181,22 @@ public class TelaCadastroAluno extends AppCompatActivity {
         startActivity(tela);
         finish();
 
+    }
+
+    public void toastCorretoCadastro(){
+        StyleableToast.makeText(this, "Aluno Cadastrado!", R.style.toast_verificado).show();
+    }
+
+    public void toastErradoCampos(){
+        StyleableToast.makeText(this, "Preencha Todos os Campos!", R.style.toast_negado).show();
+    }
+
+    public void toastErradoEmail(){
+        StyleableToast.makeText(this, "Email já Cadastrado!", R.style.toast_negado).show();
+    }
+
+    public void toastErradoSenha(){
+        StyleableToast.makeText(this, "As Senhas Não São Iguais", R.style.toast_negado).show();
     }
 
 }

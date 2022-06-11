@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="toast_verificado">
+        <item name="stColorBackground">#94ffab</item>
+        <item name="stTextColor">#000</item>
+        <item name="stIconStart">@drawable/ic_toast_verificado</item>
+        <item name="stStrokeColor">#000</item>
+        <item name="stStrokeWidth">2dp</item>
+    </style>
+
+    <style name="toast_negado">
+        <item name="stColorBackground">#FC3E15</item>
+        <item name="stTextColor">#000</item>
+        <item name="stIconStart">@drawable/ic_toast_errado</item>
+        <item name="stStrokeColor">#000</item>
+        <item name="stStrokeWidth">2dp</item>
+    </style>
+
+</resources>
