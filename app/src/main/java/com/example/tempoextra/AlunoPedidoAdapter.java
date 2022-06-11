@@ -10,7 +10,10 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.tempoextra.roomdatabase.PedidoEntity;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class AlunoPedidoAdapter extends RecyclerView.Adapter<AlunoPedidoViewHolder> {
 
@@ -19,7 +22,7 @@ public class AlunoPedidoAdapter extends RecyclerView.Adapter<AlunoPedidoViewHold
     private String curso;
 
     private Context context;
-    private ArrayList<AlunoPedido> itens;
+    private List<PedidoEntity> pedido;
 
     public AlunoPedidoAdapter(String nome, String email, String curso) {
         this.nome = nome;
@@ -27,12 +30,18 @@ public class AlunoPedidoAdapter extends RecyclerView.Adapter<AlunoPedidoViewHold
         this.curso = curso;
     }
 
-    public AlunoPedidoAdapter(String nome, String email, String curso, Context context, ArrayList<AlunoPedido> itens) {
-        this.nome = nome;
-        this.email = email;
-        this.curso = curso;
+//    public AlunoPedidoAdapter(String nome, String email, String curso, Context context, List<PedidoEntity> itens) {
+//        this.nome = nome;
+//        this.email = email;
+//        this.curso = curso;
+//        this.context = context;
+//        this.itens = itens;
+//    }
+
+
+    public AlunoPedidoAdapter(List<PedidoEntity> pedido, Context context) {
+        this.pedido = pedido;
         this.context = context;
-        this.itens = itens;
     }
 
     @NonNull
@@ -45,10 +54,15 @@ public class AlunoPedidoAdapter extends RecyclerView.Adapter<AlunoPedidoViewHold
 
     @Override
     public void onBindViewHolder(@NonNull AlunoPedidoViewHolder alunoPedidoViewHolder, int position) {
-        AlunoPedido alunoPedido = itens.get(position);
-        alunoPedidoViewHolder.titulo.setText(alunoPedido.getTitulo());
-        alunoPedidoViewHolder.coordenador.setText(alunoPedido.getCoordenador());
-        alunoPedidoViewHolder.mensagem.setText(alunoPedido.getMensagem());
+//        PedidoEntity pedidoPedido = itens.get(position);
+//        alunoPedidoViewHolder.titulo.setText(itens.get(position).getTipo());
+//        alunoPedidoViewHolder.coordenador.setText(itens.get(position).getCoordenaId());
+//        alunoPedidoViewHolder.mensagem.setText(itens.get(position).getTexto());
+
+        PedidoEntity pedidoPedido = pedido.get(position);
+        alunoPedidoViewHolder.titulo.setText(pedido.get(position).getTipo());
+        alunoPedidoViewHolder.coordenador.setText(pedido.get(position).getCoordenaId());
+        alunoPedidoViewHolder.mensagem.setText(pedido.get(position).getTexto());
 
         //Contrutor que fez a boa!
         AlunoPedidoAdapter funfo = new AlunoPedidoAdapter(nome,email,curso);
@@ -56,12 +70,13 @@ public class AlunoPedidoAdapter extends RecyclerView.Adapter<AlunoPedidoViewHold
         email = funfo.getEmail();
         curso = funfo.getCurso();
 
-
-
         //FUNÇÕES DE CLICK
         alunoPedidoViewHolder.titulo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                //adicionar um check pra achar a posição do botão
+                
                 Toast.makeText(context, "ENTROU", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(alunoPedidoViewHolder.itemView.getContext(), TelaAlunoAnalisa.class)
                         .putExtra("nome", nome).putExtra("curso", curso);
@@ -74,7 +89,7 @@ public class AlunoPedidoAdapter extends RecyclerView.Adapter<AlunoPedidoViewHold
 
     @Override
     public int getItemCount() {
-        return itens.size();
+        return pedido.size();
     }
 
     public String getNome() {

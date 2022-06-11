@@ -22,7 +22,6 @@ public class TelaCadastroAluno extends AppCompatActivity {
 
     Button btn_voltar, btn_cadastrar;
     EditText nometext, emailtext, senhatext, confsenhatext, cursotext;
-    int val = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,8 +68,6 @@ public class TelaCadastroAluno extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-
-                val = 0;
 
                 final String nome = nometext.getText().toString();
                 final String email = emailtext.getText().toString();

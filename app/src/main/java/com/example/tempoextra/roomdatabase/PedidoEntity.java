@@ -95,6 +95,15 @@ public class PedidoEntity {
     public void setStatus(String status) {
         Status = status;
     }
+
+    public PedidoEntity(String coordenaId, String tipo, String texto) {
+        CoordenaId = coordenaId;
+        Tipo = tipo;
+        Texto = texto;
+    }
+
+    public PedidoEntity() {
+    }
 }
 
 

@@ -40,6 +40,13 @@ public class TelaAlunoPedido extends AppCompatActivity implements AdapterView.On
         email = getIntent().getStringExtra("email");
         curso = getIntent().getStringExtra("curso");
 
+        btn_voltar = findViewById(R.id.btn_voltar4);
+        btn_solicitar = findViewById(R.id.btn_solicitar);
+
+        PedidoDatabase pedidoDatabase = PedidoDatabase.getPedidoDatabase(getApplicationContext());
+        PedidoDao pedidoDao = pedidoDatabase.pedidoDao();
+        PedidoEntity pedidoEntity = new PedidoEntity();
+
         //GUARDAR VALORES DE UM PEDIDO AQUI
         coordenadortext = findViewById(R.id.coordenadortext);
         spinner = findViewById(R.id.spinner);
@@ -50,49 +57,30 @@ public class TelaAlunoPedido extends AppCompatActivity implements AdapterView.On
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
 
-        btn_voltar = findViewById(R.id.btn_voltar4);
-        btn_solicitar = findViewById(R.id.btn_solicitar);
-
-        PedidoEntity pedidoEntity = new PedidoEntity();
-        PedidoDatabase pedidoDatabase = PedidoDatabase.getPedidoDatabase(getApplicationContext());
-        PedidoDao pedidoDao = pedidoDatabase.pedidoDao();
 
         btn_solicitar.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
 
-                pedidoEntity.setStatus(new String("Enviado"));
-                pedidoEntity.setAlunoNome(nome);
-                pedidoEntity.setAlunoId(email);
-                pedidoEntity.setCurso(curso);
-                pedidoEntity.setCoordenaId(coordenadortext.getText().toString());
-                pedidoEntity.setTexto(mensagemtext.getText().toString());
-                pedidoEntity.setTipo(tipo);
+                final String coordenaid = coordenadortext.getText().toString();
+                final String mensagem = mensagemtext.getText().toString();
 
-                if (validateInput(pedidoEntity)) {
+//                new Thread(new Runnable() {
+//
+//                    @Override
+//                    public void run() {
 
-                    new Thread(new Runnable() {
+                if (tipo.isEmpty() ||
+                        coordenaid.isEmpty() ||
+                        mensagem.isEmpty()) {
+
+                    runOnUiThread(new Runnable() {
 
                         @Override
                         public void run() {
 
-                            pedidoDao.registerPedido(pedidoEntity);
-
-                            runOnUiThread(new Runnable() {
-
-                                @Override
-                                public void run() {
-
-                                    Toast.makeText(getApplicationContext(), "Pedido Cadastrado", Toast.LENGTH_SHORT).show();
-
-                                    Intent tela = new Intent(TelaAlunoPedido.this, TelaHomeScreen.class);
-                                    startActivity(tela);
-                                    finish();
-
-                                }
-
-                            });
+                            Toast.makeText(getApplicationContext(), "Preencha Todos Os Campos", Toast.LENGTH_SHORT).show();
 
                         }
 
@@ -100,11 +88,54 @@ public class TelaAlunoPedido extends AppCompatActivity implements AdapterView.On
 
                 } else {
 
-                    Toast.makeText(getApplicationContext(), "Preencha Todos Os Campos", Toast.LENGTH_SHORT).show();
+                    runOnUiThread(new Runnable() {
+
+                        @Override
+                        public void run() {
+
+                            Toast.makeText(getApplicationContext(), "ENTRO NO else", Toast.LENGTH_SHORT).show();
+
+                        }
+
+                    });
+
+
+//                            putOnPedido();
+
+                    pedidoEntity.setStatus(new String("Enviado"));
+                    pedidoEntity.setAlunoNome(nome);
+                    pedidoEntity.setAlunoId(email);
+                    pedidoEntity.setCurso(curso);
+                    pedidoEntity.setCoordenaId(coordenadortext.getText().toString());
+                    pedidoEntity.setTexto(mensagemtext.getText().toString());
+                    pedidoEntity.setTipo(tipo);
+
+                    putOnPedido();
+
+                    runOnUiThread(new Runnable() {
+
+                        @Override
+                        public void run() {
+
+                            Toast.makeText(getApplicationContext(), "Pedido Cadastrado", Toast.LENGTH_SHORT).show();
+
+//                                    Intent tela = new Intent(TelaAlunoPedido.this, TelaHomeScreen.class);
+//                                    startActivity(tela);
+//                                    finish();
+
+                        }
+
+                    });
+
 
                 }
 
+//                    }
+//
+//                });
+
             }
+
         });
 
         btn_voltar.setOnClickListener(new View.OnClickListener() {
@@ -117,21 +148,42 @@ public class TelaAlunoPedido extends AppCompatActivity implements AdapterView.On
 
     }
 
-    private Boolean validateInput(PedidoEntity pedidoEntity) {
+    public void putOnPedido() {
 
-        if (pedidoEntity.getTexto().isEmpty() ||
-                pedidoEntity.getAlunoId().isEmpty() ||
-                pedidoEntity.getCoordenaId().isEmpty() ||
-                pedidoEntity.getAlunoNome().isEmpty() ||
-                pedidoEntity.getCurso().isEmpty() ||
-                pedidoEntity.getTipo().isEmpty() ||
-                pedidoEntity.getStatus().isEmpty()) {
+        runOnUiThread(new Runnable() {
 
-            return false;
+            @Override
+            public void run() {
+
+                Toast.makeText(getApplicationContext(), "ENTRO NO PUTONPEDIDO", Toast.LENGTH_SHORT).show();
+
+            }
+
+        });
+
+
+        PedidoDatabase pedidoDatabase = PedidoDatabase.getPedidoDatabase(getApplicationContext());
+        PedidoDao pedidoDao = pedidoDatabase.pedidoDao();
+        PedidoEntity pedidoEntity = new PedidoEntity();
+
+        pedidoEntity.setStatus(new String("Enviado"));
+        pedidoEntity.setAlunoNome(nome);
+        pedidoEntity.setAlunoId(email);
+        pedidoEntity.setCurso(curso);
+        pedidoEntity.setCoordenaId(coordenadortext.getText().toString());
+        pedidoEntity.setTexto(mensagemtext.getText().toString());
+        pedidoEntity.setTipo(tipo);
+
+        try {
+
+            pedidoDao.registerPedido(pedidoEntity);
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
 
         }
 
-        return true;
 
     }
 

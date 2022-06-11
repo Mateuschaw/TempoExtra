@@ -28,7 +28,7 @@ public class TelaAlunoVisualizar extends AppCompatActivity {
 
     private RecyclerView recycler;
     private AlunoPedidoAdapter adapter;
-    private ArrayList<AlunoPedido> itens;
+    private List<PedidoEntity> itens;
     Button btn_voltar;
 
     @Override
@@ -45,19 +45,13 @@ public class TelaAlunoVisualizar extends AppCompatActivity {
         //LISTAR TODOS OS PEDIDOS QUE O USUÁRIO TEM NA CONTA
         recycler = findViewById(R.id.recycler_pedidos);
 
+        PedidoEntity pedidoEntity = new PedidoEntity();
+        PedidoDatabase pedidoDatabase = PedidoDatabase.getPedidoDatabase(getApplicationContext());
+        PedidoDao pedidoDao = pedidoDatabase.pedidoDao();
 
-        itens = new ArrayList<AlunoPedido>();
+        List<PedidoEntity> pedido = pedidoDao.getAllPedidosAluno(email);
 
-
-        itens.add(new AlunoPedido("Horas", "Gouveia", "Quero 10 Horas 1) Unifacear 2) teste 3) campus Araucária 4) tempo"));
-        itens.add(new AlunoPedido("Horas", "Gouveia", "Quero 10 Horas"));
-        itens.add(new AlunoPedido("Horas", "Gouveia", "Quero 10 Horas"));
-        itens.add(new AlunoPedido("Horas", "Gouveia", "Quero 10 Horas"));
-        itens.add(new AlunoPedido("Horas", "Gouveia", "Quero 10 Horas"));
-        itens.add(new AlunoPedido("Horas", "Gouveia", "Quero 10 Horas"));
-
-
-        adapter = new AlunoPedidoAdapter(nome,email,curso,TelaAlunoVisualizar.this, itens);
+        adapter = new AlunoPedidoAdapter(pedido, TelaAlunoVisualizar.this);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(TelaAlunoVisualizar.this,
                 LinearLayoutManager.VERTICAL, false);
         recycler.setLayoutManager(layoutManager);
@@ -78,26 +72,12 @@ public class TelaAlunoVisualizar extends AppCompatActivity {
 
     }
 
-    private void loadPedidosList() {
-
-        PedidoEntity pedidoEntity = new PedidoEntity();
-        PedidoDatabase pedidoDatabase = PedidoDatabase.getPedidoDatabase(getApplicationContext());
-        PedidoDao pedidoDao = pedidoDatabase.pedidoDao();
-
-        List<PedidoEntity> pedidoList = pedidoDao.getAllPedidosAluno(email);
-
-    }
-
     public void telaHome() {
         Intent tela = new Intent(TelaAlunoVisualizar.this, TelaHomeScreen.class)
                 .putExtra("nome", nome).putExtra("email", email).putExtra("curso", curso);
         startActivity(tela);
         finish();
     }
-
-//    public TelaAlunoVisualizar() {
-//
-//    }
 
     public String getNome() {
         return nome;
