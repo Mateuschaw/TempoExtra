@@ -3,6 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ProjetoTeste/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1655" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ProjetoTeste/app/src/main/res/drawable/custom_botao_acesso.xml" value="0.1655" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ProjetoTeste/app/src/main/res/drawable/custom_botao_cadastro.xml" value="0.1655" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ProjetoTeste/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1655" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ProjetoTeste/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.1655" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ProjetoTeste/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1655" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable-hdpi/custom_botao_acesso.xml" value="0.1905" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1905" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable/custom__curso_icon.xml" value="0.1655" />
