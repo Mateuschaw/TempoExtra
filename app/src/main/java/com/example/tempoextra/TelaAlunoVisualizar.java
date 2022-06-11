@@ -49,7 +49,9 @@ public class TelaAlunoVisualizar extends AppCompatActivity {
         itens = new ArrayList<AlunoPedido>();
 
 
-
+        itens.add(new AlunoPedido("Horas", "Gouveia", "Quero 10 Horas 1) Unifacear 2) teste 3) campus Araucária 4) tempo"));
+        itens.add(new AlunoPedido("Horas", "Gouveia", "Quero 10 Horas"));
+        itens.add(new AlunoPedido("Horas", "Gouveia", "Quero 10 Horas"));
         itens.add(new AlunoPedido("Horas", "Gouveia", "Quero 10 Horas"));
         itens.add(new AlunoPedido("Horas", "Gouveia", "Quero 10 Horas"));
         itens.add(new AlunoPedido("Horas", "Gouveia", "Quero 10 Horas"));

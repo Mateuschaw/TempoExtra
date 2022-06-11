@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="100dp">
+    android:layout_height="120dp">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -13,7 +13,6 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        app:cardCornerRadius="12dp"
         app:cardElevation="12dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -31,15 +30,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="TextView"
-                android:textSize="16dp"
-                android:textColor="@android:color/black"/>
+                android:textSize="22dp"
+                android:textAlignment="center"
+                android:textColor="#00A1FF"/>
 
             <TextView
                 android:id="@+id/coordenador_text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="TextView"
-                android:textSize="16dp"
+                android:textSize="18dp"
+                android:textAlignment="center"
                 android:textColor="@android:color/black"/>
 
             <TextView

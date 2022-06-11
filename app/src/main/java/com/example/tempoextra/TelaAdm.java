@@ -16,6 +16,8 @@ import com.example.tempoextra.roomdatabase.UserDao;
 import com.example.tempoextra.roomdatabase.UserDatabase;
 import com.example.tempoextra.roomdatabase.UserEntity;
 
+import io.github.muddz.styleabletoast.StyleableToast;
+
 public class TelaAdm extends AppCompatActivity {
 
     Button btn_voltar, btn_cadastrar;
@@ -81,7 +83,7 @@ public class TelaAdm extends AppCompatActivity {
                         senha.isEmpty() ||
                         curso.isEmpty()) {
 
-                    Toast.makeText(getApplicationContext(), "Preencha Todos os Campos!", Toast.LENGTH_SHORT).show();
+                    toastErradoCampos(); //TOAST DE CAMPOS INCOMPLETOS
 
                 } else {
 
@@ -108,7 +110,7 @@ public class TelaAdm extends AppCompatActivity {
                                         @Override
                                         public void run() {
 
-                                            Toast.makeText(getApplicationContext(), "Coordenador Cadastrado", Toast.LENGTH_SHORT).show();
+                                            toastCorretoCadastro();// TOAST DE CADASTRAR COORDENADOR
 
                                         }
 
@@ -121,7 +123,7 @@ public class TelaAdm extends AppCompatActivity {
                                         @Override
                                         public void run() {
 
-                                            Toast.makeText(getApplicationContext(), "Email Já Cadastrado", Toast.LENGTH_SHORT).show();
+                                            toastErradoEmail();// TOAST EMAIL JÁ EXISTE
 
                                             finish();
                                             startActivity(getIntent());
@@ -138,7 +140,7 @@ public class TelaAdm extends AppCompatActivity {
 
                     } else {
 
-                        Toast.makeText(getApplicationContext(), "As Senhas Não São Iguais", Toast.LENGTH_SHORT).show();
+                        toastErradoSenha();// TOAST DE SENHA ERRADA
 
                     }
 
@@ -176,5 +178,21 @@ public class TelaAdm extends AppCompatActivity {
         startActivity(tela);
         finish();
 
+    }
+
+    public void toastCorretoCadastro(){
+        StyleableToast.makeText(this, "Coordenador Cadastrado!", R.style.toast_verificado).show();
+    }
+
+    public void toastErradoCampos(){
+        StyleableToast.makeText(this, "Preencha Todos os Campos!", R.style.toast_negado).show();
+    }
+
+    public void toastErradoEmail(){
+        StyleableToast.makeText(this, "Email já Cadastrado!", R.style.toast_negado).show();
+    }
+
+    public void toastErradoSenha(){
+        StyleableToast.makeText(this, "As Senhas Não São Iguais", R.style.toast_negado).show();
     }
 }

@@ -28,9 +28,11 @@ public class TelaHomeCoordenador extends AppCompatActivity {
         setContentView(R.layout.activity_tela_home_coordenador);
         getSupportActionBar().hide();
 
-        tnome = findViewById(R.id.nome);
+        tnome = findViewById(R.id.text_coordenador);
         String usuario = getIntent().getStringExtra("nome");
-        tnome.setText(usuario);
+        String email = getIntent().getStringExtra("email");
+        String curso = getIntent().getStringExtra("curso");
+
 
         recycler = findViewById(R.id.recycler_coordenador);
         itens = new ArrayList<CoordenadorPedido>();

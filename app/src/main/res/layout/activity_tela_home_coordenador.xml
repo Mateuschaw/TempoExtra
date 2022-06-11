@@ -6,33 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".TelaHomeCoordenador">
 
-    <ImageView
-        android:id="@+id/ic_aluno2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.026"
-        app:srcCompat="@drawable/aluno_icon_menor" />
-
     <TextView
-        android:id="@+id/nome"
+        android:id="@+id/text_coordenador"
         android:layout_width="270dp"
         android:layout_height="31dp"
         android:layout_margin="20dp"
-        android:layout_marginStart="20dp"
-        android:text="Nome"
-        android:textAlignment="textStart"
+        android:text="Coordenador"
+        android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/ic_aluno2"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
+        app:layout_constraintVertical_bias="0.001" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_voltar6"
@@ -47,7 +35,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.463"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nome"
+        app:layout_constraintTop_toBottomOf="@+id/text_coordenador"
         app:layout_constraintVertical_bias="1.0" />
 
     <View
@@ -59,16 +47,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nome"
+        app:layout_constraintTop_toBottomOf="@+id/text_coordenador"
         app:layout_constraintVertical_bias="0.806" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_coordenador"
-        android:layout_width="401dp"
+        android:layout_width="match_parent"
         android:layout_height="435dp"
+        android:background="@android:color/darker_gray"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nome"
-        app:layout_constraintVertical_bias="0.093" />
+        app:layout_constraintTop_toBottomOf="@+id/text_coordenador"
+        app:layout_constraintVertical_bias="0.191" />
 </androidx.constraintlayout.widget.ConstraintLayout>

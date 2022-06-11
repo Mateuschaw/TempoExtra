@@ -115,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
 
                                     //LÓGICA PARA ENTRAR NA DE COORDENADOR
                                     String nome = coordenaEntity.getNome();
-                                    String email = userEntity.getUserId();
+                                    String email = coordenaEntity.getCoordenaId();
                                     String curso = coordenaEntity.getCurso();
 
 

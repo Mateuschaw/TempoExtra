@@ -6,11 +6,18 @@
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/ProjetoTeste/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1655" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/ProjetoTeste/app/src/main/res/drawable/custom_botao_acesso.xml" value="0.1655" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/ProjetoTeste/app/src/main/res/drawable/custom_botao_cadastro.xml" value="0.1655" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ProjetoTeste/app/src/main/res/drawable/ic_horas.xml" value="0.1655" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/ProjetoTeste/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1655" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/ProjetoTeste/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.1655" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/ProjetoTeste/app/src/main/res/drawable/ic_lock_focused.xml" value="0.1655" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/ProjetoTeste/app/src/main/res/drawable/ic_toast_errado.xml" value="0.1655" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/ProjetoTeste/app/src/main/res/drawable/ic_toast_verificado.xml" value="0.1655" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ProjetoTeste/app/src/main/res/layout/activity_tela_aluno_pedido.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ProjetoTeste/app/src/main/res/layout/activity_tela_aluno_visualizar.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ProjetoTeste/app/src/main/res/layout/activity_tela_coordenador_analisa.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ProjetoTeste/app/src/main/res/layout/activity_tela_home_coordenador.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ProjetoTeste/app/src/main/res/layout/pedido_linha.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ProjetoTeste/app/src/main/res/layout/pedidocoordenador_linha.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/ProjetoTeste/app/src/main/res/layout/toast_layout.xml" value="0.264" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/ProjetoTeste/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1655" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable-hdpi/custom_botao_acesso.xml" value="0.1905" />
