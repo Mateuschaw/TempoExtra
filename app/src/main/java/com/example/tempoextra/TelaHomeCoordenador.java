@@ -36,11 +36,7 @@ public class TelaHomeCoordenador extends AppCompatActivity {
 
         recycler = findViewById(R.id.recycler_coordenador);
         itens = new ArrayList<CoordenadorPedido>();
-        itens.add(new CoordenadorPedido("Horas", "Gouveia", "funcionales"));
-        itens.add(new CoordenadorPedido("Horas", "Gouveia", "Quero 10 Horas"));
-        itens.add(new CoordenadorPedido("Horas", "Gouveia", "Quero 10 Horas"));
-        itens.add(new CoordenadorPedido("Horas", "Kerneski", "funcionales"));
-        itens.add(new CoordenadorPedido("Jabuticaba", "Gouveia", "funcionales"));
+
 
 
         adapter = new CoordenadorPedidoAdapter(TelaHomeCoordenador.this, itens);

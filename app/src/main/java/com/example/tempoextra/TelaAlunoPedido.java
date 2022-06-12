@@ -20,6 +20,8 @@ import com.example.tempoextra.roomdatabase.PedidoDao;
 import com.example.tempoextra.roomdatabase.PedidoDatabase;
 import com.example.tempoextra.roomdatabase.PedidoEntity;
 
+import io.github.muddz.styleabletoast.StyleableToast;
+
 public class TelaAlunoPedido extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     String nome, email, curso; // Visualizar na tela
@@ -57,7 +59,6 @@ public class TelaAlunoPedido extends AppCompatActivity implements AdapterView.On
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
 
-
         btn_solicitar.setOnClickListener(new View.OnClickListener() {
 
             @Override
@@ -66,41 +67,20 @@ public class TelaAlunoPedido extends AppCompatActivity implements AdapterView.On
                 final String coordenaid = coordenadortext.getText().toString();
                 final String mensagem = mensagemtext.getText().toString();
 
-//                new Thread(new Runnable() {
-//
-//                    @Override
-//                    public void run() {
-
-                if (tipo.isEmpty() ||
-                        coordenaid.isEmpty() ||
-                        mensagem.isEmpty()) {
+                if (coordenaid.isEmpty() || mensagem.isEmpty()) {
 
                     runOnUiThread(new Runnable() {
 
                         @Override
                         public void run() {
 
-                            Toast.makeText(getApplicationContext(), "Preencha Todos Os Campos", Toast.LENGTH_SHORT).show();
+                            toastErradoCampos(); // TOASTER DE PREENCHER TODOS OS CAMPOS
 
                         }
 
                     });
 
                 } else {
-
-                    runOnUiThread(new Runnable() {
-
-                        @Override
-                        public void run() {
-
-                            Toast.makeText(getApplicationContext(), "ENTRO NO else", Toast.LENGTH_SHORT).show();
-
-                        }
-
-                    });
-
-
-//                            putOnPedido();
 
                     pedidoEntity.setStatus(new String("Enviado"));
                     pedidoEntity.setAlunoNome(nome);
@@ -117,22 +97,15 @@ public class TelaAlunoPedido extends AppCompatActivity implements AdapterView.On
                         @Override
                         public void run() {
 
-                            Toast.makeText(getApplicationContext(), "Pedido Cadastrado", Toast.LENGTH_SHORT).show();
+                            toastCorretoCadastro(); //PEDIDO CADASTRADO TOASTER
 
-//                                    Intent tela = new Intent(TelaAlunoPedido.this, TelaHomeScreen.class);
-//                                    startActivity(tela);
-//                                    finish();
+                            telaHome();
 
                         }
 
                     });
 
-
                 }
-
-//                    }
-//
-//                });
 
             }
 
@@ -149,18 +122,6 @@ public class TelaAlunoPedido extends AppCompatActivity implements AdapterView.On
     }
 
     public void putOnPedido() {
-
-        runOnUiThread(new Runnable() {
-
-            @Override
-            public void run() {
-
-                Toast.makeText(getApplicationContext(), "ENTRO NO PUTONPEDIDO", Toast.LENGTH_SHORT).show();
-
-            }
-
-        });
-
 
         PedidoDatabase pedidoDatabase = PedidoDatabase.getPedidoDatabase(getApplicationContext());
         PedidoDao pedidoDao = pedidoDatabase.pedidoDao();
@@ -184,7 +145,6 @@ public class TelaAlunoPedido extends AppCompatActivity implements AdapterView.On
 
         }
 
-
     }
 
     public void telaHome() {
@@ -202,5 +162,13 @@ public class TelaAlunoPedido extends AppCompatActivity implements AdapterView.On
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
 
+    }
+
+    public void toastCorretoCadastro(){
+        StyleableToast.makeText(this, "Pedido Enviado!", R.style.toast_verificado).show();
+    }
+
+    public void toastErradoCampos(){
+        StyleableToast.makeText(this, "Preencha Todos os Campos!", R.style.toast_negado).show();
     }
 }

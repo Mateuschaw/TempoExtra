@@ -51,7 +51,7 @@ public class TelaAlunoVisualizar extends AppCompatActivity {
 
         List<PedidoEntity> pedido = pedidoDao.getAllPedidosAluno(email);
 
-        adapter = new AlunoPedidoAdapter(pedido, TelaAlunoVisualizar.this);
+        adapter = new AlunoPedidoAdapter(pedido, TelaAlunoVisualizar.this,nome,email,curso);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(TelaAlunoVisualizar.this,
                 LinearLayoutManager.VERTICAL, false);
         recycler.setLayoutManager(layoutManager);
