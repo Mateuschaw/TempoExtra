@@ -5,7 +5,10 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
+import android.view.View;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -58,7 +61,7 @@ public class AlunoPedidoAdapter extends RecyclerView.Adapter<AlunoPedidoViewHold
         curso = funfo.getCurso();
 
 
-        PedidoEntity pedidoPedido = pedido.get(position);
+        PedidoEntity pedidoEntity = pedido.get(position);
         alunoPedidoViewHolder.titulo.setText(pedido.get(position).getTipo());
         alunoPedidoViewHolder.coordenador.setText(pedido.get(position).getCoordenaId());
         alunoPedidoViewHolder.mensagem.setText(pedido.get(position).getTexto());
@@ -69,14 +72,17 @@ public class AlunoPedidoAdapter extends RecyclerView.Adapter<AlunoPedidoViewHold
             @Override
             public void onClick(View view) {
 
-                pos = alunoPedidoViewHolder.getAdapterPosition(); //CONTA A POSITION
+                pos = alunoPedidoViewHolder.getAdapterPosition();//CONTA A POSITION
+
 
                 //adicionar um check pra achar a posição do botão
                 
                 Toast.makeText(context, "ENTROU", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(alunoPedidoViewHolder.itemView.getContext(), TelaAlunoAnalisa.class)
                         .putExtra("nome", nome).putExtra("email", email).putExtra("curso", curso)
-                        .putExtra("pos", pos);
+                        .putExtra("pos", pos)
+                        .putExtra("titulo", pedido.get(pos).getTipo())
+                        .putExtra("mensagem", pedidoEntity.getTexto());//DA PRA FAZER ASSIM
 
                 //COLOCAR PARAMETROS PARA PASAR DA TELA AQUI TIPO .putExtra
                 alunoPedidoViewHolder.itemView.getContext().startActivity(intent);
@@ -114,3 +120,4 @@ public class AlunoPedidoAdapter extends RecyclerView.Adapter<AlunoPedidoViewHold
     }
 
 }
+
