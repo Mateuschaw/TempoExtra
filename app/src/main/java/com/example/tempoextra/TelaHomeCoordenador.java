@@ -56,7 +56,6 @@ public class TelaHomeCoordenador extends AppCompatActivity {
             }
         });
 
-
     }
 
     public void TelaMain(){
