@@ -54,7 +54,7 @@
         android:id="@+id/recycler_coordenador"
         android:layout_width="match_parent"
         android:layout_height="435dp"
-        android:background="@android:color/darker_gray"
+        android:background="#d3d3d3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

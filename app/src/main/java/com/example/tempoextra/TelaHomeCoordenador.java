@@ -37,7 +37,9 @@ public class TelaHomeCoordenador extends AppCompatActivity {
         recycler = findViewById(R.id.recycler_coordenador);
         itens = new ArrayList<CoordenadorPedido>();
 
-
+        itens.add(new CoordenadorPedido("Capacitação", "rodrigo.facear@yahoo.com.br", "1) Curso de Java 2) 30 Horas"));
+        itens.add(new CoordenadorPedido("Capacitação", "rodrigo.facear@yahoo.com.br", "1) Curso de Inglês 2) 40 Horas"));
+        itens.add(new CoordenadorPedido("Capacitação", "rodrigo.facear@yahoo.com.br", "1) Curso de C++ 2) 30 Horas"));
 
         adapter = new CoordenadorPedidoAdapter(TelaHomeCoordenador.this, itens);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(TelaHomeCoordenador.this,

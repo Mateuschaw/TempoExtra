@@ -76,8 +76,7 @@ public class AlunoPedidoAdapter extends RecyclerView.Adapter<AlunoPedidoViewHold
 
 
                 //adicionar um check pra achar a posição do botão
-                
-                Toast.makeText(context, "ENTROU", Toast.LENGTH_SHORT).show();
+
                 Intent intent = new Intent(alunoPedidoViewHolder.itemView.getContext(), TelaAlunoAnalisa.class)
                         .putExtra("nome", nome).putExtra("email", email).putExtra("curso", curso)
                         .putExtra("pos", pos)
