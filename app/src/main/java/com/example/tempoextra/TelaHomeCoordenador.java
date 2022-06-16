@@ -10,7 +10,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.tempoextra.roomdatabase.CoordenaDao;
+import com.example.tempoextra.roomdatabase.CoordenaDatabase;
+import com.example.tempoextra.roomdatabase.CoordenaEntity;
+import com.example.tempoextra.roomdatabase.PedidoEntity;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class TelaHomeCoordenador extends AppCompatActivity {
 
@@ -36,6 +42,12 @@ public class TelaHomeCoordenador extends AppCompatActivity {
 
         recycler = findViewById(R.id.recycler_coordenador);
         itens = new ArrayList<CoordenadorPedido>();
+
+        CoordenaEntity coordenaEntity = new CoordenaEntity();
+        CoordenaDatabase coordenaDatabase = CoordenaDatabase.getCoordenaDatabase(getApplicationContext());
+        CoordenaDao coordenaDao = coordenaDatabase.coordenaDao();
+
+//        List<CoordenaEntity> pedido = coordenaDao.
 
         itens.add(new CoordenadorPedido("Capacitação", "rodrigo.facear@yahoo.com.br", "1) Curso de Java 2) 30 Horas"));
         itens.add(new CoordenadorPedido("Capacitação", "rodrigo.facear@yahoo.com.br", "1) Curso de Inglês 2) 40 Horas"));
