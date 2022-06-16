@@ -41,7 +41,6 @@ public class TelaAlunoAnalisa extends AppCompatActivity {
         titulo = getIntent().getStringExtra("titulo");
         mensagem = getIntent().getStringExtra("mensagem");
 
-
         //TEXTO NA TELA
         titulo_analisa.setText(titulo); //O INT PRECISA TER TEXTINHO SE NÃO ELE BUGA
         mensagem_analisa.setText(mensagem);

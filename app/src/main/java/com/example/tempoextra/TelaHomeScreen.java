@@ -67,7 +67,6 @@ public class TelaHomeScreen extends AppCompatActivity {
             }
         });
 
-
     }
 
     public void telaPedido() {
