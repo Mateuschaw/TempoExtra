@@ -8,12 +8,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class CoordenadorPedidoViewHolder extends RecyclerView.ViewHolder {
 
-    TextView titulo, coordenador, mensagem;
+    TextView titulo, aluno, mensagem;
 
     public CoordenadorPedidoViewHolder(@NonNull View itemView) {
         super(itemView);
-        titulo = itemView.findViewById(R.id.titulo_text);
-        coordenador = itemView.findViewById(R.id.coordenador_text);
-        mensagem = itemView.findViewById(R.id.mensagem_text);
+        titulo = itemView.findViewById(R.id.tituloc_text);
+        aluno = itemView.findViewById(R.id.aluno_text);
+        mensagem = itemView.findViewById(R.id.mensagemc_text);
     }
 }

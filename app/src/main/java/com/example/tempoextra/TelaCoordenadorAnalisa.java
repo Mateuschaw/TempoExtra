@@ -9,6 +9,8 @@ import android.widget.Button;
 
 public class TelaCoordenadorAnalisa extends AppCompatActivity {
 
+    String email;
+
     Button btn_voltar, btn_deferir, btn_indeferir;
 
     @Override
@@ -22,6 +24,8 @@ public class TelaCoordenadorAnalisa extends AppCompatActivity {
         btn_indeferir = findViewById(R.id.btn_indeferir);
         btn_voltar = findViewById(R.id.btn_voltar7);
 
+        email = getIntent().getStringExtra("email");
+
         btn_voltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -32,7 +36,8 @@ public class TelaCoordenadorAnalisa extends AppCompatActivity {
     }
 
     public void telaHomeCoordenador(){
-        Intent tela = new Intent(TelaCoordenadorAnalisa.this, TelaHomeCoordenador.class);
+        Intent tela = new Intent(TelaCoordenadorAnalisa.this, TelaHomeCoordenador.class)
+                .putExtra("email", email);
         startActivity(tela);
         finish();
     }

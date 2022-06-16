@@ -55,10 +55,10 @@ public class AlunoPedidoAdapter extends RecyclerView.Adapter<AlunoPedidoViewHold
     @Override
     public void onBindViewHolder(@NonNull AlunoPedidoViewHolder alunoPedidoViewHolder, int position) {
        //Contrutor que fez a boa!
-        AlunoPedidoAdapter funfo = new AlunoPedidoAdapter(nome,email,curso);
-        nome = funfo.getNome();
-        email = funfo.getEmail();
-        curso = funfo.getCurso();
+        AlunoPedidoAdapter aluno = new AlunoPedidoAdapter(nome,email,curso);
+        nome = aluno.getNome();
+        email = aluno.getEmail();
+        curso = aluno.getCurso();
 
 
         PedidoEntity pedidoEntity = pedido.get(position);

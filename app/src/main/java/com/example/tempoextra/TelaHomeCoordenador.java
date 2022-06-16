@@ -13,6 +13,8 @@ import android.widget.TextView;
 import com.example.tempoextra.roomdatabase.CoordenaDao;
 import com.example.tempoextra.roomdatabase.CoordenaDatabase;
 import com.example.tempoextra.roomdatabase.CoordenaEntity;
+import com.example.tempoextra.roomdatabase.PedidoDao;
+import com.example.tempoextra.roomdatabase.PedidoDatabase;
 import com.example.tempoextra.roomdatabase.PedidoEntity;
 
 import java.util.ArrayList;
@@ -23,6 +25,8 @@ public class TelaHomeCoordenador extends AppCompatActivity {
     private RecyclerView recycler;
     private CoordenadorPedidoAdapter adapter;
     private ArrayList<CoordenadorPedido> itens;
+
+    String email;
 
     TextView tnome;
     Button btn_voltar;
@@ -41,19 +45,14 @@ public class TelaHomeCoordenador extends AppCompatActivity {
 
 
         recycler = findViewById(R.id.recycler_coordenador);
-        itens = new ArrayList<CoordenadorPedido>();
 
-        CoordenaEntity coordenaEntity = new CoordenaEntity();
-        CoordenaDatabase coordenaDatabase = CoordenaDatabase.getCoordenaDatabase(getApplicationContext());
-        CoordenaDao coordenaDao = coordenaDatabase.coordenaDao();
+        PedidoEntity pedidoEntity = new PedidoEntity();
+        PedidoDatabase pedidoDatabase = PedidoDatabase.getPedidoDatabase(getApplicationContext());
+        PedidoDao pedidoDao = pedidoDatabase.pedidoDao();
 
-//        List<CoordenaEntity> pedido = coordenaDao.
+        List<PedidoEntity> pedido = pedidoDao.getAllPedidosCoordena(email);//Coordenador
 
-        itens.add(new CoordenadorPedido("Capacitação", "rodrigo.facear@yahoo.com.br", "1) Curso de Java 2) 30 Horas"));
-        itens.add(new CoordenadorPedido("Capacitação", "rodrigo.facear@yahoo.com.br", "1) Curso de Inglês 2) 40 Horas"));
-        itens.add(new CoordenadorPedido("Capacitação", "rodrigo.facear@yahoo.com.br", "1) Curso de C++ 2) 30 Horas"));
-
-        adapter = new CoordenadorPedidoAdapter(TelaHomeCoordenador.this, itens);
+        adapter = new CoordenadorPedidoAdapter(TelaHomeCoordenador.this, pedido, email);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(TelaHomeCoordenador.this,
                 LinearLayoutManager.VERTICAL, false);
         recycler.setLayoutManager(layoutManager);
@@ -72,7 +71,8 @@ public class TelaHomeCoordenador extends AppCompatActivity {
     }
 
     public void TelaMain(){
-        Intent tela = new Intent(TelaHomeCoordenador.this, MainActivity.class);
+        Intent tela = new Intent(TelaHomeCoordenador.this, MainActivity.class)
+                .putExtra("email", email);
         startActivity(tela);
         finish();
     }
