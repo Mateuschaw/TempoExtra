@@ -75,8 +75,9 @@ public class MainActivity extends AppCompatActivity {
                     //Login de administrador
                     if (email.equals("admin") && (senha.equals("1234"))) {
 
-                        telaAdm();
                         toastCorretoAdm();// TOAST DE VERIFICAÇÃO ADMINISTRADOR -------------
+                        telaAdm();
+
 
                     } else {
                         //Realizar o query
