@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TelaHomeCoordenador">
+    tools:context=".TelaHomeCoordenador"
+    android:background="#E4E4E4">
 
     <TextView
         android:id="@+id/text_coordenador"
@@ -54,7 +55,7 @@
         android:id="@+id/recycler_coordenador"
         android:layout_width="match_parent"
         android:layout_height="435dp"
-        android:background="#d3d3d3"
+        android:background="#EDEDED"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

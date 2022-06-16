@@ -120,19 +120,17 @@ public class MainActivity extends AppCompatActivity {
                                     String email = coordenaEntity.getCoordenaId();
                                     String curso = coordenaEntity.getCurso();
 
-
                                     startActivity(new Intent(MainActivity.this, TelaHomeCoordenador.class)
                                             .putExtra("nome", nome).putExtra("email", email)
                                             .putExtra("curso", curso));
 
 
                                 } else if (coordenaEntity == null) {
-
+                                    
                                     //LÓGICA PARA ENTRAR NA DE ALUNO(USER)
                                     String nome = userEntity.getNome();
                                     String email = userEntity.getUserId();
                                     String curso = userEntity.getCurso();
-
 
                                     startActivity(new Intent(MainActivity.this, TelaHomeScreen.class)
                                             .putExtra("nome", nome).putExtra("email", email)

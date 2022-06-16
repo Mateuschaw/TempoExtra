@@ -164,7 +164,9 @@
     <Spinner
         android:id="@+id/spinner"
         android:layout_width="318dp"
-        android:layout_height="47dp"
+        android:layout_height="30dp"
+        android:background="@drawable/spinner_custom"
+        android:dropDownVerticalOffset="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"

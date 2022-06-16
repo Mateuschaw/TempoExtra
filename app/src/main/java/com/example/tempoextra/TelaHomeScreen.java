@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import io.github.muddz.styleabletoast.StyleableToast;
+
 public class TelaHomeScreen extends AppCompatActivity {
 
     private String nome, email, curso; // Visualizar na tela
@@ -88,6 +90,10 @@ public class TelaHomeScreen extends AppCompatActivity {
         Intent tela = new Intent(TelaHomeScreen.this, MainActivity.class);
         startActivity(tela);
         finish();
+    }
+
+    public void toastCorreto(){
+        StyleableToast.makeText(this, "Bem vindo!", R.style.toast_verificado).show();
     }
 
 }
