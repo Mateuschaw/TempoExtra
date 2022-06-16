@@ -50,7 +50,7 @@ public class TelaHomeCoordenador extends AppCompatActivity {
         PedidoDatabase pedidoDatabase = PedidoDatabase.getPedidoDatabase(getApplicationContext());
         PedidoDao pedidoDao = pedidoDatabase.pedidoDao();
 
-        List<PedidoEntity> pedido = pedidoDao.getAllPedidosCoordena(email);//Coordenador valerio
+        List<PedidoEntity> pedido = pedidoDao.getAllPedidosCoordena(email);//Coordenador
 
         adapter = new CoordenadorPedidoAdapter(TelaHomeCoordenador.this, pedido, email);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(TelaHomeCoordenador.this,
