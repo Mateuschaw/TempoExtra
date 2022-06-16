@@ -27,8 +27,6 @@
         android:id="@+id/btn_voltar5"
         android:layout_width="316dp"
         android:layout_height="60dp"
-        android:layout_marginTop="515dp"
-        android:layout_marginBottom="32dp"
         android:background="@drawable/custom_botao_cadastro"
         android:text="VOLTAR"
         android:textAllCaps="false"
@@ -38,18 +36,18 @@
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_aluno"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.952" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_pedidos"
         android:layout_width="match_parent"
         android:layout_height="440dp"
-        android:layout_marginBottom="136dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="32dp"
         android:background="#EDEDED"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btn_voltar5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_aluno"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/text_aluno" />
 </androidx.constraintlayout.widget.ConstraintLayout>

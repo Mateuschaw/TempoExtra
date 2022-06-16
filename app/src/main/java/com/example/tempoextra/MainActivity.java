@@ -126,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                                 } else if (coordenaEntity == null) {
-                                    
+
                                     //LÓGICA PARA ENTRAR NA DE ALUNO(USER)
                                     String nome = userEntity.getNome();
                                     String email = userEntity.getUserId();
