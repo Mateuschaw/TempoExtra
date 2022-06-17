@@ -3,6 +3,7 @@ package com.example.tempoextra.roomdatabase;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import java.util.List;
 
@@ -21,6 +22,9 @@ public interface UserDao {
 
     @Query("SELECT COUNT() FROM Aluno WHERE userID=(:userID)")
     int isExistsEmail(String userID);
+
+    @Update
+    void updateUser(UserEntity userEntity);
 
     //temporariamente o codigo de tirar os alunos que pediram hora
     @Query("SELECT * from Aluno where userID=(:userID)")

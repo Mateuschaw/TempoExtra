@@ -31,6 +31,7 @@
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable/custom_botao_sair.xml" value="0.1655" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable/custom_curso_icon.xml" value="0.1755" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable/custom_email_icon.xml" value="0.1" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable/custom_horas_icon.xml" value="0.1655" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable/custom_input.xml" value="0.1655" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable/custom_lock_icon.xml" value="0.1" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable/custom_usuario_icon.xml" value="0.1945" />
@@ -39,6 +40,8 @@
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable/ic_drop_down.xml" value="0.1655" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable/ic_email.xml" value="0.1955" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable/ic_email_focused.xml" value="0.1" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable/ic_horas.xml" value="0.1655" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable/ic_horas_focused.xml" value="0.1655" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1905" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable/ic_lock.xml" value="0.18" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable/ic_lock_focused.xml" value="0.1" />

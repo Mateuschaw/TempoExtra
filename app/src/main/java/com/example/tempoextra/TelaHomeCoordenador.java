@@ -24,7 +24,6 @@ public class TelaHomeCoordenador extends AppCompatActivity {
 
     private RecyclerView recycler;
     private CoordenadorPedidoAdapter adapter;
-    private ArrayList<CoordenadorPedido> itens;
 
     String email;
 

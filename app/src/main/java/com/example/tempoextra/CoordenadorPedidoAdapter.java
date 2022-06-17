@@ -55,7 +55,11 @@ public class CoordenadorPedidoAdapter extends RecyclerView.Adapter<CoordenadorPe
             public void onClick(View view) {
                 Intent intent = new Intent(coordenadorPedidoViewHolder.itemView.getContext(), TelaCoordenadorAnalisa.class)
                         .putExtra("email", email)
-                        .putExtra("titulo", pedidoEntity.getTipo());
+                        .putExtra("email_aluno", pedidoEntity.getAlunoId())
+                        .putExtra("titulo", pedidoEntity.getTipo())
+                        .putExtra("curso", pedidoEntity.getCurso())
+                        .putExtra("nome", pedidoEntity.getAlunoNome())
+                        .putExtra("mensagem", pedidoEntity.getTexto());
                 //COLOCAR PARAMETROS PARA PASAR DA TELA AQUI TIPO .putExtra
                 coordenadorPedidoViewHolder.itemView.getContext().startActivity(intent);
 
