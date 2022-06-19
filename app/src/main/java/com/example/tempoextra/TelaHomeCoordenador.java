@@ -10,13 +10,22 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.tempoextra.roomdatabase.CoordenaDao;
+import com.example.tempoextra.roomdatabase.CoordenaDatabase;
+import com.example.tempoextra.roomdatabase.CoordenaEntity;
+import com.example.tempoextra.roomdatabase.PedidoDao;
+import com.example.tempoextra.roomdatabase.PedidoDatabase;
+import com.example.tempoextra.roomdatabase.PedidoEntity;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class TelaHomeCoordenador extends AppCompatActivity {
 
     private RecyclerView recycler;
     private CoordenadorPedidoAdapter adapter;
-    private ArrayList<CoordenadorPedido> itens;
+
+    String email;
 
     TextView tnome;
     Button btn_voltar;
@@ -28,20 +37,21 @@ public class TelaHomeCoordenador extends AppCompatActivity {
         setContentView(R.layout.activity_tela_home_coordenador);
         getSupportActionBar().hide();
 
-        tnome = findViewById(R.id.nome);
+        tnome = findViewById(R.id.text_coordenador);
         String usuario = getIntent().getStringExtra("nome");
-        tnome.setText(usuario);
+        String email = getIntent().getStringExtra("email");
+        String curso = getIntent().getStringExtra("curso");
+
 
         recycler = findViewById(R.id.recycler_coordenador);
-        itens = new ArrayList<CoordenadorPedido>();
-        itens.add(new CoordenadorPedido("Horas", "Gouveia", "funcionales"));
-        itens.add(new CoordenadorPedido("Horas", "Gouveia", "Quero 10 Horas"));
-        itens.add(new CoordenadorPedido("Horas", "Gouveia", "Quero 10 Horas"));
-        itens.add(new CoordenadorPedido("Horas", "Kerneski", "funcionales"));
-        itens.add(new CoordenadorPedido("Jabuticaba", "Gouveia", "funcionales"));
 
+        PedidoEntity pedidoEntity = new PedidoEntity();
+        PedidoDatabase pedidoDatabase = PedidoDatabase.getPedidoDatabase(getApplicationContext());
+        PedidoDao pedidoDao = pedidoDatabase.pedidoDao();
 
-        adapter = new CoordenadorPedidoAdapter(TelaHomeCoordenador.this, itens);
+        List<PedidoEntity> pedido = pedidoDao.getAllPedidosCoordena(email);//Coordenador
+
+        adapter = new CoordenadorPedidoAdapter(TelaHomeCoordenador.this, pedido, email);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(TelaHomeCoordenador.this,
                 LinearLayoutManager.VERTICAL, false);
         recycler.setLayoutManager(layoutManager);
@@ -56,11 +66,11 @@ public class TelaHomeCoordenador extends AppCompatActivity {
             }
         });
 
-
     }
 
     public void TelaMain(){
-        Intent tela = new Intent(TelaHomeCoordenador.this, MainActivity.class);
+        Intent tela = new Intent(TelaHomeCoordenador.this, MainActivity.class)
+                .putExtra("email", email);
         startActivity(tela);
         finish();
     }

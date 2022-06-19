@@ -3,8 +3,12 @@ package com.example.tempoextra;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -16,6 +20,8 @@ import com.example.tempoextra.roomdatabase.CoordenaEntity;
 import com.example.tempoextra.roomdatabase.UserDao;
 import com.example.tempoextra.roomdatabase.UserDatabase;
 import com.example.tempoextra.roomdatabase.UserEntity;
+
+import io.github.muddz.styleabletoast.StyleableToast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -62,15 +68,16 @@ public class MainActivity extends AppCompatActivity {
 
                 if (email.isEmpty() || senha.isEmpty()) {
 
-                    Toast.makeText(getApplicationContext(), "Preencha Todos os Campos!", Toast.LENGTH_SHORT).show();
+                    toastErradoCampos();// TOAST DE VERIFICAÇÃO DE CAMPOS ---------
 
                 } else {
 
                     //Login de administrador
                     if (email.equals("admin") && (senha.equals("1234"))) {
 
+                        toastCorretoAdm();// TOAST DE VERIFICAÇÃO ADMINISTRADOR -------------
                         telaAdm();
-                        Toast.makeText(getApplicationContext(), "Bem vindo Administrador!", Toast.LENGTH_SHORT).show();
+
 
                     } else {
                         //Realizar o query
@@ -101,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
                                         @Override
                                         public void run() {
 
-                                            Toast.makeText(getApplicationContext(), "Login ou Senha Incorretos!", Toast.LENGTH_SHORT).show();
+                                            toastErradoLogin(); //TOAST DE VERIFICAÇÃO DE LOGIN
 
                                         }
                                     });
@@ -110,9 +117,8 @@ public class MainActivity extends AppCompatActivity {
 
                                     //LÓGICA PARA ENTRAR NA DE COORDENADOR
                                     String nome = coordenaEntity.getNome();
-                                    String email = userEntity.getUserId();
+                                    String email = coordenaEntity.getCoordenaId();
                                     String curso = coordenaEntity.getCurso();
-
 
                                     startActivity(new Intent(MainActivity.this, TelaHomeCoordenador.class)
                                             .putExtra("nome", nome).putExtra("email", email)
@@ -125,7 +131,6 @@ public class MainActivity extends AppCompatActivity {
                                     String nome = userEntity.getNome();
                                     String email = userEntity.getUserId();
                                     String curso = userEntity.getCurso();
-
 
                                     startActivity(new Intent(MainActivity.this, TelaHomeScreen.class)
                                             .putExtra("nome", nome).putExtra("email", email)
@@ -187,6 +192,18 @@ public class MainActivity extends AppCompatActivity {
         startActivity(tela);
         finish();
 
+    }
+
+    public void toastCorretoAdm(){
+        StyleableToast.makeText(this, "Bem vindo Administrador", R.style.toast_verificado).show();
+    }
+
+    public void toastErradoCampos(){
+        StyleableToast.makeText(this, "Preencha Todos os Campos!", R.style.toast_negado).show();
+    }
+
+    public void toastErradoLogin(){
+        StyleableToast.makeText(this, "Login ou Senha Incorretos!", R.style.toast_negado).show();
     }
 
 }

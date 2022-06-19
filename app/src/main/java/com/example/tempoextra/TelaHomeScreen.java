@@ -12,9 +12,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import io.github.muddz.styleabletoast.StyleableToast;
+
 public class TelaHomeScreen extends AppCompatActivity {
 
-    String nome, email, curso; // Visualizar na tela
+    private String nome, email, curso; // Visualizar na tela
 
     TextView tnome;
     TextView tcurso;
@@ -67,9 +69,7 @@ public class TelaHomeScreen extends AppCompatActivity {
             }
         });
 
-
     }
-
 
     public void telaPedido() {
         Intent tela = new Intent(TelaHomeScreen.this, TelaAlunoPedido.class)
@@ -91,4 +91,9 @@ public class TelaHomeScreen extends AppCompatActivity {
         startActivity(tela);
         finish();
     }
+
+    public void toastCorreto(){
+        StyleableToast.makeText(this, "Bem vindo!", R.style.toast_verificado).show();
+    }
+
 }

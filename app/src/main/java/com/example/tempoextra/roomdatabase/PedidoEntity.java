@@ -5,7 +5,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
 
-@Entity(tableName = "pedido")
+@Entity(tableName = "Pedido")
 public class PedidoEntity {
 
     @PrimaryKey(autoGenerate = true)
@@ -14,8 +14,8 @@ public class PedidoEntity {
     @ColumnInfo(name = "alunoID")
     String AlunoId;
 
-    @ColumnInfo(name = "cordenaID")
-    String CordenaId;
+    @ColumnInfo(name = "coordenaID")
+    String CoordenaId;
 
     @ColumnInfo(name = "alunoNome")
     String AlunoNome;
@@ -23,17 +23,14 @@ public class PedidoEntity {
     @ColumnInfo(name = "alunoCurso")
     String Curso;
 
-    @ColumnInfo(name = "horas")
-    int Horas;
-
     @ColumnInfo(name = "tipo")
-    int Tipo;
+    String Tipo;
 
     @ColumnInfo(name = "texto")
-    int Texto;
+    String Texto;
 
     @ColumnInfo(name = "status")
-    int Status;
+    String Status;
 
     public Integer getId() {
         return id;
@@ -51,12 +48,12 @@ public class PedidoEntity {
         AlunoId = alunoId;
     }
 
-    public String getCordenaId() {
-        return CordenaId;
+    public String getCoordenaId() {
+        return CoordenaId;
     }
 
-    public void setCordenaId(String cordenaId) {
-        CordenaId = cordenaId;
+    public void setCoordenaId(String coordenaId) {
+        CoordenaId = coordenaId;
     }
 
     public String getAlunoNome() {
@@ -75,12 +72,37 @@ public class PedidoEntity {
         Curso = curso;
     }
 
-    public int getTexto() {
+    public String getTipo() {
+        return Tipo;
+    }
+
+    public void setTipo(String tipo) {
+        Tipo = tipo;
+    }
+
+    public String getTexto() {
         return Texto;
     }
 
-    public void setTexto(int texto) {
+    public void setTexto(String texto) {
         Texto = texto;
+    }
+
+    public String getStatus() {
+        return Status;
+    }
+
+    public void setStatus(String status) {
+        Status = status;
+    }
+
+    public PedidoEntity(String coordenaId, String tipo, String texto) {
+        CoordenaId = coordenaId;
+        Tipo = tipo;
+        Texto = texto;
+    }
+
+    public PedidoEntity() {
     }
 }
 

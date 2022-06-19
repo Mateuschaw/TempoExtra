@@ -17,6 +17,7 @@ public abstract class PedidoDatabase extends RoomDatabase {
         if (pedidoDatabase == null) {
 
             pedidoDatabase = Room.databaseBuilder(context, PedidoDatabase.class, dbName)
+                    .allowMainThreadQueries()
                     .fallbackToDestructiveMigration()
                     .build();
 

@@ -10,16 +10,26 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.tempoextra.roomdatabase.PedidoEntity;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class CoordenadorPedidoAdapter extends RecyclerView.Adapter<CoordenadorPedidoViewHolder> {
 
-    private Context context;
-    private ArrayList<CoordenadorPedido> itens;
+    String email;
 
-    public CoordenadorPedidoAdapter(Context context, ArrayList<CoordenadorPedido> itens) {
+    private Context context;
+    private List<PedidoEntity> pedido;
+
+    public CoordenadorPedidoAdapter(String email) {
+        this.email = email;
+    }
+
+    public CoordenadorPedidoAdapter(Context context, List<PedidoEntity> pedido, String email) {
         this.context = context;
-        this.itens = itens;
+        this.pedido = pedido;
+        this.email = email;
     }
 
     @NonNull
@@ -32,16 +42,24 @@ public class CoordenadorPedidoAdapter extends RecyclerView.Adapter<CoordenadorPe
 
     @Override
     public void onBindViewHolder(@NonNull CoordenadorPedidoViewHolder coordenadorPedidoViewHolder, int position) {
-        CoordenadorPedido coordenadorPedido = itens.get(position);
-        coordenadorPedidoViewHolder.titulo.setText(coordenadorPedido.getTitulo());
-        coordenadorPedidoViewHolder.coordenador.setText(coordenadorPedido.getCoordenador());
-        coordenadorPedidoViewHolder.mensagem.setText(coordenadorPedido.getMensagem());
+        CoordenadorPedidoAdapter coordenador = new CoordenadorPedidoAdapter(email);
+        email = coordenador.getEmail();
+
+        PedidoEntity pedidoEntity = pedido.get(position);
+        coordenadorPedidoViewHolder.titulo.setText(pedido.get(position).getTipo());
+        coordenadorPedidoViewHolder.aluno.setText(pedido.get(position).getAlunoId());
+        coordenadorPedidoViewHolder.mensagem.setText(pedido.get(position).getTexto());
         //FUNÇÕES DE CLICK
         coordenadorPedidoViewHolder.titulo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, "ENTROU", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(coordenadorPedidoViewHolder.itemView.getContext(), TelaCoordenadorAnalisa.class);
+                Intent intent = new Intent(coordenadorPedidoViewHolder.itemView.getContext(), TelaCoordenadorAnalisa.class)
+                        .putExtra("email", email)
+                        .putExtra("email_aluno", pedidoEntity.getAlunoId())
+                        .putExtra("titulo", pedidoEntity.getTipo())
+                        .putExtra("curso", pedidoEntity.getCurso())
+                        .putExtra("nome", pedidoEntity.getAlunoNome())
+                        .putExtra("mensagem", pedidoEntity.getTexto());
                 //COLOCAR PARAMETROS PARA PASAR DA TELA AQUI TIPO .putExtra
                 coordenadorPedidoViewHolder.itemView.getContext().startActivity(intent);
 
@@ -51,8 +69,15 @@ public class CoordenadorPedidoAdapter extends RecyclerView.Adapter<CoordenadorPe
 
     @Override
     public int getItemCount() {
-        return itens.size();
+        return pedido.size();
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }
 

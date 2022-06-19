@@ -3,6 +3,7 @@ package com.example.tempoextra.roomdatabase;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import java.util.List;
 
@@ -13,22 +14,20 @@ public interface UserDao {
     @Insert
     void registerUser(UserEntity userEntity);
 
-    @Query("SELECT * from pessoal where userID=(:userID) and senha=(:senha)")
+    @Query("SELECT * from Aluno where userID=(:userID) and senha=(:senha)")
     UserEntity login(String userID, String senha);
 
-//    @Query("SELECT EXISTS(SELECT * from pessoal where userID=(:userID))")
-//    boolean isExistsEmail(String userID);
+    @Query("SELECT * from Aluno where userID=(:userID)")
+    UserEntity loginEmail(String userID);
 
-    @Query("SELECT COUNT() FROM pessoal WHERE userID=(:userID)")
+    @Query("SELECT COUNT() FROM Aluno WHERE userID=(:userID)")
     int isExistsEmail(String userID);
 
-
-
-//    @Query("SELECT COUNT() FROM pessoal WHERE userID=(:userID)")
-//    boolean isExistsEmail(String userID);
+    @Update
+    void updateUser(UserEntity userEntity);
 
     //temporariamente o codigo de tirar os alunos que pediram hora
-    @Query("SELECT * from pessoal where userID=(:userID)")
+    @Query("SELECT * from Aluno where userID=(:userID)")
     List<UserEntity> getRequest(String userID);
 
 }
