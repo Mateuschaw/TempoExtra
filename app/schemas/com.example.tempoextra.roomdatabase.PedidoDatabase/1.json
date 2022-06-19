@@ -1,0 +1,76 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "f90f0cfef62d05092208906d672b70c8",
+    "entities": [
+      {
+        "tableName": "Pedido",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `alunoID` TEXT, `coordenaID` TEXT, `alunoNome` TEXT, `alunoCurso` TEXT, `tipo` TEXT, `texto` TEXT, `status` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "AlunoId",
+            "columnName": "alunoID",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "CoordenaId",
+            "columnName": "coordenaID",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "AlunoNome",
+            "columnName": "alunoNome",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "Curso",
+            "columnName": "alunoCurso",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "Tipo",
+            "columnName": "tipo",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "Texto",
+            "columnName": "texto",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "Status",
+            "columnName": "status",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'f90f0cfef62d05092208906d672b70c8')"
+    ]
+  }
+}
