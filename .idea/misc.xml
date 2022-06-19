@@ -3,8 +3,27 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ProjetoTeste/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1655" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ProjetoTeste/app/src/main/res/drawable/custom_botao_acesso.xml" value="0.1655" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ProjetoTeste/app/src/main/res/drawable/custom_botao_cadastro.xml" value="0.1655" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ProjetoTeste/app/src/main/res/drawable/ic_horas.xml" value="0.1655" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ProjetoTeste/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1655" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ProjetoTeste/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.1655" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ProjetoTeste/app/src/main/res/drawable/ic_lock_focused.xml" value="0.1655" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ProjetoTeste/app/src/main/res/drawable/ic_toast_errado.xml" value="0.1655" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ProjetoTeste/app/src/main/res/drawable/ic_toast_verificado.xml" value="0.1655" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ProjetoTeste/app/src/main/res/layout/activity_tela_aluno_analisa.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ProjetoTeste/app/src/main/res/layout/activity_tela_aluno_pedido.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ProjetoTeste/app/src/main/res/layout/activity_tela_aluno_visualizar.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ProjetoTeste/app/src/main/res/layout/activity_tela_coordenador_analisa.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ProjetoTeste/app/src/main/res/layout/activity_tela_home_coordenador.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ProjetoTeste/app/src/main/res/layout/pedido_linha.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ProjetoTeste/app/src/main/res/layout/pedidocoordenador_linha.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ProjetoTeste/app/src/main/res/layout/toast_layout.xml" value="0.264" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/ProjetoTeste/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1655" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable-hdpi/custom_botao_acesso.xml" value="0.1905" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1905" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable/cardview_custom.xml" value="0.1655" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable/custom__curso_icon.xml" value="0.1655" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable/custom_botao.xml" value="0.1905" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable/custom_botao_acesso.xml" value="0.1655" />
@@ -12,25 +31,30 @@
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable/custom_botao_sair.xml" value="0.1655" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable/custom_curso_icon.xml" value="0.1755" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable/custom_email_icon.xml" value="0.1" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable/custom_horas_icon.xml" value="0.1655" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable/custom_input.xml" value="0.1655" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable/custom_lock_icon.xml" value="0.1" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable/custom_usuario_icon.xml" value="0.1945" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable/ic_curso.xml" value="0.1655" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable/ic_curso_focused.xml" value="0.1655" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable/ic_drop_down.xml" value="0.1655" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable/ic_email.xml" value="0.1955" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable/ic_email_focused.xml" value="0.1" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable/ic_horas.xml" value="0.1655" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable/ic_horas_focused.xml" value="0.1655" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1905" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable/ic_lock.xml" value="0.18" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable/ic_lock_focused.xml" value="0.1" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable/ic_usuario.xml" value="0.1945" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable/ic_usuario_focused.xml" value="0.1945" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable/spinner_custom.xml" value="0.1655" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/drawable/splash_principal.xml" value="0.225" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/layout/activity_cadastro.xml" value="0.264" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/layout/activity_tela_adm.xml" value="0.264" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/layout/activity_tela_aluno_analisa.xml" value="0.25181159420289856" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/layout/activity_tela_aluno_pedido.xml" value="0.264" />
-        <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/layout/activity_tela_aluno_visualizar.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/layout/activity_tela_aluno_visualizar.xml" value="0.264" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/layout/activity_tela_coordenador_analisa.xml" value="0.264" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/layout/activity_tela_home_coordenador.xml" value="0.25181159420289856" />
         <entry key="..\:/Users/Usuario/AndroidStudioProjects/TempoExtra/app/src/main/res/layout/activity_tela_home_screen.xml" value="0.264" />
