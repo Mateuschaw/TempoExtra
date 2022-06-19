@@ -42,6 +42,8 @@ public class TelaHomeScreen extends AppCompatActivity {
 
         tcurso = findViewById(R.id.curso);
         curso = getIntent().getStringExtra("curso");
+
+
         tcurso.setText(curso);
 
         btn_voltar = findViewById(R.id.btn_voltar3);

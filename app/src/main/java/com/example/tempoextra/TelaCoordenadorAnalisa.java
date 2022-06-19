@@ -13,11 +13,14 @@ import android.widget.Toast;
 import com.example.tempoextra.roomdatabase.PedidoDao;
 import com.example.tempoextra.roomdatabase.PedidoDatabase;
 import com.example.tempoextra.roomdatabase.PedidoEntity;
+import com.example.tempoextra.roomdatabase.UserDao;
+import com.example.tempoextra.roomdatabase.UserDatabase;
+import com.example.tempoextra.roomdatabase.UserEntity;
 
 public class TelaCoordenadorAnalisa extends AppCompatActivity {
 
     String emailc, titulo, nome, curso, email, mensagem;
-    int horas;
+    int horas, horasaluno;
 
     Button btn_voltar, btn_deferir, btn_indeferir;
     EditText text_horas;
@@ -64,31 +67,76 @@ public class TelaCoordenadorAnalisa extends AppCompatActivity {
         text_aluno_mensagem.setText(mensagem);
 
 
-
         //BOTÃO DEFERIR, SERVE PARA ADICIONAR AS HORAS COMPLEMENTARES AO ALUNO
         btn_deferir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-
                 final String horast = text_horas.getText().toString();
-
 
                 if (horast.isEmpty()) {
 
-
                     Toast.makeText(getApplicationContext(), "Preencha o campo Horas!", Toast.LENGTH_SHORT).show();
-
 
                 } else {
 
-                    
 
                     //VARIAVEL HORAS É A VARIAVEL INT QUE CONTEM AS HORAS QUE O COORDENADOR BOTOU
-                    Toast.makeText(getApplicationContext(), "Horas: " + horast, Toast.LENGTH_SHORT).show();
+                    horas = Integer.parseInt(text_horas.getText().toString());
+
+                    UserDatabase userDatabase = UserDatabase.getUserDatabase(getApplicationContext());
+                    UserDao userDao = userDatabase.userDao();
+                    UserEntity userEntity = new UserEntity();
+
+
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(getApplicationContext(), "email: " + email, Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+                    try {
+
+                        userDao.loginEmail(email);
+
+                    } catch (Exception e) {
+
+                        e.printStackTrace();
+
+                    }
+
+
+                    horasaluno = userEntity.getHoras();
+
+                    int teste = horas + horasaluno;
+
+                    userEntity.setHoras(horasaluno + horas);
+
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+
+                            Toast.makeText(getApplicationContext(), "Horas escrita: " + horas, Toast.LENGTH_SHORT).show();
+
+                            Toast.makeText(getApplicationContext(), "Horas no registro: " + horasaluno, Toast.LENGTH_SHORT).show();
+
+                            Toast.makeText(getApplicationContext(), "Horas teste: " + teste, Toast.LENGTH_SHORT).show();
+
+                        }
+                    });
+
+                    try {
+
+                        userDao.updateUser(userEntity);
+
+                    } catch (Exception e) {
+
+                        e.printStackTrace();
+
+                    }
 
                 }
-
             }
         });//BOTÃO DEFERIR TERMINA AQUI
 
@@ -103,7 +151,7 @@ public class TelaCoordenadorAnalisa extends AppCompatActivity {
                 PedidoDao pedidoDao = pedidoDatabase.pedidoDao();
                 PedidoEntity pedidoEntity = new PedidoEntity();
 
-                pedidoDao.deletePedidoQ(email,mensagem);
+                pedidoDao.deletePedidoQ(email, mensagem);
 
                 //volta pra tela inicial
                 telaHomeCoordenador();
