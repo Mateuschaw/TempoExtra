@@ -15,7 +15,7 @@ import com.example.tempoextra.roomdatabase.PedidoEntity;
 public class TelaAlunoAnalisa extends AppCompatActivity {
 
     String nome,email, curso; // Visualizar na tela
-
+    int horas;
     int position;
     String titulo;
     String mensagem;
@@ -39,6 +39,7 @@ public class TelaAlunoAnalisa extends AppCompatActivity {
         nome = getIntent().getStringExtra("nome");
         email = getIntent().getStringExtra("email");
         curso = getIntent().getStringExtra("curso");
+        horas = getIntent().getIntExtra("horas", horas);
 
         position = getIntent().getIntExtra("pos", position);//CASO PRECISE DO NUMERO DA POSIÇÃO
 
@@ -50,6 +51,7 @@ public class TelaAlunoAnalisa extends AppCompatActivity {
         mensagem_analisa.setText(mensagem);
         nome_analisa.setText(nome);
         curso_analisa.setText(curso);
+        horas_analisa.setText(""+horas);
         //FALTA AS HORAS
 
         btn_excluir = findViewById(R.id.btn_excluir);

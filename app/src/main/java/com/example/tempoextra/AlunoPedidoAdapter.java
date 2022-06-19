@@ -25,23 +25,26 @@ public class AlunoPedidoAdapter extends RecyclerView.Adapter<AlunoPedidoViewHold
     private String nome; // Visualizar na tela
     private String email;
     private String curso;
+    private int horas;
     int pos;
 
     private Context context;
     private List<PedidoEntity> pedido;
 
-    public AlunoPedidoAdapter(String nome, String email, String curso) {
+    public AlunoPedidoAdapter(String nome, String email, String curso, int horas) {
         this.nome = nome;
         this.email = email;
         this.curso = curso;
+        this.horas = horas;
     }
 
-    public AlunoPedidoAdapter(List<PedidoEntity> pedido, Context context, String nome, String email, String curso) {
+    public AlunoPedidoAdapter(List<PedidoEntity> pedido, Context context, String nome, String email, String curso, int horas) {
         this.pedido = pedido;
         this.context = context;
         this.nome = nome;
         this.email = email;
         this.curso = curso;
+        this.horas = horas;
     }
 
     @NonNull
@@ -55,10 +58,12 @@ public class AlunoPedidoAdapter extends RecyclerView.Adapter<AlunoPedidoViewHold
     @Override
     public void onBindViewHolder(@NonNull AlunoPedidoViewHolder alunoPedidoViewHolder, int position) {
        //Contrutor que fez a boa!
-        AlunoPedidoAdapter aluno = new AlunoPedidoAdapter(nome,email,curso);
+        AlunoPedidoAdapter aluno = new AlunoPedidoAdapter(nome,email,curso,horas);
         nome = aluno.getNome();
         email = aluno.getEmail();
         curso = aluno.getCurso();
+        horas = aluno.getHoras();
+
 
 
         PedidoEntity pedidoEntity = pedido.get(position);
@@ -81,7 +86,8 @@ public class AlunoPedidoAdapter extends RecyclerView.Adapter<AlunoPedidoViewHold
                         .putExtra("nome", nome).putExtra("email", email).putExtra("curso", curso)
                         .putExtra("pos", pos)
                         .putExtra("titulo", pedido.get(pos).getTipo())
-                        .putExtra("mensagem", pedidoEntity.getTexto());//DA PRA FAZER ASSIM
+                        .putExtra("mensagem", pedidoEntity.getTexto())
+                        .putExtra("horas", horas);//DA PRA FAZER ASSIM
 
                 //COLOCAR PARAMETROS PARA PASAR DA TELA AQUI TIPO .putExtra
                 alunoPedidoViewHolder.itemView.getContext().startActivity(intent);
@@ -118,5 +124,12 @@ public class AlunoPedidoAdapter extends RecyclerView.Adapter<AlunoPedidoViewHold
         this.curso = curso;
     }
 
+    public int getHoras() {
+        return horas;
+    }
+
+    public void setHoras(int horas) {
+        this.horas = horas;
+    }
 }
 

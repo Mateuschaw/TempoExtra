@@ -26,6 +26,7 @@ public class TelaAlunoVisualizar extends AppCompatActivity {
     private String nome; // Visualizar na tela
     private String email;
     private String curso;
+    private int horas;
 
     private RecyclerView recycler;
     private AlunoPedidoAdapter adapter;
@@ -42,6 +43,7 @@ public class TelaAlunoVisualizar extends AppCompatActivity {
         nome = getIntent().getStringExtra("nome");
         email = getIntent().getStringExtra("email");
         curso = getIntent().getStringExtra("curso");
+        horas = getIntent().getIntExtra("horas", horas);
 
 
         //LISTAR TODOS OS PEDIDOS QUE O USUÁRIO TEM NA CONTA
@@ -53,7 +55,7 @@ public class TelaAlunoVisualizar extends AppCompatActivity {
 
         List<PedidoEntity> pedido = pedidoDao.getAllPedidosAluno(email);
 
-        adapter = new AlunoPedidoAdapter(pedido, TelaAlunoVisualizar.this,nome,email,curso);
+        adapter = new AlunoPedidoAdapter(pedido, TelaAlunoVisualizar.this,nome,email,curso,horas);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(TelaAlunoVisualizar.this,
                 LinearLayoutManager.VERTICAL, false);
         recycler.setLayoutManager(layoutManager);
@@ -62,6 +64,7 @@ public class TelaAlunoVisualizar extends AppCompatActivity {
         adapter.setNome(getIntent().getStringExtra("nome"));//PASSA VALOR PRA ADAPTER
         adapter.setEmail(getIntent().getStringExtra("email"));
         adapter.setCurso(getIntent().getStringExtra("curso"));
+        adapter.setHoras(getIntent().getIntExtra("horas", horas));
 
         btn_voltar = findViewById(R.id.btn_voltar5);
 
@@ -76,7 +79,10 @@ public class TelaAlunoVisualizar extends AppCompatActivity {
 
     public void telaHome() {
         Intent tela = new Intent(TelaAlunoVisualizar.this, TelaHomeScreen.class)
-                .putExtra("nome", nome).putExtra("email", email).putExtra("curso", curso);
+                .putExtra("nome", nome)
+                .putExtra("email", email)
+                .putExtra("curso", curso)
+                .putExtra("horas", horas);
         startActivity(tela);
         finish();
     }
@@ -103,5 +109,13 @@ public class TelaAlunoVisualizar extends AppCompatActivity {
 
     public void setCurso(String curso) {
         this.curso = curso;
+    }
+
+    public int getHoras() {
+        return horas;
+    }
+
+    public void setHoras(int horas) {
+        this.horas = horas;
     }
 }

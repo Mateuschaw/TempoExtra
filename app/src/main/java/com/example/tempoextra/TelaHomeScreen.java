@@ -17,9 +17,10 @@ import io.github.muddz.styleabletoast.StyleableToast;
 public class TelaHomeScreen extends AppCompatActivity {
 
     private String nome, email, curso; // Visualizar na tela
-
+    int horas;
     TextView tnome;
     TextView tcurso;
+    TextView thoras;
 
     Button btn_voltar, btn_pedido, btn_verpedido;
 
@@ -42,9 +43,14 @@ public class TelaHomeScreen extends AppCompatActivity {
 
         tcurso = findViewById(R.id.curso);
         curso = getIntent().getStringExtra("curso");
-
-
         tcurso.setText(curso);
+
+        thoras = findViewById(R.id.horas);
+        horas = getIntent().getIntExtra("horas", horas);
+        thoras.setText(""+horas);
+
+
+
 
         btn_voltar = findViewById(R.id.btn_voltar3);
         btn_pedido = findViewById(R.id.btn_pedido);
@@ -83,7 +89,10 @@ public class TelaHomeScreen extends AppCompatActivity {
 
     public void telaVisualizarPedidos() {
         Intent tela = new Intent(TelaHomeScreen.this, TelaAlunoVisualizar.class)
-                .putExtra("nome", nome).putExtra("email", email).putExtra("curso", curso);
+                .putExtra("nome", nome)
+                .putExtra("email", email)
+                .putExtra("curso", curso)
+                .putExtra("horas", horas);
         startActivity(tela);
         finish();
     }
