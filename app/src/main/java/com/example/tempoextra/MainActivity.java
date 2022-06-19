@@ -25,7 +25,7 @@ import io.github.muddz.styleabletoast.StyleableToast;
 
 public class MainActivity extends AppCompatActivity {
 
-
+//VARIAVEIS
     TextView textView;
     EditText emailtext, senhatext;
     Button btn_acessar, btn_cadastro;
