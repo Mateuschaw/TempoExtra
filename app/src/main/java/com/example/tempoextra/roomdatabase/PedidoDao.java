@@ -22,7 +22,10 @@ public interface PedidoDao {
     @Query("SElECT * FROM Pedido where coordenaID=(:coordenaId)")
     List<PedidoEntity> getAllPedidosCoordena(String coordenaId);
 
+    @Query("Delete from Pedido where alunoID=(:alunoId) and texto=(:texto)")
+    void deletePedidoQ(String alunoId, String texto);
+
     @Delete
-    void delete(PedidoEntity pedidoEntity);
+    void deletePedido(PedidoEntity pedidoEntity);
 
 }

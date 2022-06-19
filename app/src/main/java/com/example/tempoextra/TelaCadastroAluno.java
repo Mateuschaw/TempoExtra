@@ -53,22 +53,16 @@ public class TelaCadastroAluno extends AppCompatActivity {
         userEntity = null;
 
         btn_voltar.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View view) {
-
                 telaMain();
-
             }
-
         });
 
         //FUNÇÕES DE CADASTRAR
         btn_cadastrar.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View view) {
-
                 final String nome = nometext.getText().toString();
                 final String email = emailtext.getText().toString();
                 final String senha = senhatext.getText().toString();
@@ -79,105 +73,67 @@ public class TelaCadastroAluno extends AppCompatActivity {
                         email.isEmpty() ||
                         senha.isEmpty() ||
                         curso.isEmpty()) {
-
                     toastErradoCampos(); // TOAST DE CAMPOS PRREENCHIDOS
-
                 } else {
-
                     //checa se os dois campos de senha estão iguais
                     if (new String(senhatext.getText().toString()).equals(new String(confsenhatext.getText().toString()))) {
-
                         new Thread(new Runnable() {
-
                             @Override
                             public void run() {
-
                                 UserEntity userEntity = userDao.loginEmail(emailtext.getText().toString());
                                 CoordenaEntity coordenaEntity = coordenaDao.loginEmail(emailtext.getText().toString());
-
                                 //checa pra ver se ambas as Entitys estão vasias, com ambas vazias o email não esta cadastro no sistema
                                 if (userEntity == null && coordenaEntity == null) {
-
 //                                  coloca as informações digitadas na UserEntity
 //                                  e cadastra o usuario
                                     putOnUser();
-
                                     runOnUiThread(new Runnable() {
-
                                         @Override
                                         public void run() {
-
                                             toastCorretoCadastro();// TOAST DE CADASTRO CORRETO
-
                                             Intent tela = new Intent(TelaCadastroAluno.this, MainActivity.class);
                                             startActivity(tela);
                                             finish();
-
                                         }
-
                                     });
-
                                 } else {
-
                                     runOnUiThread(new Runnable() {
-
                                         @Override
                                         public void run() {
-
                                             toastErradoEmail(); // TOAST DE VERIFICAR EMAIL
-
                                             finish();
                                             startActivity(getIntent());
-
                                         }
-
                                     });
-
                                 }
-
                             }
-
                         }).start();
-
                     } else {
-
                         toastErradoSenha(); //TOAST DE SENHA ERRADA
-
                     }
-
                 }
-
             }
-
         });
-
     }
 
     public void putOnUser() {
-
         UserEntity userEntity = new UserEntity();
-
         //coloca as informações dentro da Entity
         userEntity.setNome(nometext.getText().toString());
         userEntity.setUserId(emailtext.getText().toString());
         userEntity.setSenha(senhatext.getText().toString());
         userEntity.setCurso(cursotext.getText().toString());
-
         UserDatabase userDatabase = UserDatabase.getUserDatabase(getApplicationContext());
         UserDao userDao = userDatabase.userDao();
-
         //Fazer o Insert
         //Registra Usuario
         userDao.registerUser(userEntity);
-
     }
 
     public void telaMain() {
-
         Intent tela = new Intent(TelaCadastroAluno.this, MainActivity.class);
         startActivity(tela);
         finish();
-
     }
 
     public void toastCorretoCadastro(){

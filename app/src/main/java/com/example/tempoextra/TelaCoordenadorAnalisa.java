@@ -10,6 +10,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.tempoextra.roomdatabase.PedidoDao;
+import com.example.tempoextra.roomdatabase.PedidoDatabase;
+import com.example.tempoextra.roomdatabase.PedidoEntity;
+
 public class TelaCoordenadorAnalisa extends AppCompatActivity {
 
     String emailc, titulo, nome, curso, email, mensagem;
@@ -59,18 +63,30 @@ public class TelaCoordenadorAnalisa extends AppCompatActivity {
         text_aluno_email.setText(email);
         text_aluno_mensagem.setText(mensagem);
 
+
+
         //BOTÃO DEFERIR, SERVE PARA ADICIONAR AS HORAS COMPLEMENTARES AO ALUNO
         btn_deferir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
                 final String horast = text_horas.getText().toString();
-                if(horast.isEmpty()){
+
+
+                if (horast.isEmpty()) {
+
+
                     Toast.makeText(getApplicationContext(), "Preencha o campo Horas!", Toast.LENGTH_SHORT).show();
-                }
-                else{
+
+
+                } else {
+
+                    
+
                     //VARIAVEL HORAS É A VARIAVEL INT QUE CONTEM AS HORAS QUE O COORDENADOR BOTOU
-                    horas = Integer.parseInt(text_horas.getText().toString());
-                    Toast.makeText(getApplicationContext(), "Horas: "+horas, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Horas: " + horast, Toast.LENGTH_SHORT).show();
+
                 }
 
             }
@@ -82,9 +98,20 @@ public class TelaCoordenadorAnalisa extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //EXCLUIR PEDIDO AQUI DENTRO
+
+                PedidoDatabase pedidoDatabase = PedidoDatabase.getPedidoDatabase(getApplicationContext());
+                PedidoDao pedidoDao = pedidoDatabase.pedidoDao();
+                PedidoEntity pedidoEntity = new PedidoEntity();
+
+                pedidoDao.deletePedidoQ(email,mensagem);
+
+                //volta pra tela inicial
+                telaHomeCoordenador();
+
             }
         });//BOTÃO INDEFERIR TERMINA AQUI
 
+        //volta pra tela inicial
         btn_voltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -94,7 +121,7 @@ public class TelaCoordenadorAnalisa extends AppCompatActivity {
 
     }
 
-    public void telaHomeCoordenador(){
+    public void telaHomeCoordenador() {
         Intent tela = new Intent(TelaCoordenadorAnalisa.this, TelaHomeCoordenador.class)
                 .putExtra("email", emailc);
         startActivity(tela);

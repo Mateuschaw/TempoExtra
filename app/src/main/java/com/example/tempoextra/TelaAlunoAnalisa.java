@@ -8,6 +8,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.tempoextra.roomdatabase.PedidoDao;
+import com.example.tempoextra.roomdatabase.PedidoDatabase;
+import com.example.tempoextra.roomdatabase.PedidoEntity;
+
 public class TelaAlunoAnalisa extends AppCompatActivity {
 
     String nome,email, curso; // Visualizar na tela
@@ -50,6 +54,19 @@ public class TelaAlunoAnalisa extends AppCompatActivity {
 
         btn_excluir = findViewById(R.id.btn_excluir);
         btn_voltar = findViewById(R.id.btn_voltar8);
+
+        btn_excluir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PedidoDatabase pedidoDatabase = PedidoDatabase.getPedidoDatabase(getApplicationContext());
+                PedidoDao pedidoDao = pedidoDatabase.pedidoDao();
+                PedidoEntity pedidoEntity = new PedidoEntity();
+                pedidoDao.deletePedidoQ(email,mensagem);
+
+                //volta pra tela depois de apagar o pedido
+                telaHomeScreen();
+            }
+        });
 
         btn_voltar.setOnClickListener(new View.OnClickListener() {
             @Override

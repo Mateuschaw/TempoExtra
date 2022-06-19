@@ -8,8 +8,10 @@
 
     <EditText
         android:id="@+id/text_horas"
-        android:layout_width="316dp"
-        android:layout_height="60dp"
+        android:layout_width="330dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
         android:background="@drawable/custom_input"
         android:drawableStart="@drawable/custom_horas_icon"
         android:drawablePadding="12dp"
@@ -93,7 +95,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_titulo_pedido"
-        app:layout_constraintVertical_bias="0.094" />
+        app:layout_constraintVertical_bias="0.042" />
 
     <TextView
         android:id="@+id/text_aluno_nome"
@@ -108,7 +110,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView12"
         app:layout_constraintTop_toBottomOf="@+id/text_titulo_pedido"
-        app:layout_constraintVertical_bias="0.094" />
+        app:layout_constraintVertical_bias="0.043" />
 
     <TextView
         android:id="@+id/text_titulo_pedido"
@@ -128,9 +130,10 @@
 
     <TextView
         android:id="@+id/text_aluno_mensagem"
-        android:layout_width="320dp"
-        android:layout_height="76dp"
+        android:layout_width="330dp"
+        android:layout_height="184dp"
         android:layout_marginStart="40dp"
+        android:layout_marginEnd="40dp"
         android:inputType="textMultiLine"
         android:text="mensagem multiline"
         android:textColor="@android:color/black"
@@ -139,7 +142,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_titulo_pedido"
-        app:layout_constraintVertical_bias="0.46" />
+        app:layout_constraintVertical_bias="0.34" />
 
     <TextView
         android:id="@+id/text_aluno_curso"
@@ -151,10 +154,10 @@
         android:textSize="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.007"
+        app:layout_constraintHorizontal_bias="0.015"
         app:layout_constraintStart_toEndOf="@+id/textView13"
         app:layout_constraintTop_toBottomOf="@+id/text_titulo_pedido"
-        app:layout_constraintVertical_bias="0.201" />
+        app:layout_constraintVertical_bias="0.114" />
 
     <TextView
         android:id="@+id/textView13"
@@ -167,7 +170,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_titulo_pedido"
-        app:layout_constraintVertical_bias="0.201" />
+        app:layout_constraintVertical_bias="0.114" />
 
     <TextView
         android:id="@+id/text_aluno_email"
@@ -181,7 +184,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView14"
         app:layout_constraintTop_toBottomOf="@+id/text_titulo_pedido"
-        app:layout_constraintVertical_bias="0.308" />
+        app:layout_constraintVertical_bias="0.182" />
 
     <TextView
         android:id="@+id/textView14"
@@ -193,5 +196,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_titulo_pedido"
-        app:layout_constraintVertical_bias="0.308" />
+        app:layout_constraintVertical_bias="0.182" />
 </androidx.constraintlayout.widget.ConstraintLayout>
