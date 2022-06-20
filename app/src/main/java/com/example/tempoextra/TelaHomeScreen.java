@@ -42,7 +42,7 @@ public class TelaHomeScreen extends AppCompatActivity {
 
         thoras = findViewById(R.id.horas);
         horas = getIntent().getIntExtra("horas", horas);
-        thoras.setText("" + horas);
+        thoras.setText("" + horas + " Horas");
 
         btn_voltar = findViewById(R.id.btn_voltar3);
         btn_pedido = findViewById(R.id.btn_pedido);

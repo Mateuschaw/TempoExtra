@@ -75,11 +75,13 @@ public class AlunoPedidoAdapter extends RecyclerView.Adapter<AlunoPedidoViewHold
 
                 //adicionar um check pra achar a posição do botão
                 Intent intent = new Intent(alunoPedidoViewHolder.itemView.getContext(), TelaAlunoAnalisa.class)
-                        .putExtra("nome", nome).putExtra("email", email).putExtra("curso", curso)
-                        .putExtra("pos", pos)
-                        .putExtra("titulo", pedido.get(pos).getTipo())
+                        .putExtra("nome", nome)
+                        .putExtra("email", email)
+                        .putExtra("curso", curso)
+                        .putExtra("titulo", pedidoEntity.getTipo())
                         .putExtra("mensagem", pedidoEntity.getTexto())
-                        .putExtra("horas", horas);//DA PRA FAZER ASSIM
+                        .putExtra("emailc", pedidoEntity.getCoordenaId())
+                        .putExtra("horas", horas);
                 //COLOCAR PARAMETROS PARA PASAR DA TELA AQUI TIPO .putExtra
                 alunoPedidoViewHolder.itemView.getContext().startActivity(intent);
             }

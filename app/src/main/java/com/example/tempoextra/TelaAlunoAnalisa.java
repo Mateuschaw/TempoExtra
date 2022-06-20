@@ -14,11 +14,11 @@ import com.example.tempoextra.roomdatabase.PedidoEntity;
 
 public class TelaAlunoAnalisa extends AppCompatActivity {
 
-    String nome, email, curso; // Visualizar na tela
-    int horas, position;
+    String nome, email, curso, emailc; // Visualizar na tela
+    int horas;
     String titulo, mensagem;
 
-    TextView titulo_analisa, curso_analisa, mensagem_analisa, horas_analisa, nome_analisa;
+    TextView titulo_analisa, curso_analisa, mensagem_analisa, horas_analisa, nome_analisa, nome_coord_analisa;
     Button btn_voltar, btn_excluir;
 
     @Override
@@ -30,16 +30,16 @@ public class TelaAlunoAnalisa extends AppCompatActivity {
 
         titulo_analisa = findViewById(R.id.titulo_analisa);
         nome_analisa = findViewById(R.id.nome_analisa);
+        nome_coord_analisa = findViewById(R.id.nome_coord_analisa);
         mensagem_analisa = findViewById(R.id.mensagem_analisa);
         curso_analisa = findViewById(R.id.curso_analisa);
         horas_analisa = findViewById(R.id.horas_analisa);//AQUI
 
         nome = getIntent().getStringExtra("nome");
         email = getIntent().getStringExtra("email");
+        emailc = getIntent().getStringExtra("emailc");//email coordenador
         curso = getIntent().getStringExtra("curso");
         horas = getIntent().getIntExtra("horas", horas);
-
-        position = getIntent().getIntExtra("pos", position);//CASO PRECISE DO NUMERO DA POSIÇÃO
 
         titulo = getIntent().getStringExtra("titulo");
         mensagem = getIntent().getStringExtra("mensagem");
@@ -48,8 +48,9 @@ public class TelaAlunoAnalisa extends AppCompatActivity {
         titulo_analisa.setText(titulo); //O INT PRECISA TER TEXTINHO SE NÃO ELE BUGA
         mensagem_analisa.setText(mensagem);
         nome_analisa.setText(nome);
+        nome_coord_analisa.setText(emailc);
         curso_analisa.setText(curso);
-        horas_analisa.setText("" + horas);
+        horas_analisa.setText("" + horas + " Horas");
         //FALTA AS HORAS
 
         btn_excluir = findViewById(R.id.btn_excluir);
