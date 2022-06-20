@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import io.github.muddz.styleabletoast.StyleableToast;
 
@@ -47,9 +48,7 @@ public class TelaHomeScreen extends AppCompatActivity {
 
         thoras = findViewById(R.id.horas);
         horas = getIntent().getIntExtra("horas", horas);
-        thoras.setText(""+horas);
-
-
+        thoras.setText("" + horas);
 
 
         btn_voltar = findViewById(R.id.btn_voltar3);
@@ -103,7 +102,7 @@ public class TelaHomeScreen extends AppCompatActivity {
         finish();
     }
 
-    public void toastCorreto(){
+    public void toastCorreto() {
         StyleableToast.makeText(this, "Bem vindo!", R.style.toast_verificado).show();
     }
 

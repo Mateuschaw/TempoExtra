@@ -20,7 +20,7 @@ import com.example.tempoextra.roomdatabase.UserEntity;
 public class TelaCoordenadorAnalisa extends AppCompatActivity {
 
     String emailc, titulo, nome, curso, email, mensagem;
-    int horas, horasaluno;
+    int horas;
 
     Button btn_voltar, btn_deferir, btn_indeferir;
     EditText text_horas;
@@ -73,13 +73,15 @@ public class TelaCoordenadorAnalisa extends AppCompatActivity {
             public void onClick(View view) {
 
                 final String horast = text_horas.getText().toString();
-
                 if (horast.isEmpty()) {
-
-                    Toast.makeText(getApplicationContext(), "Preencha o campo Horas!", Toast.LENGTH_SHORT).show();
-
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            //Mateus favor trocar os toast pelos bunito!
+                            Toast.makeText(getApplicationContext(), "Preencha o campo Horas!", Toast.LENGTH_SHORT).show();
+                        }
+                    });
                 } else {
-
 
                     //VARIAVEL HORAS É A VARIAVEL INT QUE CONTEM AS HORAS QUE O COORDENADOR BOTOU
                     horas = Integer.parseInt(text_horas.getText().toString());
@@ -88,58 +90,39 @@ public class TelaCoordenadorAnalisa extends AppCompatActivity {
                     UserDao userDao = userDatabase.userDao();
                     UserEntity userEntity = new UserEntity();
 
-
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            Toast.makeText(getApplicationContext(), "email: " + email, Toast.LENGTH_SHORT).show();
-                        }
-                    });
-
                     try {
-
-                        userDao.loginEmail(email);
-
+                        userEntity = userDao.loginEmail(email);
                     } catch (Exception e) {
-
                         e.printStackTrace();
-
                     }
 
+                    int horasaluno = userEntity.getHoras();
+                    int horasfinal = horas + horasaluno;
 
-                    horasaluno = userEntity.getHoras();
+                    try {
+                        int retorno = userDao.updateUserQ(horasfinal, email);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
 
-                    int teste = horas + horasaluno;
+                    PedidoDatabase pedidoDatabase = PedidoDatabase.getPedidoDatabase(getApplicationContext());
+                    PedidoDao pedidoDao = pedidoDatabase.pedidoDao();
+                    PedidoEntity pedidoEntity = new PedidoEntity();
 
-                    userEntity.setHoras(horasaluno + horas);
-
+                    pedidoDao.deletePedidoQ(email, mensagem);
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
 
-                            Toast.makeText(getApplicationContext(), "Horas escrita: " + horas, Toast.LENGTH_SHORT).show();
-
-                            Toast.makeText(getApplicationContext(), "Horas no registro: " + horasaluno, Toast.LENGTH_SHORT).show();
-
-                            Toast.makeText(getApplicationContext(), "Horas teste: " + teste, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "Pedido Deferido com Sucesso", Toast.LENGTH_SHORT).show();
 
                         }
                     });
-
-                    try {
-
-                        userDao.updateUser(userEntity);
-
-                    } catch (Exception e) {
-
-                        e.printStackTrace();
-
-                    }
-
+                    //volta pra tela inicial
+                    telaHomeCoordenador();
                 }
             }
         });//BOTÃO DEFERIR TERMINA AQUI
-
 
         //BOTÃO DE INDEFERIR PEDIDO SERVE PARA NEGAR O PEDIDO DO ALUNO
         btn_indeferir.setOnClickListener(new View.OnClickListener() {
@@ -152,6 +135,8 @@ public class TelaCoordenadorAnalisa extends AppCompatActivity {
                 PedidoEntity pedidoEntity = new PedidoEntity();
 
                 pedidoDao.deletePedidoQ(email, mensagem);
+
+                Toast.makeText(getApplicationContext(), "Pedido Indeferido com Sucesso", Toast.LENGTH_SHORT).show();
 
                 //volta pra tela inicial
                 telaHomeCoordenador();
@@ -166,7 +151,6 @@ public class TelaCoordenadorAnalisa extends AppCompatActivity {
                 telaHomeCoordenador();
             }
         });
-
     }
 
     public void telaHomeCoordenador() {

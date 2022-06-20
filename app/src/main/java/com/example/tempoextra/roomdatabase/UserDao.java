@@ -20,14 +20,6 @@ public interface UserDao {
     @Query("SELECT * from Aluno where userID=(:userID)")
     UserEntity loginEmail(String userID);
 
-    @Query("SELECT COUNT() FROM Aluno WHERE userID=(:userID)")
-    int isExistsEmail(String userID);
-
-    @Update
-    void updateUser(UserEntity userEntity);
-
-    //temporariamente o codigo de tirar os alunos que pediram hora
-    @Query("SELECT * from Aluno where userID=(:userID)")
-    List<UserEntity> getRequest(String userID);
-
+    @Query("Update Aluno set horas=(:horas) WHERE userID=(:userID)")
+    int updateUserQ(int horas, String userID);
 }
