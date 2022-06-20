@@ -24,7 +24,8 @@ import io.github.muddz.styleabletoast.StyleableToast;
 
 public class TelaAlunoPedido extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    String nome, email, curso; // Visualizar na tela
+    String nome, email, curso;
+    int horas;// Visualizar na tela
     String tipo; // Spinner
 
     Button btn_voltar, btn_solicitar;
@@ -41,6 +42,7 @@ public class TelaAlunoPedido extends AppCompatActivity implements AdapterView.On
         nome = getIntent().getStringExtra("nome");
         email = getIntent().getStringExtra("email");
         curso = getIntent().getStringExtra("curso");
+        horas = getIntent().getIntExtra("horas", horas);
 
         btn_voltar = findViewById(R.id.btn_voltar4);
         btn_solicitar = findViewById(R.id.btn_solicitar);
@@ -149,7 +151,10 @@ public class TelaAlunoPedido extends AppCompatActivity implements AdapterView.On
 
     public void telaHome() {
         Intent tela = new Intent(TelaAlunoPedido.this, TelaHomeScreen.class)
-                .putExtra("nome", nome).putExtra("email", email).putExtra("curso", curso);
+                .putExtra("nome", nome)
+                .putExtra("email", email)
+                .putExtra("curso", curso)
+                .putExtra("horas", horas);
         startActivity(tela);
         finish();
     }

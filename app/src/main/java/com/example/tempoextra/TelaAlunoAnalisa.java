@@ -80,7 +80,10 @@ public class TelaAlunoAnalisa extends AppCompatActivity {
 
     public void telaHomeScreen(){
         Intent tela = new Intent(TelaAlunoAnalisa.this, TelaAlunoVisualizar.class)
-                .putExtra("nome", nome).putExtra("email", email).putExtra("curso", curso);
+                .putExtra("nome", nome)
+                .putExtra("email", email)
+                .putExtra("curso", curso)
+                .putExtra("horas", horas);
         startActivity(tela);
         finish();
     }

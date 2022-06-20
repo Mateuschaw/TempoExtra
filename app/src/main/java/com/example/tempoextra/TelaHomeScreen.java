@@ -80,7 +80,10 @@ public class TelaHomeScreen extends AppCompatActivity {
 
     public void telaPedido() {
         Intent tela = new Intent(TelaHomeScreen.this, TelaAlunoPedido.class)
-                .putExtra("nome", nome).putExtra("email", email).putExtra("curso", curso);
+                .putExtra("nome", nome)
+                .putExtra("email", email)
+                .putExtra("curso", curso)
+                .putExtra("horas", horas);
 
         startActivity(tela);
         finish();
