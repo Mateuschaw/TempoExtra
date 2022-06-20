@@ -15,6 +15,5 @@ public class AlunoPedidoViewHolder extends RecyclerView.ViewHolder {
         titulo = itemView.findViewById(R.id.titulo_text);
         coordenador = itemView.findViewById(R.id.coordenador_text);
         mensagem = itemView.findViewById(R.id.mensagem_text);
-
     }
 }

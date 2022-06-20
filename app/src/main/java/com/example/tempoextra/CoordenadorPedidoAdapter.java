@@ -35,7 +35,7 @@ public class CoordenadorPedidoAdapter extends RecyclerView.Adapter<CoordenadorPe
     @NonNull
     @Override
     public CoordenadorPedidoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view  = LayoutInflater.from(context).inflate(R.layout.pedidocoordenador_linha, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.pedidocoordenador_linha, parent, false);
         CoordenadorPedidoViewHolder viewHolder = new CoordenadorPedidoViewHolder(view);
         return viewHolder;
     }
@@ -62,7 +62,6 @@ public class CoordenadorPedidoAdapter extends RecyclerView.Adapter<CoordenadorPe
                         .putExtra("mensagem", pedidoEntity.getTexto());
                 //COLOCAR PARAMETROS PARA PASAR DA TELA AQUI TIPO .putExtra
                 coordenadorPedidoViewHolder.itemView.getContext().startActivity(intent);
-
             }
         });
     }

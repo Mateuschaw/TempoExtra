@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TelaHomeCoordenador"
-    android:background="#E4E4E4">
+    android:background="#E4E4E4"
+    tools:context=".TelaHomeCoordenador">
 
     <TextView
         android:id="@+id/text_coordenador"

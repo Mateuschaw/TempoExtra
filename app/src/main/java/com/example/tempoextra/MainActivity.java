@@ -159,5 +159,4 @@ public class MainActivity extends AppCompatActivity {
     public void toastErradoLogin() {
         StyleableToast.makeText(this, "Login ou Senha Incorretos!", R.style.toast_negado).show();
     }
-
 }

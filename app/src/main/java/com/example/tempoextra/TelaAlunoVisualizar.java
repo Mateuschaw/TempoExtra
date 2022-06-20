@@ -23,9 +23,7 @@ import java.util.List;
 
 public class TelaAlunoVisualizar extends AppCompatActivity {
 
-    private String nome; // Visualizar na tela
-    private String email;
-    private String curso;
+    private String nome, email, curso; // Visualizar na tela
     private int horas;
 
     private RecyclerView recycler;
@@ -45,7 +43,6 @@ public class TelaAlunoVisualizar extends AppCompatActivity {
         curso = getIntent().getStringExtra("curso");
         horas = getIntent().getIntExtra("horas", horas);
 
-
         //LISTAR TODOS OS PEDIDOS QUE O USUÁRIO TEM NA CONTA
         recycler = findViewById(R.id.recycler_pedidos);
 
@@ -55,7 +52,7 @@ public class TelaAlunoVisualizar extends AppCompatActivity {
 
         List<PedidoEntity> pedido = pedidoDao.getAllPedidosAluno(email);
 
-        adapter = new AlunoPedidoAdapter(pedido, TelaAlunoVisualizar.this,nome,email,curso,horas);
+        adapter = new AlunoPedidoAdapter(pedido, TelaAlunoVisualizar.this, nome, email, curso, horas);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(TelaAlunoVisualizar.this,
                 LinearLayoutManager.VERTICAL, false);
         recycler.setLayoutManager(layoutManager);
@@ -74,7 +71,6 @@ public class TelaAlunoVisualizar extends AppCompatActivity {
                 telaHome();
             }
         });
-
     }
 
     public void telaHome() {

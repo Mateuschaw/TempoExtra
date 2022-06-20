@@ -13,19 +13,13 @@ public abstract class CoordenaDatabase extends RoomDatabase {
     private static CoordenaDatabase coordenaDatabase;
 
     public static synchronized CoordenaDatabase getCoordenaDatabase(Context context) {
-
         if (coordenaDatabase == null) {
-
             coordenaDatabase = Room.databaseBuilder(context, CoordenaDatabase.class, dbName)
                     .fallbackToDestructiveMigration()
                     .build();
-
         }
-
         return coordenaDatabase;
-
     }
 
     public abstract CoordenaDao coordenaDao();
-
 }

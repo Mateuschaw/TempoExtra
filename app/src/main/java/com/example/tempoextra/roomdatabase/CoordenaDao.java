@@ -6,7 +6,6 @@ import androidx.room.Query;
 
 import java.util.List;
 
-
 @Dao
 public interface CoordenaDao {
 
@@ -18,8 +17,4 @@ public interface CoordenaDao {
 
     @Query("SELECT * from Coordenador where coordenaID=(:coordenaID)")
     CoordenaEntity loginEmail(String coordenaID);
-
-    @Query("SELECT COUNT() FROM Coordenador WHERE coordenaID=(:coordenaID)")
-    int isExistsEmail(String coordenaID);
-
 }

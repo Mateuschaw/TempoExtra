@@ -13,20 +13,14 @@ public abstract class PedidoDatabase extends RoomDatabase {
     private static PedidoDatabase pedidoDatabase;
 
     public static synchronized PedidoDatabase getPedidoDatabase(Context context) {
-
         if (pedidoDatabase == null) {
-
             pedidoDatabase = Room.databaseBuilder(context, PedidoDatabase.class, dbName)
                     .allowMainThreadQueries()
                     .fallbackToDestructiveMigration()
                     .build();
-
         }
-
         return pedidoDatabase;
-
     }
 
     public abstract PedidoDao pedidoDao();
-
 }

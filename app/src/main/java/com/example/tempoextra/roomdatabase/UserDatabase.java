@@ -13,20 +13,14 @@ public abstract class UserDatabase extends RoomDatabase {
     private static UserDatabase userDatabase;
 
     public static synchronized UserDatabase getUserDatabase(Context context) {
-
         if (userDatabase == null) {
-
             userDatabase = Room.databaseBuilder(context, UserDatabase.class, dbName)
                     .allowMainThreadQueries()
                     .fallbackToDestructiveMigration()
                     .build();
-
         }
-
         return userDatabase;
-
     }
 
     public abstract UserDao userDao();
-
 }

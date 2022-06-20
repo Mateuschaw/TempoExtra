@@ -1,6 +1,5 @@
 package com.example.tempoextra;
 
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -19,22 +18,17 @@ public class TelaHomeScreen extends AppCompatActivity {
 
     private String nome, email, curso; // Visualizar na tela
     int horas;
-    TextView tnome;
-    TextView tcurso;
-    TextView thoras;
 
+    TextView tnome, tcurso, thoras;
     Button btn_voltar, btn_pedido, btn_verpedido;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
+
         setTheme(R.style.Theme_TempoExtra);
         setContentView(R.layout.activity_tela_home_screen);
         getSupportActionBar().hide();
-
-
-        //TELAS NÃO ESTÃO SALVANDO NOMES
 
         tnome = findViewById(R.id.nome);
         nome = getIntent().getStringExtra("nome");
@@ -49,7 +43,6 @@ public class TelaHomeScreen extends AppCompatActivity {
         thoras = findViewById(R.id.horas);
         horas = getIntent().getIntExtra("horas", horas);
         thoras.setText("" + horas);
-
 
         btn_voltar = findViewById(R.id.btn_voltar3);
         btn_pedido = findViewById(R.id.btn_pedido);
@@ -75,7 +68,6 @@ public class TelaHomeScreen extends AppCompatActivity {
                 telaVisualizarPedidos();
             }
         });
-
     }
 
     public void telaPedido() {
@@ -84,7 +76,6 @@ public class TelaHomeScreen extends AppCompatActivity {
                 .putExtra("email", email)
                 .putExtra("curso", curso)
                 .putExtra("horas", horas);
-
         startActivity(tela);
         finish();
     }
@@ -108,5 +99,4 @@ public class TelaHomeScreen extends AppCompatActivity {
     public void toastCorreto() {
         StyleableToast.makeText(this, "Bem vindo!", R.style.toast_verificado).show();
     }
-
 }

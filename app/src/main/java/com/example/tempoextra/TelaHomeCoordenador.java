@@ -22,11 +22,10 @@ import java.util.List;
 
 public class TelaHomeCoordenador extends AppCompatActivity {
 
-    private RecyclerView recycler;
-    private CoordenadorPedidoAdapter adapter;
-
     String email;
 
+    private RecyclerView recycler;
+    private CoordenadorPedidoAdapter adapter;
     TextView tnome;
     Button btn_voltar;
 
@@ -41,7 +40,6 @@ public class TelaHomeCoordenador extends AppCompatActivity {
         String usuario = getIntent().getStringExtra("nome");
         String email = getIntent().getStringExtra("email");
         String curso = getIntent().getStringExtra("curso");
-
 
         recycler = findViewById(R.id.recycler_coordenador);
 
@@ -65,10 +63,9 @@ public class TelaHomeCoordenador extends AppCompatActivity {
                 TelaMain();
             }
         });
-
     }
 
-    public void TelaMain(){
+    public void TelaMain() {
         Intent tela = new Intent(TelaHomeCoordenador.this, MainActivity.class)
                 .putExtra("email", email);
         startActivity(tela);

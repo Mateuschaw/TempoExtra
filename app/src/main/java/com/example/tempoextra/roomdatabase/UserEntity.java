@@ -6,7 +6,6 @@ import androidx.room.PrimaryKey;
 
 import java.util.Objects;
 
-
 @Entity(tableName = "Aluno")
 public class UserEntity {
 
@@ -41,59 +40,40 @@ public class UserEntity {
     }
 
     public void setUserId(String userId) {
-
         UserId = userId;
-
     }
 
     public String getSenha() {
-
         return Senha;
-
     }
 
     public void setSenha(String senha) {
-
         Senha = senha;
-
     }
 
     public String getNome() {
-
         return Nome;
-
     }
 
     public void setNome(String nome) {
-
         Nome = nome;
-
     }
 
     public int getHoras() {
-
         return Horas;
-
     }
 
     public void setHoras(int horas) {
-
         Horas = horas;
-
     }
 
     public String getCurso() {
-
         return Curso;
-
     }
 
     public void setCurso(String curso) {
-
         Curso = curso;
-
     }
-
 }
 
 

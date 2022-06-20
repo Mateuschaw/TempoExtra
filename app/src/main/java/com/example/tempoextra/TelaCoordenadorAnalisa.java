@@ -17,6 +17,8 @@ import com.example.tempoextra.roomdatabase.UserDao;
 import com.example.tempoextra.roomdatabase.UserDatabase;
 import com.example.tempoextra.roomdatabase.UserEntity;
 
+import io.github.muddz.styleabletoast.StyleableToast;
+
 public class TelaCoordenadorAnalisa extends AppCompatActivity {
 
     String emailc, titulo, nome, curso, email, mensagem;
@@ -77,8 +79,7 @@ public class TelaCoordenadorAnalisa extends AppCompatActivity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            //Mateus favor trocar os toast pelos bunito!
-                            Toast.makeText(getApplicationContext(), "Preencha o campo Horas!", Toast.LENGTH_SHORT).show();
+                            toastErradoCampos();
                         }
                     });
                 } else {
@@ -113,9 +114,7 @@ public class TelaCoordenadorAnalisa extends AppCompatActivity {
                     runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-
-                            Toast.makeText(getApplicationContext(), "Pedido Deferido com Sucesso", Toast.LENGTH_SHORT).show();
-
+                            toastDeferido();
                         }
                     });
                     //volta pra tela inicial
@@ -136,8 +135,7 @@ public class TelaCoordenadorAnalisa extends AppCompatActivity {
 
                 pedidoDao.deletePedidoQ(email, mensagem);
 
-                Toast.makeText(getApplicationContext(), "Pedido Indeferido com Sucesso", Toast.LENGTH_SHORT).show();
-
+                toastIndeferido();
                 //volta pra tela inicial
                 telaHomeCoordenador();
 
@@ -158,5 +156,17 @@ public class TelaCoordenadorAnalisa extends AppCompatActivity {
                 .putExtra("email", emailc);
         startActivity(tela);
         finish();
+    }
+
+    public void toastErradoCampos() {
+        StyleableToast.makeText(this, "Preencha o Campo Horas!", R.style.toast_negado).show();
+    }
+
+    public void toastDeferido() {
+        StyleableToast.makeText(this, "Pedido Deferido Com Sucesso!", R.style.toast_verificado).show();
+    }
+
+    public void toastIndeferido() {
+        StyleableToast.makeText(this, "Pedido Indeferido Com Sucesso!", R.style.toast_verificado).show();
     }
 }

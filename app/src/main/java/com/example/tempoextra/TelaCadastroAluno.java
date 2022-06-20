@@ -136,20 +136,19 @@ public class TelaCadastroAluno extends AppCompatActivity {
         finish();
     }
 
-    public void toastCorretoCadastro(){
+    public void toastCorretoCadastro() {
         StyleableToast.makeText(this, "Aluno Cadastrado!", R.style.toast_verificado).show();
     }
 
-    public void toastErradoCampos(){
+    public void toastErradoCampos() {
         StyleableToast.makeText(this, "Preencha Todos os Campos!", R.style.toast_negado).show();
     }
 
-    public void toastErradoEmail(){
+    public void toastErradoEmail() {
         StyleableToast.makeText(this, "Email já Cadastrado!", R.style.toast_negado).show();
     }
 
-    public void toastErradoSenha(){
+    public void toastErradoSenha() {
         StyleableToast.makeText(this, "As Senhas Não São Iguais", R.style.toast_negado).show();
     }
-
 }

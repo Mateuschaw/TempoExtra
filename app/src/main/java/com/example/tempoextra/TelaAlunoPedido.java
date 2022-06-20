@@ -19,6 +19,7 @@ import com.example.tempoextra.roomdatabase.CoordenaEntity;
 import com.example.tempoextra.roomdatabase.PedidoDao;
 import com.example.tempoextra.roomdatabase.PedidoDatabase;
 import com.example.tempoextra.roomdatabase.PedidoEntity;
+import com.example.tempoextra.roomdatabase.UserEntity;
 
 import io.github.muddz.styleabletoast.StyleableToast;
 
@@ -61,56 +62,60 @@ public class TelaAlunoPedido extends AppCompatActivity implements AdapterView.On
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(this);
 
-        btn_solicitar.setOnClickListener(new View.OnClickListener() {
+        CoordenaDatabase coordenaDatabase = CoordenaDatabase.getCoordenaDatabase(getApplicationContext());
+        CoordenaDao coordenaDao = coordenaDatabase.coordenaDao();
+        CoordenaEntity coordenaEntity = new CoordenaEntity();
+        coordenaEntity = null;
 
+        btn_solicitar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 final String coordenaid = coordenadortext.getText().toString();
                 final String mensagem = mensagemtext.getText().toString();
 
                 if (coordenaid.isEmpty() || mensagem.isEmpty()) {
-
                     runOnUiThread(new Runnable() {
-
                         @Override
                         public void run() {
-
                             toastErradoCampos(); // TOASTER DE PREENCHER TODOS OS CAMPOS
-
                         }
-
                     });
-
                 } else {
-
-                    pedidoEntity.setStatus(new String("Enviado"));
-                    pedidoEntity.setAlunoNome(nome);
-                    pedidoEntity.setAlunoId(email);
-                    pedidoEntity.setCurso(curso);
-                    pedidoEntity.setCoordenaId(coordenadortext.getText().toString());
-                    pedidoEntity.setTexto(mensagemtext.getText().toString());
-                    pedidoEntity.setTipo(tipo);
-
-                    putOnPedido();
-
-                    runOnUiThread(new Runnable() {
-
+                    new Thread(new Runnable() {
                         @Override
                         public void run() {
+                            CoordenaEntity coordenaEntity = coordenaDao.loginEmail(coordenadortext.getText().toString());
 
-                            toastCorretoCadastro(); //PEDIDO CADASTRADO TOASTER
+                            if (coordenaEntity == null) {
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        toastErradoEmail(); // TOAST DE VERIFICAR EMAIL
+                                    }
+                                });
+                            } else {
+                                pedidoEntity.setStatus(new String("Enviado"));
+                                pedidoEntity.setAlunoNome(nome);
+                                pedidoEntity.setAlunoId(email);
+                                pedidoEntity.setCurso(curso);
+                                pedidoEntity.setCoordenaId(coordenadortext.getText().toString());
+                                pedidoEntity.setTexto(mensagemtext.getText().toString());
+                                pedidoEntity.setTipo(tipo);
 
-                            telaHome();
+                                putOnPedido();
 
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        toastCorretoCadastro(); //PEDIDO CADASTRADO TOASTER
+                                        telaHome();
+                                    }
+                                });
+                            }
                         }
-
-                    });
-
+                    }).start();
                 }
-
             }
-
         });
 
         btn_voltar.setOnClickListener(new View.OnClickListener() {
@@ -120,11 +125,9 @@ public class TelaAlunoPedido extends AppCompatActivity implements AdapterView.On
                 //mensagemtext.setText(texto);
             }
         });
-
     }
 
     public void putOnPedido() {
-
         PedidoDatabase pedidoDatabase = PedidoDatabase.getPedidoDatabase(getApplicationContext());
         PedidoDao pedidoDao = pedidoDatabase.pedidoDao();
         PedidoEntity pedidoEntity = new PedidoEntity();
@@ -136,17 +139,11 @@ public class TelaAlunoPedido extends AppCompatActivity implements AdapterView.On
         pedidoEntity.setCoordenaId(coordenadortext.getText().toString());
         pedidoEntity.setTexto(mensagemtext.getText().toString());
         pedidoEntity.setTipo(tipo);
-
         try {
-
             pedidoDao.registerPedido(pedidoEntity);
-
         } catch (Exception e) {
-
             e.printStackTrace();
-
         }
-
     }
 
     public void telaHome() {
@@ -166,14 +163,17 @@ public class TelaAlunoPedido extends AppCompatActivity implements AdapterView.On
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
-
     }
 
-    public void toastCorretoCadastro(){
+    public void toastCorretoCadastro() {
         StyleableToast.makeText(this, "Pedido Enviado!", R.style.toast_verificado).show();
     }
 
-    public void toastErradoCampos(){
+    public void toastErradoCampos() {
         StyleableToast.makeText(this, "Preencha Todos os Campos!", R.style.toast_negado).show();
+    }
+
+    public void toastErradoEmail() {
+        StyleableToast.makeText(this, "E-mail Não Condiz Com Nenhum Coordenador", R.style.toast_negado).show();
     }
 }

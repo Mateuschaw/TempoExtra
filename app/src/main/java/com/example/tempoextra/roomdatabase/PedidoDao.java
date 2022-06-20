@@ -7,9 +7,6 @@ import androidx.room.Query;
 
 import java.util.List;
 
-
-
-
 @Dao
 public interface PedidoDao {
 
@@ -24,8 +21,4 @@ public interface PedidoDao {
 
     @Query("Delete from Pedido where alunoID=(:alunoId) and texto=(:texto)")
     void deletePedidoQ(String alunoId, String texto);
-
-    @Delete
-    void deletePedido(PedidoEntity pedidoEntity);
-
 }

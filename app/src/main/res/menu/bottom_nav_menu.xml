@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="Suas Horas"
+    <item
+        android:id="@+id/home"
         android:icon="@drawable/ic_horas"
-        android:id="@+id/home"/>
-    <item android:title="Abrir Pedido"
-        android:id="@+id/alunoPedido"/>
-    <item android:title="Meus Pedidos"
-        android:id="@+id/meuspedidos"/>
+        android:title="Suas Horas" />
+    <item
+        android:id="@+id/alunoPedido"
+        android:title="Abrir Pedido" />
+    <item
+        android:id="@+id/meuspedidos"
+        android:title="Meus Pedidos" />
 </menu>

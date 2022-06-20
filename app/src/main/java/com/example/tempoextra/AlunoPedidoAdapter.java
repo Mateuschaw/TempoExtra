@@ -22,9 +22,7 @@ import io.github.muddz.styleabletoast.StyleableToast;
 
 public class AlunoPedidoAdapter extends RecyclerView.Adapter<AlunoPedidoViewHolder> {
 
-    private String nome; // Visualizar na tela
-    private String email;
-    private String curso;
+    private String nome, email, curso; // Visualizar na tela
     private int horas;
     int pos;
 
@@ -50,45 +48,38 @@ public class AlunoPedidoAdapter extends RecyclerView.Adapter<AlunoPedidoViewHold
     @NonNull
     @Override
     public AlunoPedidoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view  = LayoutInflater.from(context).inflate(R.layout.pedido_linha, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.pedido_linha, parent, false);
         AlunoPedidoViewHolder viewHolder = new AlunoPedidoViewHolder(view);
         return viewHolder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull AlunoPedidoViewHolder alunoPedidoViewHolder, int position) {
-       //Contrutor que fez a boa!
-        AlunoPedidoAdapter aluno = new AlunoPedidoAdapter(nome,email,curso,horas);
+        //Contrutor que fez a boa!
+        AlunoPedidoAdapter aluno = new AlunoPedidoAdapter(nome, email, curso, horas);
         nome = aluno.getNome();
         email = aluno.getEmail();
         curso = aluno.getCurso();
         horas = aluno.getHoras();
-
-
 
         PedidoEntity pedidoEntity = pedido.get(position);
         alunoPedidoViewHolder.titulo.setText(pedido.get(position).getTipo());
         alunoPedidoViewHolder.coordenador.setText(pedido.get(position).getCoordenaId());
         alunoPedidoViewHolder.mensagem.setText(pedido.get(position).getTexto());
 
-
         //FUNÇÕES DE CLICK
         alunoPedidoViewHolder.titulo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 pos = alunoPedidoViewHolder.getAdapterPosition();//CONTA A POSITION
 
-
                 //adicionar um check pra achar a posição do botão
-
                 Intent intent = new Intent(alunoPedidoViewHolder.itemView.getContext(), TelaAlunoAnalisa.class)
                         .putExtra("nome", nome).putExtra("email", email).putExtra("curso", curso)
                         .putExtra("pos", pos)
                         .putExtra("titulo", pedido.get(pos).getTipo())
                         .putExtra("mensagem", pedidoEntity.getTexto())
                         .putExtra("horas", horas);//DA PRA FAZER ASSIM
-
                 //COLOCAR PARAMETROS PARA PASAR DA TELA AQUI TIPO .putExtra
                 alunoPedidoViewHolder.itemView.getContext().startActivity(intent);
             }

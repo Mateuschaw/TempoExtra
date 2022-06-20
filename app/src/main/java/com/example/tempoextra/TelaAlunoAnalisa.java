@@ -14,11 +14,9 @@ import com.example.tempoextra.roomdatabase.PedidoEntity;
 
 public class TelaAlunoAnalisa extends AppCompatActivity {
 
-    String nome,email, curso; // Visualizar na tela
-    int horas;
-    int position;
-    String titulo;
-    String mensagem;
+    String nome, email, curso; // Visualizar na tela
+    int horas, position;
+    String titulo, mensagem;
 
     TextView titulo_analisa, curso_analisa, mensagem_analisa, horas_analisa, nome_analisa;
     Button btn_voltar, btn_excluir;
@@ -51,7 +49,7 @@ public class TelaAlunoAnalisa extends AppCompatActivity {
         mensagem_analisa.setText(mensagem);
         nome_analisa.setText(nome);
         curso_analisa.setText(curso);
-        horas_analisa.setText(""+horas);
+        horas_analisa.setText("" + horas);
         //FALTA AS HORAS
 
         btn_excluir = findViewById(R.id.btn_excluir);
@@ -63,7 +61,7 @@ public class TelaAlunoAnalisa extends AppCompatActivity {
                 PedidoDatabase pedidoDatabase = PedidoDatabase.getPedidoDatabase(getApplicationContext());
                 PedidoDao pedidoDao = pedidoDatabase.pedidoDao();
                 PedidoEntity pedidoEntity = new PedidoEntity();
-                pedidoDao.deletePedidoQ(email,mensagem);
+                pedidoDao.deletePedidoQ(email, mensagem);
 
                 //volta pra tela depois de apagar o pedido
                 telaHomeScreen();
@@ -78,7 +76,7 @@ public class TelaAlunoAnalisa extends AppCompatActivity {
         });
     }
 
-    public void telaHomeScreen(){
+    public void telaHomeScreen() {
         Intent tela = new Intent(TelaAlunoAnalisa.this, TelaAlunoVisualizar.class)
                 .putExtra("nome", nome)
                 .putExtra("email", email)
@@ -87,5 +85,4 @@ public class TelaAlunoAnalisa extends AppCompatActivity {
         startActivity(tela);
         finish();
     }
-
 }
