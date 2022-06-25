@@ -3,14 +3,14 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.example.tempoextra"
         minSdk 21
-        targetSdk 32
+        targetSdk 33
         versionCode 1
-        versionName "1.0"
+        versionName '1.1'
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
@@ -34,7 +34,7 @@ android {
     buildFeatures {
         viewBinding true
     }
-    buildToolsVersion '32.0.0'
+    buildToolsVersion '33.0.0'
 }
 
 dependencies {
